@@ -16,9 +16,9 @@
         <label for="password">Password</label>
         <input type="password" id="password" v-model="user.password" required />
       </div>
-      <button type="submit">Sign in</button>
-      <p>
-      <router-link :to="{ name: 'register' }">Need an account? Sign up.</router-link></p>
+      <div class="signin" ><button type="submit">Sign in</button></div>
+      <p class="needanaccount" >
+      <router-link :to="{ name: 'register' }">Need an account? Sign up.</router-link> </p>
     </form>
   </div>
 </template>
@@ -62,10 +62,55 @@ export default {
 </script>
 
 <style scoped>
+#login {
+  display: flex;
+  justify-content: center;
+}
+
+
 .form-input-group {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 20%;
+
 }
 label {
   margin-right: 0.5rem;
+  margin-bottom: 3%;
+  font-size: 2rem;
 }
+.signin {
+  display:flex;
+  justify-content: center;
+}
+
+input {
+  border: solid 1.5px, black;
+  border-radius: 4px;
+  height: 30%;
+  
+}
+
+.signin {
+  display: flex;
+  justify-content: center;
+  height: 8%;
+}
+
+button {
+  width: 80%;
+  height: 100%;
+  background-color: #76c4fa;
+  border-radius: 4px;
+}
+.needanaccount {
+  display: flex;
+  justify-content: center;
+}
+h1 {
+  margin: 35% 0%;
+}
+
 </style>
