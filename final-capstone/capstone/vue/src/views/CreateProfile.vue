@@ -45,13 +45,14 @@
           </div>
 
           <br>
-          <div class="button-div"><button type="submit">Create Profile</button></div>
+          <div class="button-div"><button type="submit" v-on:click="addProfile">Create Profile</button></div>
       </form>
 
   </div>
 </template>
 
 <script>
+import userService from "../services/UserService";
 export default {
     name: "create-profile",
     components: {},
@@ -67,6 +68,15 @@ export default {
                 calorieLimit: "",
                 mindfulGoal: ""
             }
+        }
+    },
+    methods: {
+        addProfile() {
+            // push profile to users array in store
+            // add profile to database
+            userService.createProfile(this.user);
+
+
         }
     }
 }
