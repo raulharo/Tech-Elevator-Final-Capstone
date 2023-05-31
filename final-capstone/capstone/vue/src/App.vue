@@ -10,14 +10,20 @@
 </template>
 
 <style>
-/* #app {
-  height: 2vh;
+@media only screen and (min-width: 768px) {
+  #app {
+    height: 2vh;
+    display: flex;
+    justify-content: center;
+    align-self: right;
+  }
+
+  .router {
+    height: 98vh;
+    width: 45%;
+  }
 }
-
-.router {
-  height: 97vh;
-} */
-
 </style>
+
 
 
