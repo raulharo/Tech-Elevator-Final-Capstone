@@ -3,6 +3,7 @@
    <div class="collapsible-menu">
     <div class="menu-content">
         <ul>
+          <li @click="$router.push('home')"><a href="#"></a>Home</li>
             <li><a href="#"></a>My Progress</li>
             <li><a href="#"></a>Track Food</li>
             <li><a href="#"></a>My Friends</li>
