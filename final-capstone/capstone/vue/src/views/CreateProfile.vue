@@ -72,7 +72,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 h1 {
     margin-top: 5%;
 }
@@ -115,7 +115,6 @@ img {
 .button-div {
     display: flex;
     justify-content: center;
-    background-color: pink;
     height: 9%;
     width: 100%;
 }
@@ -135,9 +134,11 @@ input:hover {
     .container {
         display: flex;
         align-items: center;      
-        background-color: blue;
+        background-color: antiquewhite;
+        width: 100%;
         
     }
+    
 
  
 }

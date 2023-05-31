@@ -106,6 +106,7 @@ input {
   border-radius: 4px;
   height: 30%;
   width: 80%;
+  font-size: 140%;
 }
 
 .submit-button {
@@ -137,37 +138,42 @@ h1 {
     height: 100%;
   }
   form {
-    width: 40%;
-    background-color: blue;
+    width: 100%;
+    background-color: lightblue;
   }
 
   .submit-button {
-    background-color: blue;
-    height: 50%;
+    background-color: lightblue;
+    height: 40%;
+    margin-top: 4%;
   }
 
   button {
-    width: 35%;
+    width: 32%;
   }
 
   p {
-    background-color: blue;
+    background-color: lightblue;
     display: flex;
     justify-content: center;
   }
 
   .bottom-div {
-    background-color: blue;
+    background-color: lightblue;
     height: 15%;
   }
 
   .form-input-group {
-    height: 15%;
+    height: 12%;
   }
 
   input {
     width: 30%;
-    height: 50%;
+    height: 40%;
+  }
+
+  label {
+    margin: 2% 0%;
   }
 
 
