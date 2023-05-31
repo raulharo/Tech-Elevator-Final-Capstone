@@ -2,7 +2,7 @@
   <div class="home">
     <h1>My Dashboard</h1>
    <navigation/>
-   <progress/>
+  <progress-component />
     <friend-activity />
 
   </div>
@@ -11,9 +11,10 @@
 <script>
 import FriendActivity from "../components/FriendActivity.vue";
 import Navigation from '../components/Navigation.vue';
-import Progress from '../components/Progress.vue';
+import ProgressComponent from '../components/ProgressComponent.vue';
+
 export default {
-  components: {FriendActivity, Navigation, Progress },
+  components: {FriendActivity, Navigation, ProgressComponent, },
   name: "home",
 };
 </script>
