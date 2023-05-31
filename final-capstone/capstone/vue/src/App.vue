@@ -7,3 +7,12 @@
     <router-view />
   </div>
 </template>
+
+<style>
+
+
+#app {
+  background-color: rgb(110, 226, 228);
+  height:100vh;
+}
+</style>
