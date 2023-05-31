@@ -2,8 +2,8 @@
   <div class="home">
     <div id="header">
       <h1>My Dashboard</h1>
+      <navigation id="navigation"/>
     </div>
-    <navigation id="navigation"/>
 
     <div id="content">
       <progress-component id="progress-component"/>
@@ -29,10 +29,6 @@ export default {
   grid-template-columns: 1fr;
 
 }
-.menu-content{
-  display: flex;
-  justify-content: center;
-}
 
 #header {
   text-align: center;
@@ -40,7 +36,6 @@ export default {
 
 #navigation {
   display: flex;
-  
   justify-content: left;
 }
 
@@ -55,13 +50,29 @@ export default {
 #progress-component {
   grid-area: progress-component;
   display: flex;
-  justify-content: space-around;
+  justify-content: space;
 }
 
 #friend-activity {
   grid-area: friend-activity;
   display: flex;
   justify-content: center;
+  border: 1px solid gray;
+}
+
+@media only screen and (max-width: 768px) {
+  .content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+  "progress-component"
+  "friend-activity";
+  }
+
+  #progress-component {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 </style>
