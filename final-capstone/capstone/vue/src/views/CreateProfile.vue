@@ -1,41 +1,51 @@
 <template>
-  <div>
+  <div class="container">
       <h1 id="title">Create Profile</h1>
       <img src="../../public/profile-circle-svgrepo-com.svg" alt="">
       <form action="">
+
+          <div class="form-input">
           <label for="firstName">First Name</label>
-          <br>
           <input type="text" name="firstName" id="firstName" v-model="user.firstName">
-          <br>
+          </div>
+
+          <div class="form-input">
           <label for="lastName">Last Name</label>
-          <br>
           <input type="text" name="lastName" id="lastName" v-model="user.lastName">
-          <br>
+          </div>
+
+          <div class="form-input">
           <label for="age">Age</label>
-          <br>
           <input type="number" name="age" id="age" v-model="user.age">
-          <br>
+          </div>
+
+          <div class="form-input">
           <label for="height">Height (in.)</label>
-          <br>
           <input type="number" name="height" id="height" v-model="user.height">
-          <br>
+          </div>
+
+          <div class="form-input">
           <label for="currentWeight">Current Weight</label>
-          <br>
           <input type="number" name="currentWeight" id="currentWeight" v-model="user.currentWeight">
-          <br>
+          </div>
+
+          <div class="form-input">
           <label for="goalWeight">Goal Weight</label>
-          <br>
           <input type="number" name="goalWeight" id="goalWeight" v-model="user.goalWeight">
-          <br>
+          </div>
+
+          <div class="form-input">
           <label for="calorieLimit">Calorie Limit</label>
-          <br>
           <input type="number" name="calorieLimit" id="calorieLimit" v-model="user.calorieLimit">
-          <br>
+          </div>
+
+          <div class="form-input">
           <label for="mindfulGoal">Mindfulness Goal</label>
-          <br>
           <input type="number" name="mindfulGoal" id="mindfulGoal" v-model="user.mindfulGoal">
+          </div>
+
           <br>
-          <button type="submit">Create Profile</button>
+          <div class="button-div"><button type="submit">Create Profile</button></div>
       </form>
 
   </div>
@@ -61,5 +71,65 @@ export default {
 </script>
 
 <style>
+h1 {
+    margin-top: 5%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    align-items: center;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 13%;
+}
+
+input {
+  border-radius: 4px;
+  height: 100%;
+  margin-bottom: 4%;
+  width: 12rem;
+  border: solid black 1.5px;
+  
+}
+
+
+label {
+    margin-bottom: 3%;
+}
+img {
+    width: 10rem;
+    margin-bottom: 4%;
+}
+
+.button-div {
+    display: flex;
+    justify-content: center;
+    background-color: pink;
+    height: 9%;
+    width: 100%;
+}
+
+button {
+  width: 100%;
+  height: 100%;
+  background-color: #76c4fa;
+  border-radius: 4px;
+}
+
+input:hover {
+    border: solid #8e8baf 1px;
+}
+
+
 
 </style>
