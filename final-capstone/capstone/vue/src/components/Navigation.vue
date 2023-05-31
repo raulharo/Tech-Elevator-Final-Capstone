@@ -35,8 +35,8 @@ li {
   text-decoration: none;
 }
 
-.collapsible-menu {
-  display: flex;
+.collapsible-menu label{
+  background-image: url("../../public/Hamburger_icon.svg.png");
 }
 
 input#menu-box {

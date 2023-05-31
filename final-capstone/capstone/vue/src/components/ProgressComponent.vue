@@ -28,5 +28,26 @@ export default {
   grid-template-columns: 1fr 1fr;
 }
 
+.today {
+  border: 1px solid gray;
+}
 
+.overall {
+  border: 1px solid gray;
+}
+
+@media only screen and (max-width: 768px) {
+  .progress {
+  display: flex;
+  flex-direction: column;
+  }
+
+  .today {
+    border: 1px solid gray;
+  }
+
+  .overall {
+    border: 1px solid gray;
+  }
+}
 </style>
