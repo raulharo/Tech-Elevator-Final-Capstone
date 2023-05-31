@@ -65,15 +65,21 @@ export default {
 #login {
   display: flex;
   justify-content: center;
+  height: 100vh;
+
 }
-
-
+div {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(110, 226, 228);
+}
 .form-input-group {
   margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 20%;
+  background-color: rgb(110, 226, 228);
 
 }
 label {
@@ -84,6 +90,7 @@ label {
 .signin {
   display:flex;
   justify-content: center;
+  background-color: rgb(110, 226, 228);
 }
 
 input {
@@ -115,9 +122,6 @@ h1 {
 }
 @media only screen and (min-width: 768px) {
   #login {
-    background-color: rgb(110, 226, 228);
-  }
-  .signin {
     background-color: rgb(110, 226, 228);
   }
 }
