@@ -95,19 +95,18 @@ label {
   font-size: 1.2rem;
 }
 
+input {
+  border: solid 1.5px black;
+  border-radius: 4px;
+  height: 30%;
+  width: 80%;
+}
 
 .submit-button {
   display: flex;
   justify-content: center;
   height: 9%;
   margin-bottom: 8%;
-}
-
-input {
-  border: solid 1.5px black;
-  border-radius: 4px;
-  height: 30%;
-  width: 80%;
 }
 
 button {
