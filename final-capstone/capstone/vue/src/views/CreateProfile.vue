@@ -53,6 +53,8 @@
 
 <script>
 export default {
+    name: "create-profile",
+    components: {},
     data() {
         return {
             user: {
@@ -102,7 +104,6 @@ input {
   
 }
 
-
 label {
     margin-bottom: 3%;
 }
@@ -130,6 +131,15 @@ input:hover {
     border: solid #8e8baf 1px;
 }
 
+@media only screen and (min-width: 768px) {
+    .container {
+        display: flex;
+        align-items: center;      
+        background-color: blue;
+        width: 
+    }
 
+ 
+}
 
 </style>

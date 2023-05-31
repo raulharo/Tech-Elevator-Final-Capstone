@@ -1,7 +1,7 @@
 <template>
   <div id="register" class="text-center">
     <form @submit.prevent="register">
-      <h1>Create Account</h1>
+      <div class="create"><h1>Create Account</h1></div>
       <div role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
@@ -17,9 +17,13 @@
         <label for="confirmPassword">Confirm Password</label>
         <input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
       </div>
+      <div class="bottom-div">
       <div class="submit-button"><button type="submit">Sign Up</button></div>
       <p><router-link :to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
+      </div>
     </form>
+    
+  
   </div>
 </template>
 
@@ -78,10 +82,12 @@ export default {
 #register {
   display: flex;
   justify-content: center;
-
 }
 
-
+.create {
+  display: flex;
+  justify-content: center;
+}
 .form-input-group {
   margin-bottom: 1rem;
   display: flex;
@@ -118,5 +124,52 @@ button {
 
 h1 {
   margin-top: 65%;
+}
+
+@media only screen and (min-width: 768px) {
+  h1 {
+    margin-top: 10rem;
+  }
+
+  #register {
+    background-color: lightgray;
+    width: 100%;
+    height: 100%;
+  }
+  form {
+    width: 40%;
+    background-color: blue;
+  }
+
+  .submit-button {
+    background-color: blue;
+    height: 50%;
+  }
+
+  button {
+    width: 35%;
+  }
+
+  p {
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+  }
+
+  .bottom-div {
+    background-color: blue;
+    height: 15%;
+  }
+
+  .form-input-group {
+    height: 15%;
+  }
+
+  input {
+    width: 30%;
+    height: 50%;
+  }
+
+
 }
 </style>
