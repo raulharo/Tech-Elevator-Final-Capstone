@@ -23,31 +23,49 @@ export default {
 </script>
 
 <style scoped>
-.progress{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.progress {
+  display: flex;
+  flex-direction: column;
 }
 
 .today {
-  border: 1px solid gray;
+    border: 1px solid gray;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.today > h2 {
+  font-size: 1em;
 }
 
 .overall {
-  border: 1px solid gray;
+    border: 1px solid gray;
+    margin-bottom: 20px;
+    padding: 10px;
 }
 
-@media only screen and (max-width: 768px) {
-  .progress {
-  display: flex;
-  flex-direction: column;
+@media only screen and (min-width: 768px) {
+  .progress{
+    display: flex;
+    flex-direction: row;
   }
 
   .today {
     border: 1px solid gray;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
   }
 
   .overall {
     border: 1px solid gray;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+
+  .today > h2{
+   font-size: 1em;
   }
 }
 </style>

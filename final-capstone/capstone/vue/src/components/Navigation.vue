@@ -5,7 +5,7 @@
      <label for="menu-box">Menu</label>
       <div class="menu-content">
           <ul>
-            <li @click="$router.push('home')"><a href="#"></a>Home</li>
+            <li class="list-test" @click="$router.push('home')"><a href="#"></a>Home</li>
               <li><a href="#"></a>My Progress</li>
               <li><a href="#"></a>Track Food</li>
               <li><a href="#"></a>My Friends</li>
@@ -52,5 +52,35 @@ input#menu-box {
 
 input:checked ~ .menu-content{
   max-height: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  ul {
+    background-color: plum;
+    width: 100%;
+  }
+  
+
+  li {
+    color: #000;
+    padding: 4px 4px;
+    text-decoration: none;
+  }
+
+  input, label {
+    display: none;
+  }
+
+  .menu-content {
+    width: 100%;
+    max-height: 100%;
+    overflow: unset;
+  }
+
+  .menu-content > ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 }
 </style>
