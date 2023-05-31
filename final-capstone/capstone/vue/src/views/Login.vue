@@ -108,9 +108,19 @@ button {
 .needanaccount {
   display: flex;
   justify-content: center;
+
 }
 h1 {
   margin: 35% 0%;
 }
+@media only screen and (min-width: 768px) {
+  #login {
+    background-color: rgb(110, 226, 228);
+  }
+  .signin {
+    background-color: rgb(110, 226, 228);
+  }
+}
+  
 
 </style>

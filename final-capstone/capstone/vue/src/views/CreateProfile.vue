@@ -136,7 +136,7 @@ input:hover {
         display: flex;
         align-items: center;      
         background-color: blue;
-        width: 
+        
     }
 
  

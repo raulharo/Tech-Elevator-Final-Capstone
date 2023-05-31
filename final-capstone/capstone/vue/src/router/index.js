@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import CreateProfile from '../views/CreateProfile.vue'
+import Admin from '../views/Admin.vue'
 
 Vue.use(Router)
 
@@ -27,7 +28,15 @@ const router = new Router({
       name: 'home',
       component: Home,
       meta: {
-        requiresAuth: false
+        requiresAuth: false //change this back to true
+      }
+    },
+    {
+      path: '/admin-home',
+      name: 'admin-home',
+      component: Admin,
+      meta: {
+        requiresAuth: false //change to true before final impolementation
       }
     },
     {
@@ -35,7 +44,7 @@ const router = new Router({
       name: "login",
       component: Login,
       meta: {
-        requiresAuth: false //change this back to true
+        requiresAuth: false 
       }
     },
     {

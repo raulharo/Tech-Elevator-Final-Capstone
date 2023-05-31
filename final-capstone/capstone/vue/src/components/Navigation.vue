@@ -1,19 +1,21 @@
 <template>
  <div>
    <div class="collapsible-menu">
-    <div class="menu-content">
-        <ul>
-            <li><a href="#"></a>My Progress</li>
-            <li><a href="#"></a>Track Food</li>
-            <li><a href="#"></a>My Friends</li>
-            <li><a href="#"></a>Mindfullness</li>
-            <li><a href="#"></a>Edit Profile</li>
-            <li @click="$router.push('logout')"><a href='#'></a>Logout</li>
-         </ul>
-     </div>
-</div>
-   
- </div>
+     <input type="checkbox" id="menu-box">
+     <label for="menu-box">Menu</label>
+      <div class="menu-content">
+          <ul>
+            <li @click="$router.push('home')"><a href="#"></a>Home</li>
+              <li><a href="#"></a>My Progress</li>
+              <li><a href="#"></a>Track Food</li>
+              <li><a href="#"></a>My Friends</li>
+              <li><a href="#"></a>Mindfullness</li>
+              <li><a href="#"></a>Edit Profile</li>
+              <li @click="$router.push('logout')"><a href='#'></a>Logout</li>
+          </ul>
+        </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -27,10 +29,28 @@ ul{
   background-color: plum;
 }
 li {
-  display: inline;
+  display: block;
   color: #000;
   padding: 8px 16px;
   text-decoration: none;
 }
 
+.collapsible-menu {
+  display: flex;
+}
+
+input#menu-box {
+  display: none;
+}
+
+.menu-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+input:checked ~ .menu-content{
+  max-height: 100%;
+}
 </style>
