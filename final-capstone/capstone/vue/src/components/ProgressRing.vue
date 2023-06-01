@@ -1,6 +1,6 @@
 <template>
   <div>
-      <!-- insert progress graph somewhere in here -->
+      <v-progress-circular/>
   </div>
 </template>
 
