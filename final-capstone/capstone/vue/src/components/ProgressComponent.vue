@@ -10,13 +10,15 @@
       </div>
       <div class="overall">
         <h1>Overall Progress</h1>
-
+        <progress-ring />
       </div>
   </div>
 </template>
 
 <script>
+import ProgressRing from './ProgressRing.vue'
 export default {
+  components: { ProgressRing },
   name: 'progress',
 
 }
