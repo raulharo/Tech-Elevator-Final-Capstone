@@ -7,12 +7,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class JdbcProfileDao implements ProfileDao {
 
-
-
     private JdbcTemplate jdbcTemplate;
     public JdbcProfileDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
+
     @Override
     public void createProfile(Profile profile, int userId) {
         String sql = "INSERT INTO profiles(user_id, first_name, last_name, age, height, current_weight, goal_weight, calorie_limit, mindful_goal) " +
