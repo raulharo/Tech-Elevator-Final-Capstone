@@ -1,29 +1,29 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-    </div>
-   
-    <div class="router"><router-view/></div>
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      
+
+      <v-spacer></v-spacer>
+
+    </v-app-bar>
+
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-@media only screen and (min-width: 768px) {
-  #app {
-    height: 2vh;
-    display: flex;
-    justify-content: center;
-    align-self: right;
-  }
+<script>
 
-  .router {
-    height: 98vh;
-    width: 45%;
-  }
-}
-</style>
+export default {
+  name: 'App',
 
-
-
+  data: () => ({
+    //
+  }),
+};
+</script>

@@ -23,14 +23,17 @@ export default {
 
 <style scoped>
 
-h3{
-    display: flex;
-    justify-content: center;
-}
+
 .container{
   background-color: white;
 }
+.user-info{
+  display: flex;
+  justify-content: center;
+}
 
+@media only screen and (min-width: 768px) {
+}
 
 
 
