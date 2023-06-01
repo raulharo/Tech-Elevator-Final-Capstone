@@ -7,18 +7,20 @@
       <h2>Calories Remaining: </h2> 
       <h2>Mindfullness Goal: </h2>
       <h2>Mindful Activity: </h2>
+      <progress-ring />
       </div>
       <div class="overall">
         <h1>Overall Progress</h1>
-        <progress-ring />
+        <progress-bar />
       </div>
   </div>
 </template>
 
 <script>
+import ProgressBar from './progressBar.vue'
 import ProgressRing from './ProgressRing.vue'
 export default {
-  components: { ProgressRing },
+  components: { ProgressRing, ProgressBar },
   name: 'progress',
 
 }
