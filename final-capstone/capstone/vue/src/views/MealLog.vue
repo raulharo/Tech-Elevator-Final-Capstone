@@ -53,6 +53,7 @@ import mealItemRow from '../components/MealItemRow.vue'
 export default {
     data() {
         return {
+
             food: {
                 foodName: "",
                 calories: "",
@@ -72,13 +73,18 @@ export default {
     },
     methods: {
         addFoodToMeal() {
-            this.food.sizeAndUnit = this.sizeAndUnit();
+            //this.food.sizeAndUnit = this.sizeAndUnit();
             this.meal.foods.push(this.food);
             this.food = {};
         },
 
         saveMeal() {
             
+        }
+    },
+    computed: {
+        sizeAndUnit() {
+            return this.food.servingSize + " " + this.food.measureUnit
         }
     }
 }

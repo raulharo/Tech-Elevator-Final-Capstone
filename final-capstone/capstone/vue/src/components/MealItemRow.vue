@@ -3,7 +3,7 @@
       <tr>
           <td>{{food.foodName}}</td>
           <td>{{food.calories}}</td>
-          <td>{{sizeAndUnit}}</td>
+          <td>{{sizeAndUnit()}}</td>
           <td>{{food.numOfServings}}</td>
       </tr>
   </div>
@@ -12,11 +12,13 @@
 <script>
 export default {
     props: ["food"],
-    computed: {
+    methods: {
         sizeAndUnit() {
             return this.food.servingSize + " " + this.food.measureUnit
         }
     }
+
+    
 }
 </script>
 
