@@ -41,7 +41,7 @@
 
           <div class="form-input">
           <label for="mindfulGoal">Mindfulness Goal</label>
-          <input type="number" name="mindfulGoal" id="mindfulGoal" v-model="user.mindfulGoal">
+          <input type="number" name="mindfulGoal" id="mindfulGoal" v-model="user.mindfulGoal" min="0">
           </div>
 
           <br>
@@ -72,11 +72,7 @@ export default {
     },
     methods: {
         addProfile() {
-            // push profile to users array in store
-            // add profile to database
             userService.createProfile(this.user);
-
-
         }
     }
 }

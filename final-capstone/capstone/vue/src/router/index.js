@@ -7,8 +7,9 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import CreateProfile from '../views/CreateProfile.vue'
 import Admin from '../views/Admin.vue'
+import EditProfile from '../views/EditProfile.vue'
+import Mindfulness from '../views/Mindfulness.vue'
 import Breathe from '../views/Breathe.vue'
-
 Vue.use(Router)
 
 /**
@@ -79,7 +80,23 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
-    }
+    },
+    {
+      path: "/mindfulness",
+      name: "mindfulness",
+      component: Mindfulness,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/edit-profile",
+      name: "edit-profile",
+      component: EditProfile,
+      meta: {
+        requiresAuth: false
+      }
+    },
   ]
 })
 

@@ -3,8 +3,15 @@ import axios from 'axios';
 export default {
 
     createProfile(profile) {
-        console.log("Yes");
         return axios.post('createProfile', profile);
+    },
+
+    editProfile(profile) {
+        return axios.put('editProfile', profile);
+    },
+
+    getProfile(user) {
+        return axios.get('getProfile', user);
     }
 
 }
