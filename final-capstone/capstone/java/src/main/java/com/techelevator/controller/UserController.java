@@ -29,5 +29,21 @@ public class UserController {
 
     }
 
+    @PutMapping(value="editProfile")
+    public void editProfile(@Valid @RequestBody Profile profile, Principal principal) {
+        String username = principal.getName();
+        int userId = userdao.findIdByUsername(username);
+        profileDao.editProfile(profile, userId);
+
+    }
+
+    @GetMapping(value="getProfile")
+    public Profile getProfile(Principal principal) {
+        String username = principal.getName();
+        int userId = userdao.findIdByUsername(username);
+        return profileDao.getProfileByUserId(userId);
+
+    }
+
 
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-      <h1 id="title">Create Profile</h1>
+      <h1 id="title">Edit Profile</h1>
       <img src="../../public/profile-circle-svgrepo-com.svg" alt="">
       <form action="">
 
@@ -45,7 +45,7 @@
           </div>
 
           <br>
-          <div class="button-div"><button type="submit" v-on:click="addProfile">Create Profile</button></div>
+          <div class="button-div"><button type="submit" v-on:click="editProfile">Save Changes</button></div>
       </form>
 
   </div>
@@ -54,25 +54,27 @@
 <script>
 import userService from "../services/UserService";
 export default {
-    name: "create-profile",
+    name: "edit-profile",
     components: {},
     data() {
         return {
             user: {
-                firstName: "",
-                lastName: "",
-                age: "",
-                height: "",
-                currentWeight: "",
-                goalWeight: "",
-                calorieLimit: "",
-                mindfulGoal: ""
             }
         }
     },
+    created() {
+        userService.getProfile().then(
+            (response) => {
+                if(response.status === 200) {
+                    this.user = response.data;
+                    console.log(response);
+                }
+            }
+        );
+    },
     methods: {
-        addProfile() {
-            userService.createProfile(this.user);
+        editProfile() {
+            userService.editProfile(this.user);
         }
     }
 }

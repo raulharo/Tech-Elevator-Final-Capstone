@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import CreateProfile from '../views/CreateProfile.vue'
 import Admin from '../views/Admin.vue'
+import EditProfile from '../views/EditProfile.vue'
 
 Vue.use(Router)
 
@@ -67,6 +68,22 @@ const router = new Router({
       path: "/create-profile",
       name: "create-profile",
       component: CreateProfile,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/create-profile",
+      name: "create-profile",
+      component: CreateProfile,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/edit-profile",
+      name: "edit-profile",
+      component: EditProfile,
       meta: {
         requiresAuth: false
       }
