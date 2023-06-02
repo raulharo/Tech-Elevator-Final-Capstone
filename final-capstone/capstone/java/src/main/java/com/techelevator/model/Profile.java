@@ -10,6 +10,10 @@ public class Profile {
     private int calorieLimit;
     private int mindfulGoal;
 
+    public Profile() {
+
+    }
+
     public Profile(String firstName, String lastName, int age, int height, double currentWeight, double goalWeight, int calorieWeight, int mindfulGoal) {
         this.firstName = firstName;
         this.lastName = lastName;
