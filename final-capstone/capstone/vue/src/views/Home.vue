@@ -2,7 +2,7 @@
   <div class="home">
     <div id="header">
       <h1>My Dashboard</h1>
-      <navigation id="navigation"/>
+     <v-banner :color="pink"> <navigation id="navigation"/></v-banner>
     </div>
 
     <div id="content">
