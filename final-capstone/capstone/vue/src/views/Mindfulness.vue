@@ -8,9 +8,52 @@
       icon="mdi-leaf"
       prominent
     >
-      Choose what will help you reach your wellness and mindfullness goals.
+      Mindfulness and meditation is important. Some examples of mindfulness activities could be: breath-work, meditation, physical activity, going outdoors, yoga, limiting social media, bedtime routines, or anything that makes you feel happy! Track your mindfulness activities and reach your goal below.
     </v-alert>
           </h1> 
+          <h2>
+<template>
+  <v-form>
+    <v-container>
+      <v-row>
+        <v-col
+          cols="12"
+          sm="6"
+        >
+          <v-text-field
+            v-model="activity"
+            label="Mindfulness Activity"
+            filled
+            :rules="rules"
+            hide-details="auto"
+          ></v-text-field>
+        </v-col>
+
+        <v-col
+          cols="12"
+          sm="6"
+        >
+          <v-text-field
+            v-model="minutes"
+            label="Desired Minutes"
+            filled
+          ></v-text-field>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-form>
+
+<div class="container">
+<v-flex justify="center">
+  <v-btn v-on:click='addActivity' class="button"
+  color="light-blue"
+  elevation="7"
+>Submit Activity</v-btn>  </v-flex>
+</div>
+
+</template>
+
+          </h2>
   <v-card flat>
     <v-card-text>
       <v-container fluid>
@@ -67,18 +110,51 @@
 </template>
 
 <script>
-import MindfulnessForm from '../components/MindfulnessForm.vue'
+import MindfulnessService from '../services/MindfulnessService.js'
+// import MindfulnessForm from '../components/MindfulnessForm.vue'
+// export default {
+//     name: 'Mindfulness',
+//     components: {
+//         MindfulnessForm
+//     },
+//     data() {
+//    return {
+//       showForm: false
+//    }
+// }
+// }
+
 export default {
-    name: 'Mindfulness',
-    components: {
-        MindfulnessForm
-    },
-    data() {
-   return {
-      showForm: false
-   }
-}
+  name: 'mindfulness-tracker',
+  data() {
+    return {
+      activity: {
+        type: '', 
+        minutes: '',
+      }
+    }
+  },
+  methods: {
+    addActivity() {
+      MindfulnessService.logActivity(this.activity)
+      .then((response) => {
+       if( response.status === 201 ) {
+         alert("Activity Saved.")
+       }
+      })
+      .catch((error) => {
+      // @Todo add error checks
+        alert("Activity Not Saved" + error)
+      }
+      )
+    }
+  }
 }
 </script>
-<style>
+<style scoped>
+
+.container {
+  align-items: center;
+  justify-items: center;
+}
 </style>
