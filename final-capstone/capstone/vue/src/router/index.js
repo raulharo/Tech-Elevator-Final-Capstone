@@ -8,6 +8,7 @@ import store from '../store/index'
 import CreateProfile from '../views/CreateProfile.vue'
 import Admin from '../views/Admin.vue'
 import EditProfile from '../views/EditProfile.vue'
+import Mindfulness from '../views/Mindfulness.vue'
 
 Vue.use(Router)
 
@@ -73,9 +74,9 @@ const router = new Router({
       }
     },
     {
-      path: "/create-profile",
-      name: "create-profile",
-      component: CreateProfile,
+      path: "/mindfulness",
+      name: "mindfulness",
+      component: Mindfulness,
       meta: {
         requiresAuth: false
       }
