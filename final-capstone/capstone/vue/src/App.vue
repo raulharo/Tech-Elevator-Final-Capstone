@@ -5,11 +5,7 @@
       color="primary"
       dark
     >
-<<<<<<< HEAD
-      <div class="d-flex align-center">
-=======
       <!-- <div class="d-flex align-center">
->>>>>>> 5a4e380ae11bb3010d27f3b69bba84ba3ad24716
         <v-img
           alt="Vuetify Logo"
           class="shrink mr-2"
@@ -27,15 +23,9 @@
           src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
           width="100"
         />
-<<<<<<< HEAD
-      </div>
-
-      <v-spacer></v-spacer>
-=======
       </div> -->
 
       <!-- <v-spacer></v-spacer>
->>>>>>> 5a4e380ae11bb3010d27f3b69bba84ba3ad24716
 
       <v-btn
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
@@ -44,11 +34,7 @@
       >
         <span class="mr-2">Latest Release</span>
         <v-icon>mdi-open-in-new</v-icon>
-<<<<<<< HEAD
-      </v-btn>
-=======
       </v-btn> -->
->>>>>>> 5a4e380ae11bb3010d27f3b69bba84ba3ad24716
     </v-app-bar>
 
     <v-main>
