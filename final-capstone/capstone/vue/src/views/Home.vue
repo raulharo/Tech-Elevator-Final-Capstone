@@ -2,7 +2,8 @@
   <div class="home">
     <div id="header">
       <h1>My Dashboard</h1>
-     <v-banner :color="pink"> <navigation id="navigation"/></v-banner>
+     <navigation id="navigation"/>
+     <br>
     </div>
 
     <div id="content">
@@ -37,7 +38,7 @@ export default {
 
   #navigation {
     display: flex;
-    justify-content: left;
+    justify-content: center;
   }
 
   #content {
@@ -59,6 +60,7 @@ export default {
     display: flex;
     justify-content: center;
     border: 1px solid gray;
+    margin: 2px;
   }
 }
 

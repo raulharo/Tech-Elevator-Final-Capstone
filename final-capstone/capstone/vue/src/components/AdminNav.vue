@@ -1,48 +1,58 @@
-<template>
-  <div class="dropdown">
-        <span><button>Menu</button></span>
-        <div class="dropdown-content">
-   
-        <p @click="$router.push('admin-home')">Home</p>
-        <p>View Users</p>
-        <p>Block Users</p>
-        <p>Change User Status</p>
-        <p @click="$router.push('logout')">Logout</p>
-   
-    </div>
-    </div>
+
+     <template>
+<div>
+  <v-menu offset-y>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          color="primary"
+          dark
+          v-bind="attrs"
+          v-on="on"
+        >
+          Menu
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item @click="$router.push('home')">
+          <v-list-item-title>Home</v-list-item-title>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-title>Block Users</v-list-item-title>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-title>Change User Status</v-list-item-title>
+        </v-list-item>
+        <v-list-item>
+          <v-list-item-title>Edit Profile</v-list-item-title>
+        </v-list-item>
+        <v-list-item @click="$router.push('logout')">
+          <v-list-item-title>Logout</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+  
+  </div>
 </template>
 
 <script>
 export default {
-
+// data: () => ({
+//       items: [
+//         { title: 'Home' },
+//         { title: 'Track Food' },
+//         { title: 'My Friends' },
+//         { title: 'Track Mindfulness' },
+//         { title: 'Edit Profile'}
+//       ],
+//     }),
 }
 </script>
 
 <style scoped>
-.dropdown {
+.container{
   position: relative;
-  display: inline-block;
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #615a8b;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  padding: 12px 16px;
-  z-index: 1;
-  overflow: hidden;
+@media only screen and (min-width: 768px) {
 }
-p{
-    color: white;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-
-
 </style>
