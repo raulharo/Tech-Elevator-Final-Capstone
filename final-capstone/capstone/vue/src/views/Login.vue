@@ -1,5 +1,6 @@
 <template>
   <div id="login">
+    <img src="../../public/logo.png" alt="">
     <form @submit.prevent="login">
       <h1 >Please Sign In</h1>
       <div role="alert" v-if="invalidCredentials">

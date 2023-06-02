@@ -9,7 +9,7 @@ import CreateProfile from '../views/CreateProfile.vue'
 import Admin from '../views/Admin.vue'
 import EditProfile from '../views/EditProfile.vue'
 import Mindfulness from '../views/Mindfulness.vue'
-
+import Breathe from '../views/Breathe.vue'
 Vue.use(Router)
 
 /**
@@ -74,6 +74,14 @@ const router = new Router({
       }
     },
     {
+      path: "/breathe",
+      name: "breath-work",
+      component: Breathe,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
       path: "/mindfulness",
       name: "mindfulness",
       component: Mindfulness,
@@ -88,7 +96,7 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
-    }
+    },
   ]
 })
 
