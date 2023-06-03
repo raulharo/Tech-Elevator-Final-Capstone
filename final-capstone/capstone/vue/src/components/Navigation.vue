@@ -13,17 +13,17 @@
         </v-btn>
       </template>
       <v-list>
-        <v-list-item @click="$router.push('home')">
+        <v-list-item @click="$router.push('/')">
           <v-list-item-title>Home</v-list-item-title>
         </v-list-item>
         <v-list-item>
           <v-list-item-title>Track Food</v-list-item-title>
         </v-list-item>
         <v-list-item>
-          <v-list-item-title>Track Mindfullness</v-list-item-title>
+          <v-list-item-title @click="$router.push('mindfulness')">Track Mindfullness</v-list-item-title>
         </v-list-item>
         <v-list-item>
-          <v-list-item-title>Edit Profile</v-list-item-title>
+          <v-list-item-title @click="$router.push('edit-profile')">Edit Profile</v-list-item-title>
         </v-list-item>
         <v-list-item @click="$router.push('logout')">
           <v-list-item-title>Logout</v-list-item-title>

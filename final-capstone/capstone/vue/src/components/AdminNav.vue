@@ -1,16 +1,9 @@
 
      <template>
-<div>
-  <v-menu offset-y>
+  <div>
+    <v-menu offset-y>
       <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          color="primary"
-          dark
-          v-bind="attrs"
-          v-on="on"
-        >
-          Menu
-        </v-btn>
+        <v-btn color="primary" dark v-bind="attrs" v-on="on"> Menu </v-btn>
       </template>
       <v-list>
         <v-list-item @click="$router.push('home')">
@@ -30,26 +23,17 @@
         </v-list-item>
       </v-list>
     </v-menu>
-  
   </div>
 </template>
 
 <script>
 export default {
-// data: () => ({
-//       items: [
-//         { title: 'Home' },
-//         { title: 'Track Food' },
-//         { title: 'My Friends' },
-//         { title: 'Track Mindfulness' },
-//         { title: 'Edit Profile'}
-//       ],
-//     }),
-}
+  
+};
 </script>
 
 <style scoped>
-.container{
+.container {
   position: relative;
 }
 
