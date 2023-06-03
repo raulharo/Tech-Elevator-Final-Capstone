@@ -11,6 +11,7 @@ import EditProfile from '../views/EditProfile.vue'
 import Mindfulness from '../views/Mindfulness.vue'
 import Breathe from '../views/Breathe.vue'
 import RulesAndRegs from '../views/RulesAndRegs.vue'
+import MealLog from '../views/MealLog.vue'
 Vue.use(Router)
 
 /**
@@ -106,6 +107,14 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      path: "/meal-log",
+      name: "meal-log",
+      component: MealLog,
+      meta: {
+        requiresAuth: false
+      }
+    }
   ]
 })
 
