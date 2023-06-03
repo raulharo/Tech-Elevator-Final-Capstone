@@ -8,6 +8,7 @@ import java.util.List;
 public class Meal {
 
     private LocalDate mealDate;
+    @JsonProperty("mealType")
     private String type;
     private int totalCalories;
     @JsonProperty("foods")

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.security.Principal;
-
+@PreAuthorize("isAuthenticated()")
 @RestController
 @CrossOrigin
 public class MealController {
@@ -25,13 +25,11 @@ public class MealController {
     private UserDao userdao;
 
     @PostMapping(value="create-meal")
-    public void createMeal(@RequestBody @Valid Meal meal) {
-        //String username = principal.getName();
-        //int userId = userdao.findIdByUsername(username);
-        //mealDao.addMeal(meal, userId);
-        for(Food food : meal.getFoodList()) {
-            System.out.println(food);
-        }
+    public void createMeal(@RequestBody @Valid Meal meal, Principal principal) {
+        String username = principal.getName();
+        int userId = userdao.findIdByUsername(username);
+        System.out.println(meal.getType());
+        mealDao.addMeal(meal, userId);
     }
 
 
