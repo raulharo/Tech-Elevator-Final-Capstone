@@ -84,6 +84,7 @@ export default {
         },
 
         saveMeal() {
+            console.log(this.meal.foods);
             foodService.createMeal(this.meal);
         }
     },

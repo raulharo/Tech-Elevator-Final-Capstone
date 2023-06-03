@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -8,6 +10,7 @@ public class Meal {
     private LocalDate mealDate;
     private String type;
     private int totalCalories;
+    @JsonProperty("foods")
     private List<Food> foodList;
 
     public Meal() {

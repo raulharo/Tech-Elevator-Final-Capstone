@@ -1,6 +1,8 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.Meal;
+
 public interface MealDao {
 
-    void createMeal(Meal meal, int userId);
+    void addMeal(Meal meal, int userId);
 }
