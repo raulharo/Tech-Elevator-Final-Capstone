@@ -1,6 +1,6 @@
 package com.techelevator.model;
 
-public class Mindfulness {
+public class MindfulnessDto {
     private String firstName;
     private String lastName;
     private int age;
@@ -12,11 +12,11 @@ public class Mindfulness {
     private String activity;
 
 
-    public Mindfulness() {
+    public MindfulnessDto() {
 
     }
 
-    public Mindfulness(String firstName, String lastName, int age, int height, double currentWeight, double goalWeight, int calorieWeight, int mindfulGoal, String activity) {
+    public MindfulnessDto(String firstName, String lastName, int age, int height, double currentWeight, double goalWeight, int calorieWeight, int mindfulGoal, String activity) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;

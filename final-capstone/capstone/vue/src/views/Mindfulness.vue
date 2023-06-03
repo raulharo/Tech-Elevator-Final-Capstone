@@ -21,12 +21,12 @@
           sm="6"
         >
           <v-text-field
+            placeholder="Placeholder"
             v-model="activity"
             label="Mindfulness Activity"
             filled
-            :rules="rules"
-            hide-details="auto"
-          ></v-text-field>
+            
+          > </v-text-field>
         </v-col>
 
         <v-col
@@ -128,10 +128,8 @@ export default {
   name: 'mindfulness-tracker',
   data() {
     return {
-      activity: {
-        type: '', 
-        minutes: '',
-      }
+      activity: "", 
+      minutes: 0,
     }
   },
   methods: {
