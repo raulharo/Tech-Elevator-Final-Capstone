@@ -18,8 +18,8 @@
       </div>
       <div>
           <label for="servingSize">Serving Size:</label>
-          <input type="number" name="servingSize" id="servingSize" min="0" v-model="food.servingSize">
-          <select name="measureUnit" id="measureUnit" v-model="food.measureUnit">
+          <input type="number" name="servingSize" id="servingSize" min="0" v-model="servingSizeAndUnit.servingSize">
+          <select name="measureUnit" id="measureUnit" v-model="servingSizeAndUnit.measureUnit">
               <option value="g">g</option>
               <option value="fl oz">fl oz</option>
               <option value="cup(s)">cup(s)</option>
@@ -57,14 +57,17 @@ export default {
             food: {
                 foodName: "",
                 calories: "",
-                servingSize: "",
-                measureUnit: "",
+                sizeAndUnit: "",
                 numOfServings: "",
             },
             meal: {
                 mealType: "",
                 foods: [],
                 totalCalories: ""
+            },
+            servingSizeAndUnit: {
+                servingSize: "",
+                measureUnit: "",
             }
         }
     },
@@ -77,13 +80,16 @@ export default {
                 window.alert("Meal Limit Reached.");
             }
             else {
+                this.food.sizeAndUnit = this.servingSizeAndUnit.servingSize + " " + this.servingSizeAndUnit.measureUnit;
                 this.meal.foods.push(this.food);
                 this.food = {};
+                
             }
         },
 
         saveMeal() {
             console.log(this.meal.foods);
+            console.log(this.meal.mealType);
             foodService.createMeal(this.meal);
         }
     },

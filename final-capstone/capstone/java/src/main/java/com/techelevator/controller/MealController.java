@@ -28,6 +28,7 @@ public class MealController {
     public void createMeal(@RequestBody @Valid Meal meal, Principal principal) {
         String username = principal.getName();
         int userId = userdao.findIdByUsername(username);
+        System.out.println(meal.getType());
         mealDao.addMeal(meal, userId);
     }
 
