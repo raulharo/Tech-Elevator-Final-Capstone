@@ -45,7 +45,7 @@
           </div>
 
           <br>
-          <div class="button-div"><button type="submit" v-on:click="addProfile">Create Profile</button></div>
+          <div class="button-div" @click="$router.push('/rules')"><button type="submit" v-on:click="addProfile">Create Profile</button></div>
       </form>
 
   </div>

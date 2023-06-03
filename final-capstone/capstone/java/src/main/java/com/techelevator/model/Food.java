@@ -3,19 +3,19 @@ package com.techelevator.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Food {
-    @JsonProperty("food_id")
     private int foodId;
-    @JsonProperty("food_name")
     private String foodName;
     private int calories;
-    @JsonProperty("serving_size")
     private String servingSize;
+    @JsonProperty("numOfServings")
+    private int numberOfServings;
 
-    public Food(int foodId, String foodName, int calories, String servingSize) {
+    public Food(int foodId, String foodName, int calories, String servingSize, int numberOfServings) {
         this.foodId = foodId;
         this.foodName = foodName;
         this.calories = calories;
         this.servingSize = servingSize;
+        this.numberOfServings = numberOfServings;
     }
 
     public Food() {
@@ -52,4 +52,24 @@ public class Food {
     public void setServingSize(String servingSize) {
         this.servingSize = servingSize;
     }
+
+    public int getNumberOfServings() {
+        return numberOfServings;
+    }
+
+    public void setNumberOfServings(int numberOfServings) {
+        this.numberOfServings = numberOfServings;
+    }
+
+    @Override
+    public String toString() {
+        return "Food{" +
+                "foodId=" + foodId +
+                ", foodName='" + foodName + '\'' +
+                ", calories=" + calories +
+                ", servingSize='" + servingSize + '\'' +
+                ", numberOfServings=" + numberOfServings +
+                '}';
+    }
+
 }

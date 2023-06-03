@@ -30,7 +30,6 @@ public class JdbcProfileDao implements ProfileDao {
         String sql = "UPDATE profiles SET first_name = ?, last_name= ?, age= ?, height= ?, current_weight= ?, goal_weight= ?, calorie_limit= ?, mindful_goal= ? WHERE user_id = ?;";
         try {
             jdbcTemplate.update(sql, profile.getFirstName(), profile.getLastName(), profile.getAge(), profile.getHeight(), profile.getCurrentWeight(), profile.getGoalWeight(), profile.getCalorieLimit(), profile.getMindfulGoal(), userId);
-            System.out.println("Got this far ");
         } catch(Exception e){
             System.out.println("An error occurred while trying to edit this profile in the database.");
         }
