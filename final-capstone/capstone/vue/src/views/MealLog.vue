@@ -43,12 +43,13 @@
           v-bind:food="food"/>
       </div>
 
-      <button>Save Meal</button>
+      <button v-on:click="saveMeal">Save Meal</button>
   </div>
 </template>
 
 <script>
 import mealItemRow from '../components/MealItemRow.vue'
+import foodService from '../services/FoodService.js'
 
 export default {
     data() {
@@ -72,13 +73,17 @@ export default {
     },
     methods: {
         addFoodToMeal() {
-            this.food.sizeAndUnit = this.sizeAndUnit();
-            this.meal.foods.push(this.food);
-            this.food = {};
+            if(this.meal.foods.length >= 10) {
+                window.alert("Meal Limit Reached.");
+            }
+            else {
+                this.meal.foods.push(this.food);
+                this.food = {};
+            }
         },
 
         saveMeal() {
-            
+            foodService.createMeal(this.meal);
         }
     }
 }

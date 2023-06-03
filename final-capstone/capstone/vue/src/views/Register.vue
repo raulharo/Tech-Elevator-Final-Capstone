@@ -18,7 +18,7 @@
         <input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
       </div>
       <div class="bottom-div">
-      <div class="submit-button"><button type="submit">Sign Up</button></div>
+      <div class="submit-button" @click="$router.push('/create-profile')"><button type="submit">Sign Up</button></div>
       <p><router-link :to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
       </div>
     </form>
