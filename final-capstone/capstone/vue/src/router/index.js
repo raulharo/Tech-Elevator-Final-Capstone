@@ -10,6 +10,7 @@ import Admin from '../views/Admin.vue'
 import EditProfile from '../views/EditProfile.vue'
 import Mindfulness from '../views/Mindfulness.vue'
 import Breathe from '../views/Breathe.vue'
+import RulesAndRegs from '../views/RulesAndRegs.vue'
 Vue.use(Router)
 
 /**
@@ -69,6 +70,14 @@ const router = new Router({
       path: "/create-profile",
       name: "create-profile",
       component: CreateProfile,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: "/rules",
+      name: "rules",
+      component: RulesAndRegs,
       meta: {
         requiresAuth: false
       }

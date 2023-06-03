@@ -67,11 +67,11 @@
 </template>
 
 <script>
-import MindfulnessForm from '../components/MindfulnessForm.vue'
+
 export default {
     name: 'Mindfulness',
     components: {
-        MindfulnessForm
+        
     },
     data() {
    return {
