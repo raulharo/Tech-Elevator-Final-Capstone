@@ -6,6 +6,7 @@ public class Food {
     private int foodId;
     private String foodName;
     private int calories;
+    @JsonProperty("sizeAndUnit")
     private String servingSize;
     @JsonProperty("numOfServings")
     private int numberOfServings;
