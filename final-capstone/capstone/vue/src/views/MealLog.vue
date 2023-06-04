@@ -43,8 +43,7 @@
           v-bind:food="food"/>
       </div>
       <button v-on:click="saveMeal">Save Meal</button>
-
-
+      <button v-on:click="getMeals">Test Button to get this users meals in console</button>
   </div>
 </template>
 
@@ -93,6 +92,10 @@ export default {
             console.log(this.meal.foods);
             console.log(this.meal.mealType);
             foodService.createMeal(this.meal);
+        },
+
+        getMeals() {
+            return console.log(foodService.getMeals());
         }
     },
     computed: {

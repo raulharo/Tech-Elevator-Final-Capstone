@@ -6,8 +6,10 @@ import com.techelevator.model.Meal;
 import org.springframework.dao.*;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,6 +62,28 @@ public class JdbcMealDao implements MealDao {
         updateJunctionTable(newMealId, foodIdList);
     }
 
+    public Food getFoodById(int foodId) {
+        Food food = null;
+        String sql = "SELECT * FROM foods WHERE food_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, foodId);
+        if(results.next()) {
+            food = mapRowToFood(results);
+        }
+        return food;
+    }
+
+    @Override
+    public List<Meal> getMealsByUserId(int userId) {
+        List<Meal> mealList = new ArrayList<>();
+        String sql = "SELECT * FROM meal_history WHERE user_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+        while(results.next()) {
+            mealList.add(mapRowToMeals(results));
+        }
+        return mealList;
+
+    }
+
     public Integer addFood(Food food) {
         String sql = "INSERT INTO foods (food_name, calories, serving_size, number_of_servings)" +
                 " VALUES (?,?,?,?) RETURNING food_id;";
@@ -68,8 +92,20 @@ public class JdbcMealDao implements MealDao {
             Integer newFoodId = jdbcTemplate.queryForObject(sql, Integer.class, food.getFoodName(), food.getCalories(),
                     food.getServingSize(), food.getNumberOfServings());
             return newFoodId;
-        } catch (Exception e) {
-            System.out.println("An error occurred while attempting to add this food to the database.");
+        } catch (DataAccessException e) {
+            if (e instanceof CannotGetJdbcConnectionException) {
+                System.out.println("Cannot get JDBC connection: " + e.getMessage());
+            } else if (e instanceof DataIntegrityViolationException) {
+                System.out.println("Data integrity violation: " + e.getMessage());
+            } else if (e instanceof DuplicateKeyException) {
+                System.out.println("Duplicate key violation: " + e.getMessage());
+            } else if (e instanceof IncorrectResultSizeDataAccessException) {
+                System.out.println("Incorrect result size: " + e.getMessage());
+            } else if (e instanceof InvalidDataAccessApiUsageException) {
+                System.out.println("Invalid usage of JdbcTemplate: " + e.getMessage());
+            } else {
+                System.out.println("Data access exception occurred: " + e.getMessage());
+            }
         }
 
         return -1;
@@ -98,5 +134,56 @@ public class JdbcMealDao implements MealDao {
                 System.out.println("Data access exception occurred: " + e.getMessage());
             }
         }
+    }
+
+    public List<Integer> getFoodIdsByMealId(int mealId) {
+        //List<Food> foodList = new ArrayList<>();
+        List<Integer> foodIds = new ArrayList<>();
+        String sql = "SELECT * FROM meal_history_foods WHERE meal_history_id = ?;";
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, mealId);
+            while(results.next()) {
+                foodIds.add(results.getInt("food_id"));
+                //foodList.add(mapRowToFood(results));
+            }
+        } catch(Exception e) {
+            System.out.println("Error in getFoodIdsByMealId method");
+        }
+
+
+
+        return foodIds;
+    }
+
+    public Meal mapRowToMeals(SqlRowSet rs) {
+        Meal meal = new Meal();
+        meal.setMealId(rs.getInt("meal_history_id"));
+        java.sql.Date sqlDate = rs.getDate("meal_date");
+        LocalDate localDate = sqlDate.toLocalDate();
+        meal.setMealDate(localDate);
+        meal.setType(rs.getString("type"));
+        meal.setTotalCalories(rs.getInt("total_calories"));
+
+        int mealId = meal.getMealId();
+        List<Integer> foodIdList = getFoodIdsByMealId(mealId);
+        List<Food> foodList = new ArrayList<>();
+        //get food by id and then map it
+        for(Integer foodId : foodIdList) {
+            foodList.add(getFoodById(foodId));
+        }
+
+        meal.setFoodList(foodList);
+        return meal;
+    }
+
+    public Food mapRowToFood(SqlRowSet rs) {
+        Food food = new Food();
+        food.setFoodId(rs.getInt("food_id"));
+        food.setFoodName(rs.getString("food_name"));
+        food.setCalories(rs.getInt("calories"));
+        food.setServingSize(rs.getString("serving_size"));
+        food.setNumberOfServings(rs.getInt("number_of_servings"));
+
+        return food;
     }
 }
