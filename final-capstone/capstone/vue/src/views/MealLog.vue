@@ -55,7 +55,6 @@ import foodService from '../services/FoodService.js'
 export default {
     data() {
         return {
-
             food: {
                 foodName: "",
                 calories: "",

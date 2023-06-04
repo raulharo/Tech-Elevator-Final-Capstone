@@ -25,6 +25,7 @@ public class JdbcMealDao implements MealDao {
     @Override
     public void addMeal(Meal meal, int userId) {
         Integer newMealId = 0;
+        Integer foodId = 0;
 
         // add meal to the database AND grab meal id
         String sql = "INSERT INTO meal_history(user_id, meal_date, type, total_calories) " +
@@ -48,9 +49,13 @@ public class JdbcMealDao implements MealDao {
         }
         // call method to add foods to db, retrieve and return their ids
         List<Integer> foodIdList = new ArrayList<>();
-        for(Food food : meal.getFoodList()) {
-            foodIdList.add(addFood(food));
 
+        for(Food food : meal.getFoodList()) {
+            foodId = addFood(food);
+
+            if (!(foodId == -1)) {
+                foodIdList.add(foodId);
+            }
         }
 
         // add meal id and food ids to associative table
