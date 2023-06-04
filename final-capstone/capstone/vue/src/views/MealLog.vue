@@ -3,7 +3,7 @@
       <h1>Meal Log</h1>
       <h3>Choose Meal Type:</h3>
       <select name="mealType" id="mealType" v-model="meal.mealType">
-          <option value="breakfast">Breakfast</option>
+          <option value="breakfast" selected>Breakfast</option>
           <option value="lunch">Lunch</option>
           <option value="dinner">Dinner</option>
           <option value="snack">Snack</option>
@@ -42,8 +42,9 @@
           v-bind:key="food.foodName"
           v-bind:food="food"/>
       </div>
-
       <button v-on:click="saveMeal">Save Meal</button>
+
+
   </div>
 </template>
 
@@ -80,6 +81,7 @@ export default {
                 window.alert("Meal Limit Reached.");
             }
             else {
+                this.meal.totalCalories += this.food.calories;
                 this.food.sizeAndUnit = this.servingSizeAndUnit.servingSize + " " + this.servingSizeAndUnit.measureUnit;
                 this.meal.foods.push(this.food);
                 this.food = {};
