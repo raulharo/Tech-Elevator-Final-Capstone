@@ -47,11 +47,11 @@
       <v-btn v-on:click="saveMeal">Save Meal</v-btn>
       <v-btn v-on:click="getMeals">Test Button to get this users meals in console</v-btn>
 
-      <div>
-          <meal-history-row
-          v-for="mealRecord in mealRecordList"
+      <div v-for="mealRecord in mealRecordList"
           v-bind:key="mealRecord.type"
-          v-bind:mealRecord="mealRecord"
+          v-bind:mealRecord="mealRecord">
+          <meal-history-row
+          
           />
       </div>
   </div>
@@ -68,14 +68,14 @@ export default {
         return {
             food: {
                 foodName: "",
-                calories: "",
+                calories: 0,
                 sizeAndUnit: "",
                 numOfServings: "",
             },
             meal: {
                 mealType: "",
                 foods: [],
-                totalCalories: ""
+                totalCalories: 0
             },
             servingSizeAndUnit: {
                 servingSize: "",
@@ -106,7 +106,7 @@ export default {
                 window.alert("Meal Limit Reached.");
             }
             else {
-                this.meal.totalCalories += this.food.calories;
+                this.meal.totalCalories += parseInt(this.food.calories);
                 this.food.sizeAndUnit = this.servingSizeAndUnit.servingSize + " " + this.servingSizeAndUnit.measureUnit;
                 this.meal.foods.push(this.food);
                 this.food = {};
