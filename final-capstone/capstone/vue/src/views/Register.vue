@@ -18,7 +18,7 @@
         <input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
       </div>
       <div class="bottom-div">
-      <div class="submit-button" @click="$router.push('/create-profile')"><button type="submit">Sign Up</button></div>
+      <div class="submit-button"><button type="submit">Sign Up</button></div>
       <p><router-link :to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
       </div>
     </form>
@@ -54,10 +54,7 @@ export default {
           .register(this.user)
           .then((response) => {
             if (response.status == 201) {
-              this.$router.push({
-                path: '/login',
-                query: { registration: 'success' },
-              });
+              this.login();
             }
           })
           .catch((error) => {
@@ -68,6 +65,27 @@ export default {
             }
           });
       }
+    },
+    login() {
+      authService
+        .login(this.user)
+        .then(response => {
+          if (response.status == 200) {
+            this.$store.commit("SET_AUTH_TOKEN", response.data.token);
+            this.$store.commit("SET_USER", response.data.user);
+            this.$router.push({
+                path: '/create-profile',
+                query: { registration: 'success' },
+              });
+          }
+        })
+        .catch(error => {
+          const response = error.response;
+
+          if (response.status === 401) {
+            this.invalidCredentials = true;
+          }
+        });
     },
     clearErrors() {
       this.registrationErrors = false;
