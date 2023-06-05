@@ -1,6 +1,7 @@
 <template>
   <div class="container">
       <h1 id="title">Edit Profile</h1>
+      <navigation/>
       <img src="../../public/profile-circle-svgrepo-com.svg" alt="">
       <form action="">
 
@@ -52,10 +53,11 @@
 </template>
 
 <script>
+import Navigation from '../components/Navigation.vue';
 import userService from "../services/UserService";
 export default {
     name: "edit-profile",
-    components: {},
+    components: {Navigation},
     data() {
         return {
             user: {

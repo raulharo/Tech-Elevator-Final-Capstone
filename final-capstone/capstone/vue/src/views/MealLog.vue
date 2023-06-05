@@ -1,5 +1,6 @@
 <template>
   <div class="root">
+      <navigation/>
       <h1>Meal Log</h1>
       <h3>Choose Meal Type:</h3>
       <select name="mealType" id="mealType" v-model="meal.mealType">
@@ -52,6 +53,7 @@
 
 <script>
 import mealItemRow from '../components/MealItemRow.vue'
+import Navigation from '../components/Navigation.vue'
 import foodService from '../services/FoodService.js'
 
 export default {
@@ -80,7 +82,8 @@ export default {
         }
     },
     components: {
-        mealItemRow
+        mealItemRow,
+        Navigation
     },
     methods: {
         addFoodToMeal() {
