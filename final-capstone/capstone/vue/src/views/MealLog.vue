@@ -50,8 +50,8 @@
       <div v-for="mealRecord in mealRecordList" v-bind:key="mealRecord.mealId">
           <meal-history-row
           v-bind:mealRecord="mealRecord"/>
-          <v-btn v-on:click="showFoodList" v-bind="mealRecord">Test</v-btn>
-          <div v-if="showFoods">
+          <v-btn v-on:click="showFoodList(mealRecord)">Show Foods</v-btn>
+          <div v-if="mealRecord.showFoods">
               <meal-item-row
               v-for="food in mealRecord.foods"
               v-bind:key="food.foodId"
@@ -86,7 +86,6 @@ export default {
                 measureUnit: "",
             },
             mealRecordList: [],
-            showFoods: false
         }
     },
     components: {
@@ -118,13 +117,8 @@ export default {
             console.log(foodService.getMeals());
         },
 
-        showFoodList() {
-            if(this.showFoods === false) {
-                this.showFoods = true;
-            }
-            else {
-                this.showFoods = false;
-            }
+        showFoodList(meal) {
+            meal.showFoods = !meal.showFoods;
         }
     },
     computed: {
