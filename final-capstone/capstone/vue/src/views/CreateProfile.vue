@@ -40,12 +40,12 @@
           </div>
 
           <div class="form-input">
-          <label for="mindfulGoal">Mindfulness Goal</label>
+          <label for="mindfulGoal">Goal for mindfulness (minutes)</label>
           <input type="number" name="mindfulGoal" id="mindfulGoal" v-model="user.mindfulGoal" min="0">
           </div>
 
           <br>
-          <div class="button-div"><button type="submit" v-on:click="addProfile">Create Profile</button></div>
+          <div class="button-div" @click="$router.push('/rules')"><button type="submit" v-on:click="addProfile">Create Profile</button></div>
       </form>
 
   </div>

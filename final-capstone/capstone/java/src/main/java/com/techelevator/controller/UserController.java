@@ -21,7 +21,7 @@ public class UserController {
     private UserDao userdao;
 
 
-    @PostMapping(value="createProfile")
+    @PostMapping(value="create-profile")
     public void createProfile(@Valid @RequestBody Profile profile, Principal principal) {
         String username = principal.getName();
         int userId = userdao.findIdByUsername(username);
@@ -29,7 +29,7 @@ public class UserController {
 
     }
 
-    @PutMapping(value="editProfile")
+    @PutMapping(value="edit-profile")
     public void editProfile(@Valid @RequestBody Profile profile, Principal principal) {
         String username = principal.getName();
         int userId = userdao.findIdByUsername(username);
@@ -37,7 +37,7 @@ public class UserController {
 
     }
 
-    @GetMapping(value="getProfile")
+    @GetMapping(value="get-profile")
     public Profile getProfile(Principal principal) {
         String username = principal.getName();
         int userId = userdao.findIdByUsername(username);

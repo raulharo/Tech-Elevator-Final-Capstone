@@ -1,5 +1,6 @@
 <template>
   <v-app>
+     <mindful-alert v-show="showAlert" @close-modal="showAlert = false" />
     <v-app-bar
       app
       color="primary"
@@ -36,7 +37,7 @@
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn> -->
     </v-app-bar>
-
+   
     <v-main>
       <router-view/>
     </v-main>
@@ -44,12 +45,16 @@
 </template>
 
 <script>
+import MindfulAlert from './components/MindfulAlert.vue';
 
 export default {
+  components: { MindfulAlert },
   name: 'App',
 
-  data: () => ({
-    //
-  }),
+  data(){
+    return {
+      showAlert: false
+    }
+  },
 };
 </script>

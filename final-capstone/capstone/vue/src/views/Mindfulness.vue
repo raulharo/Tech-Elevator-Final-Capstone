@@ -13,7 +13,11 @@
           </h1> 
           <h2>
 <template>
+  <div>
+    <navigation/>
+  </div>
   <v-form>
+    
     <v-container>
       <v-row>
         <v-col
@@ -111,6 +115,7 @@
 
 <script>
 import MindfulnessService from '../services/MindfulnessService.js'
+import Navigation from '../components/Navigation.vue'
 // import MindfulnessForm from '../components/MindfulnessForm.vue'
 // export default {
 //     name: 'Mindfulness',
@@ -131,6 +136,9 @@ export default {
       activity: "", 
       minutes: 0,
     }
+  },
+  components: {
+    Navigation
   },
   methods: {
     addActivity() {
