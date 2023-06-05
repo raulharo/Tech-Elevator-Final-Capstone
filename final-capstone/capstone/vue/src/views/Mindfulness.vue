@@ -12,7 +12,7 @@
     </v-alert>
           </h1> 
           <h2>
-<template>
+
   <div>
     <navigation/>
   </div>
@@ -26,7 +26,7 @@
         >
           <v-text-field
             placeholder="Mindfulness Activity"
-            v-model="activity"
+            v-model="mindfulness.activity"
             label="Mindfulness Activity"
             filled
             
@@ -38,7 +38,7 @@
           sm="6"
         >
           <v-text-field
-            v-model="minutes"
+            v-model="mindfulness.minutes"
             label="Desired Minutes"
             filled
           ></v-text-field>
@@ -54,63 +54,63 @@
   elevation="7"
 >Submit Activity</v-btn>  </v-flex>
 </div>
-
-</template>
-
-          </h2>
-  <v-card flat>
-    <v-card-text>
-      <v-container fluid>
-        <v-row>
-          <v-col
-            cols="2"
-            sm="4"
-            md="4"
-          >
-            <v-checkbox
-              v-on:click="updateForm"
-              v-model="ex4"
-              label="Daily Meditation"
-              color="indigo"
-              value="indigo"
-              hide-details
-            ></v-checkbox>
-            <v-checkbox
-              v-on:click="updateForm"
-              v-model="ex4"
-              label="Physical Activity"
-              color="indigo"
-              value="indigo"
-              hide-details
-            ></v-checkbox>
-          </v-col>
-          <v-col
-            cols="12"
-            sm="4"
-            md="4"
-          >
-            <v-checkbox
-              v-on:click="updateForm"
-              v-model="ex4"
-              label="Bedtime Ritual"
-              color="indigo"
-              value="indigo"
-              hide-details
-            ></v-checkbox>
-            <v-checkbox
-              v-on:click="updateForm"
-              v-model="ex4"
-              label="Play Sleep Sounds"
-              color="indigo"
-              value="indigo"
-              hide-details
-            ></v-checkbox>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-card-text>
-  </v-card>
-  </div>
+</h2>
+</div>
+<!-- 
+  //         
+  // <v-card flat>
+  //   <v-card-text>
+  //     <v-container fluid>
+  //       <v-row>
+  //         <v-col
+  //           cols="2"
+  //           sm="4"
+  //           md="4"
+  //         >
+  //           <v-checkbox
+  //             v-on:click="updateForm"
+  //             v-model="ex4"
+  //             label="Daily Meditation"
+  //             color="indigo"
+  //             value="indigo"
+  //             hide-details
+  //           ></v-checkbox>
+  //           <v-checkbox
+  //             v-on:click="updateForm"
+  //             v-model="ex4"
+  //             label="Physical Activity"
+  //             color="indigo"
+  //             value="indigo"
+  //             hide-details
+  //           ></v-checkbox>
+  //         </v-col>
+  //         <v-col
+  //           cols="12"
+  //           sm="4"
+  //           md="4"
+  //         >
+  //           <v-checkbox
+  //             v-on:click="updateForm"
+  //             v-model="ex4"
+  //             label="Bedtime Ritual"
+  //             color="indigo"
+  //             value="indigo"
+  //             hide-details
+  //           ></v-checkbox>
+  //           <v-checkbox
+  //             v-on:click="updateForm"
+  //             v-model="ex4"
+  //             label="Play Sleep Sounds"
+  //             color="indigo"
+  //             value="indigo"
+  //             hide-details
+  //           ></v-checkbox>
+  //         </v-col>
+  //       </v-row>
+  //     </v-container>
+  //   </v-card-text>
+  // </v-card>
+  // </div> -->
 </template>
 
 <script>
@@ -133,8 +133,10 @@ export default {
   name: 'mindfulness-tracker',
   data() {
     return {
-      activity: "", 
-      minutes: 0,
+      mindfulness: {
+         activity: "", 
+         minutes: 0,
+      }
     }
   },
   components: {
@@ -142,7 +144,7 @@ export default {
   },
   methods: {
     addActivity() {
-      MindfulnessService.logActivity(this.activity)
+      MindfulnessService.logActivity(this.mindfulness)
       .then((response) => {
        if( response.status === 201 ) {
          alert("Activity Saved.")
