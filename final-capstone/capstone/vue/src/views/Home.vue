@@ -50,6 +50,7 @@ export default {
     grid-template-areas: 
     "progress-component progress-component"
     "friend-activity friend-activity";
+  
   }
 
   #progress-component {
@@ -65,6 +66,9 @@ export default {
     border: 1px solid gray;
     padding: 2%;
   }
+  body{
+  background: url(../../public/rays.jpg);
+}
 }
 
 .content {
@@ -73,6 +77,7 @@ export default {
   grid-template-areas: 
   "progress-component"
   "friend-activity";
+
 }
 
 #progress-component {
@@ -87,4 +92,5 @@ export default {
     justify-content: center;
     border: 1px solid gray;
 }
+
 </style>

@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 // const http = axios.create ({
 //     baseURL: "http://localhost:9000"
 // });
@@ -19,7 +20,16 @@ export default {
     },
 
     deleteUser(id) {  //created to delete login if user does not agree to rules
-        return axios.delete(`/users/${id}`);
-    } 
+        return axios.delete(`delete-user/${id}`);
+    }, 
+
+    getMindfulGoal(id) {
+        return axios.get(`get-mindful-goal/${id}`);
+    },
+
+    getCalorieGoal(id){
+        return axios.get(`get-calorie-goal/${id}`);
+
+    }
 
 }

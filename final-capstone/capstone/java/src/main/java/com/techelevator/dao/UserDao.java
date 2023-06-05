@@ -14,5 +14,7 @@ public interface UserDao {
 
     int findIdByUsername(String username);
 
+    void deleteUserById (int id);
+
     boolean create(String username, String password, String role);
 }

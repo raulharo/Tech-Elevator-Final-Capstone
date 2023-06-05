@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.BadSqlGrammarException;
+import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -36,7 +39,16 @@ public class JdbcUserDao implements UserDao {
         return userId;
     }
 
-	@Override
+    @Override
+    public void deleteUserById(int userId) {
+
+        String profileSql = "DELETE FROM profiles WHERE user_id = ?;";
+        String userSql = "DELETE FROM users WHERE user_id = ?;";
+            jdbcTemplate.update(profileSql, userId);
+            jdbcTemplate.update(userSql, userId);
+    }
+
+    @Override
 	public User getUserById(int userId) {
 		String sql = "SELECT * FROM users WHERE user_id = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
