@@ -14,4 +14,7 @@ import java.security.Principal;
 @RestController
 @CrossOrigin
 public class MindfulnessController {
+
+
+
 }
