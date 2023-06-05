@@ -45,7 +45,7 @@
           </div>
 
           <br>
-          <div class="button-div" @click="$router.push('/rules')"><button type="submit" v-on:click="addProfile">Create Profile</button></div>
+          <button type="submit" v-on:click="addProfile">Create Profile</button>
       </form>
 
   </div>
@@ -72,7 +72,21 @@ export default {
     },
     methods: {
         addProfile() {
-            userService.createProfile(this.user);
+            userService.createProfile(this.user).then((response) => {
+            if (response.status == 200) {
+              this.$router.push({
+                path: '/'
+              });
+            }
+          })
+          .catch((error) => {
+            const response = error.response;
+            this.registrationErrors = true;
+            if (response.status === 400) {
+              this.registrationErrorMsg = 'Bad Request: Validation Errors';
+            }
+          });
+            this.$router.push('/rules');
         }
     }
 }
