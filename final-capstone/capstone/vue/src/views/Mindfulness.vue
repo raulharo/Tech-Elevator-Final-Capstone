@@ -21,7 +21,7 @@
           sm="6"
         >
           <v-text-field
-            placeholder="Placeholder"
+            placeholder="Mindfulness Activity"
             v-model="activity"
             label="Mindfulness Activity"
             filled
