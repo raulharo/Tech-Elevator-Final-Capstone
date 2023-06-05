@@ -22,4 +22,8 @@ public interface ProgressDao {
 
     int getLifetimeMindfulMins(int userId);
 
+    int getMindfulGoal(int userId);
+
+    int getCalorieGoal (int userId);
+
 }

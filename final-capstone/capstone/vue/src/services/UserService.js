@@ -23,12 +23,12 @@ export default {
         return axios.delete(`delete-user/${id}`);
     }, 
 
-    getMindfulGoal(profile) {
-        return axios.get('get-mindful-goal/', profile);
+    getMindfulGoal(id) {
+        return axios.get(`get-mindful-goal/${id}`);
     },
 
-    getCalorieGoal(profile){
-        return axios.get('get-calorie-goal/', profile)
+    getCalorieGoal(id){
+        return axios.get(`get-calorie-goal/${id}`);
 
     }
 

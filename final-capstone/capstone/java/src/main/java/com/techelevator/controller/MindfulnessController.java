@@ -37,4 +37,6 @@ public class MindfulnessController {
         int userId = userdao.findIdByUsername(username);
         return mindfulnessDao.getActivities(userId);
     }
+
+
 }

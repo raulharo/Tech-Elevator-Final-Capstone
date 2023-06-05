@@ -46,8 +46,6 @@ public class JdbcProfileDao implements ProfileDao {
         return profile;
     }
 
-
-
     private Profile mapRowToProfile(SqlRowSet rs) {
         Profile profile = new Profile();
         profile.setFirstName(rs.getString("first_name"));
