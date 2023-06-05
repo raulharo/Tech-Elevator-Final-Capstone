@@ -1,5 +1,5 @@
 <template>
-<v-container>
+<v-container class="container">
        <mindful-alert v-show="showAlert" @close-alert="showAlert = false" />
   <v-app>
 
@@ -62,3 +62,6 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+
+</style>

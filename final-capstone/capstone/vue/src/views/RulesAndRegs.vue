@@ -5,7 +5,7 @@
         User will not hold head and health sidekick responsible for anything at all, ever, no matter what.</p>
       <br>
       <v-btn @click="$router.push('/')">I agree</v-btn> 
-      <scoped><v-btn v-on:click="deleteUser(user.id)">I don't agree</v-btn></scoped>
+      <scoped><v-btn v-on:click="deleteUser()">I don't agree</v-btn></scoped>
   </div>
 </template>
 
@@ -14,10 +14,11 @@ import UserService from "../services/UserService"
 
 export default {
   methods: {
-    deleteUser(id){   //need help here
-      UserService.delete(id)
+    deleteUser(){   //need help here
+     let id= this.$store.state.user.id;
+      UserService.deleteUser(id)
       .then( response => {
-        if (response === 200) {
+        if (response.status === 200) {
           this.$router.push(`/login/`)
         }
       })
@@ -34,12 +35,14 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .container{
   display: block;
   margin-top: 5px;
   padding: 5px;
-  
+}
+body{
+  background: url(../../public/backgroundImg.jpg);
 }
 
 </style>

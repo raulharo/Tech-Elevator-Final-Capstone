@@ -40,15 +40,12 @@ public class JdbcUserDao implements UserDao {
     }
 
     @Override
-    public int deleteUserById(int userId) {
+    public void deleteUserById(int userId) {
 
-        int numberOfRows = 0;
-        userId = jdbcTemplate.queryForObject("select user_id from users where username = ?", int.class, userId);
-        String profileSql = "DELETE FROM profiles WHERE user_id = "+userId+";";
-        String userSql = "DELETE FROM users WHERE user_id = "+userId+";";
+        String profileSql = "DELETE FROM profiles WHERE user_id = ?;";
+        String userSql = "DELETE FROM users WHERE user_id = ?;";
             jdbcTemplate.update(profileSql, userId);
-            numberOfRows = jdbcTemplate.update(userSql, userId);
-            return numberOfRows;
+            jdbcTemplate.update(userSql, userId);
     }
 
     @Override
