@@ -8,44 +8,45 @@
           <option value="dinner">Dinner</option>
           <option value="snack">Snack</option>
       </select>
-      <div>
-          <label for="foodName">Food Name:</label>
-          <input type="text" name="foodName" id="foodName" v-model="food.foodName">
-      </div>
-      <div>
-          <label for="calories">Calories:</label>
-          <input type="number" name="calories" id="calories" min="0" v-model="food.calories">
-      </div>
-      <div>
-          <label for="servingSize">Serving Size:</label>
-          <input type="number" name="servingSize" id="servingSize" min="0" v-model="servingSizeAndUnit.servingSize">
-          <select name="measureUnit" id="measureUnit" v-model="servingSizeAndUnit.measureUnit">
-              <option value="g">g</option>
-              <option value="fl oz">fl oz</option>
-              <option value="cup(s)">cup(s)</option>
-              <option value="tsp">tsp</option>
-              <option value="tbsp">tbsp</option>
-              <option value="slice">slice</option>
-              <option value="oz">oz</option>
-          </select>
-      </div>
-      <div>
-          <label for="numOfServings">Number of Servings</label>
-          <input type="number" name="numOfServings" id="numOfServings" min="0" v-model="food.numOfServings">
-      </div>
+      <div id="food-entry">
+        <div>
+            <label for="foodName">Food Name:</label>
+            <input type="text" name="foodName" id="foodName" v-model="food.foodName">
+        </div>
+        <div>
+            <label for="calories">Calories:</label>
+            <input type="number" name="calories" id="calories" min="0" v-model="food.calories">
+        </div>
+        <div>
+            <label for="servingSize">Serving Size:</label>
+            <input type="number" name="servingSize" id="servingSize" min="0" v-model="servingSizeAndUnit.servingSize">
+            <select name="measureUnit" id="measureUnit" v-model="servingSizeAndUnit.measureUnit">
+                <option value="g">g</option>
+                <option value="fl oz">fl oz</option>
+                <option value="cup(s)">cup(s)</option>
+                <option value="tsp">tsp</option>
+                <option value="tbsp">tbsp</option>
+                <option value="slice">slice</option>
+                <option value="oz">oz</option>
+            </select>
+        </div>
+        <div>
+            <label for="numOfServings">Number of Servings</label>
+            <input type="number" name="numOfServings" id="numOfServings" min="0" v-model="food.numOfServings">
+        </div>
 
-      <button v-on:click="addFoodToMeal">+Add Food</button>
-
+        <v-btn v-on:click="addFoodToMeal">Add Food</v-btn>
+      </div>
       <div>
           <meal-item-row
           v-for="food in meal.foods"
           v-bind:key="food.foodName"
           v-bind:food="food"/>
       </div>
-      <button v-on:click="saveMeal">Save Meal</button>
-      <button v-on:click="getMeals">Test Button to get this users meals in console</button>
+      <v-btn v-on:click="saveMeal">Save Meal</v-btn>
+      <v-btn v-on:click="getMeals">Test Button to get this users meals in console</v-btn>
 
-      
+
   </div>
 </template>
 
@@ -70,7 +71,12 @@ export default {
             servingSizeAndUnit: {
                 servingSize: "",
                 measureUnit: "",
-            }
+            },
+            mealRecordList: [
+                {
+
+                }
+            ]
         }
     },
     components: {
@@ -104,10 +110,25 @@ export default {
         sizeAndUnit() {
             return this.food.servingSize + " " + this.food.measureUnit
         }
+    },
+    created() {
+        foodService.getMeals().then(response => {response.json()}).then(data => {
+            this.mealRecordList = JSON.parse(data);
+        });
     }
 }
 </script>
 
 <style>
+h1, h3, #mealType {
+    text-align: center;
+}
 
+#mealType {
+    
+}
+
+#food-entry {
+
+}
 </style>

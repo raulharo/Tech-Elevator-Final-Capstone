@@ -17,11 +17,11 @@ public class ProgressController {
     @Autowired
     private UserDao userdao;
 
-    @GetMapping(value="todays-calories")
-    public int getTodaysCalories(Principal principal) {
-        String username = principal.getName();
-        int userId = userdao.findIdByUsername(username);
-    }
+//    @GetMapping(value="todays-calories")
+//    public int getTodaysCalories(Principal principal) {
+//        String username = principal.getName();
+//        int userId = userdao.findIdByUsername(username);
+//    }
 
 
 }
