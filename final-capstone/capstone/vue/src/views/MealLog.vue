@@ -47,12 +47,16 @@
       <v-btn v-on:click="saveMeal">Save Meal</v-btn>
       <v-btn v-on:click="getMeals">Test Button to get this users meals in console</v-btn>
 
-      <div>
+      <div v-for="mealRecord in mealRecordList" v-bind:key="mealRecord.mealId">
           <meal-history-row
-          v-for="mealRecord in mealRecordList"
-          v-bind:key="mealRecord.type"
-          v-bind:mealRecord="mealRecord"
-          />
+          v-bind:mealRecord="mealRecord"/>
+          <v-btn v-on:click="showFoodList" v-bind="mealRecord">Test</v-btn>
+          <div v-if="showFoods">
+              <meal-item-row
+              v-for="food in mealRecord.foods"
+              v-bind:key="food.foodId"
+              v-bind:food="food"/>
+          </div>
       </div>
   </div>
 </template>
@@ -68,31 +72,21 @@ export default {
         return {
             food: {
                 foodName: "",
-                calories: "",
+                calories: 0,
                 sizeAndUnit: "",
                 numOfServings: "",
             },
             meal: {
                 mealType: "",
                 foods: [],
-                totalCalories: ""
+                totalCalories: 0
             },
             servingSizeAndUnit: {
                 servingSize: "",
                 measureUnit: "",
             },
-            mealRecordList: [
-                {
-                    type: "Breakfast",
-                    totalCalories: 550,
-                    numOfServings: 2
-                },
-                {
-                    type: "Lunch",
-                    totalCalories: 623,
-                    numOfServings: 1
-                }
-            ]
+            mealRecordList: [],
+            showFoods: false
         }
     },
     components: {
@@ -106,7 +100,7 @@ export default {
                 window.alert("Meal Limit Reached.");
             }
             else {
-                this.meal.totalCalories += this.food.calories;
+                this.meal.totalCalories += parseInt(this.food.calories);
                 this.food.sizeAndUnit = this.servingSizeAndUnit.servingSize + " " + this.servingSizeAndUnit.measureUnit;
                 this.meal.foods.push(this.food);
                 this.food = {};
@@ -121,7 +115,16 @@ export default {
         },
 
         getMeals() {
-            return console.log(foodService.getMeals());
+            console.log(foodService.getMeals());
+        },
+
+        showFoodList() {
+            if(this.showFoods === false) {
+                this.showFoods = true;
+            }
+            else {
+                this.showFoods = false;
+            }
         }
     },
     computed: {
@@ -130,9 +133,11 @@ export default {
         }
     },
     created() {
-        foodService.getMeals().then(response => {response.json()}).then(data => {
-            this.mealRecordList = JSON.parse(data);
-        });
+        foodService.getMeals().then(response => {
+                response.data.forEach(element => {
+                    this.mealRecordList.push(element);
+                });
+            });
     }
 }
 </script>
