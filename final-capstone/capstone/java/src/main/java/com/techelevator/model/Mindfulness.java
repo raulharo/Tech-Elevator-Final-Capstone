@@ -10,22 +10,27 @@ public class Mindfulness {
     private int calorieLimit;
     private int mindfulGoal;
     private String activity;
-
+    private int mindfulId;
+    private int userId;
+    private int lengthMinutes;
 
     public Mindfulness() {
 
     }
 
-    public Mindfulness(String firstName, String lastName, int age, int height, double currentWeight, double goalWeight, int calorieWeight, int mindfulGoal, String activity) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.height = height;
-        this.currentWeight = currentWeight;
-        this.goalWeight = goalWeight;
-        this.calorieLimit = calorieWeight;
-        this.mindfulGoal = mindfulGoal;
+    public Mindfulness(String activity, int userId, int lengthMinutes) {
+        //this.firstName = firstName;
+        //this.lastName = lastName;
+        //this.age = age;
+        //this.height = height;
+        //this.currentWeight = currentWeight;
+        //this.goalWeight = goalWeight;
+        //this.calorieLimit = calorieWeight;
+        //this.mindfulGoal = mindfulGoal;
         this.activity = activity;
+        //this.mindfulId = mindfulId;
+        this.userId = userId;
+        this.lengthMinutes = lengthMinutes;
     }
 
     public String getFirstName() { return firstName; }
@@ -93,5 +98,25 @@ public class Mindfulness {
     public String getActivity() { return activity; }
 
     public void setActivity(String activity) { this.activity = activity; }
+
+    public int getMindfulId() { return  mindfulId; }
+
+    public void setMindfulId(int mindfulId) {this.mindfulId = mindfulId; }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getLengthMinutes() {
+        return lengthMinutes;
+    }
+
+    public void setLengthMinutes(int lengthMinutes) {
+        this.lengthMinutes = lengthMinutes;
+    }
 }
 
