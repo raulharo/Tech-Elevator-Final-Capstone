@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <div>
+    <div id="title">
       <h3>My Friends</h3>
     </div>
     <v-row id="avatars" justify="space-around">
       <v-avatar color="indigo">
-        <v-icon dark> mdi-account-circle </v-icon>
+        <span class="white--text text-h5">WG</span>
       </v-avatar>
 
       <v-avatar>
@@ -24,4 +24,7 @@ export default {};
 </script>
 
 <style scoped>
+.title{
+  text-align: center;
+}
 </style>

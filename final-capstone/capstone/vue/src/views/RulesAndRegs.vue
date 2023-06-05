@@ -9,12 +9,31 @@
       </ul>
       <br>
       <v-btn @click="$router.push('/')">I agree, let me in!</v-btn> 
-      <scoped><v-btn @click="router.push('logout')">I don't agree, I like to sue</v-btn></scoped>
+      <scoped><v-btn v-on:clock="deleteUser(user.id)">I don't agree, I like to sue</v-btn></scoped>
   </div>
 </template>
 
 <script>
+import UserService from "../services/UserService"
+
 export default {
+  methods: {
+    deleteUser(id){   //need help here
+      UserService.delete(id)
+      .then( response => {
+        if (response === 200) {
+          this.$router.push(`/login/`)
+        }
+      })
+      .catch(error => {
+        if (error.response.status === 400) {
+          this.$router.push("/404");
+        } else {
+          console.error(error);
+        }
+      });
+    }
+  }
 
 }
 </script>
