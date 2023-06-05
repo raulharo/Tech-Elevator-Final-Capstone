@@ -4,24 +4,20 @@
           <thead>
               <tr>
                   <th class="text-left">
-                      Type
-                  </th>
-                  <th class="text-left">
-                      TotalCalories
-                  </th>
-                  <th class="text-left">
                       Date
                   </th>
-                  <th class="">
-                      Number of Servings
+                  <th class="text-left">
+                      Meal Type
+                  </th>
+                  <th class="text-left">
+                      Total Calories
                   </th>
               </tr>
           </thead>
       <tr>
-          <td>{{mealRecord.type}}</td>
+          <td>{{mealRecord.mealDate}}</td>
+          <td>{{mealRecord.mealType}}</td>
           <td>{{mealRecord.totalCalories}}</td>
-          <td>{{this.date}}</td>
-          <td>{{mealRecord.numOfServings}}</td>
       </tr>
       </v-simple-table>
   </div>
