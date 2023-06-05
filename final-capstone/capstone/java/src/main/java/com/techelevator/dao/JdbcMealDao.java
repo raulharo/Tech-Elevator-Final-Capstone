@@ -163,6 +163,7 @@ public class JdbcMealDao implements MealDao {
         meal.setMealDate(localDate);
         meal.setType(rs.getString("type"));
         meal.setTotalCalories(rs.getInt("total_calories"));
+        meal.setShowFoods(false);
 
         int mealId = meal.getMealId();
         List<Integer> foodIdList = getFoodIdsByMealId(mealId);
