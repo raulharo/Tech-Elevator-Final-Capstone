@@ -6,6 +6,6 @@ export default {
     },
 
     getMeals() {
-        return axios.get('/get-meals')
+        return axios.get('/get-meals');
     }
 }

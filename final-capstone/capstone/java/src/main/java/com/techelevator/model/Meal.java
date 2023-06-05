@@ -7,7 +7,9 @@ import java.util.List;
 
 public class Meal {
 
+    private int mealId;
     private LocalDate mealDate;
+    @JsonProperty("mealType")
     private String type;
     private int totalCalories;
     @JsonProperty("foods")
@@ -15,6 +17,22 @@ public class Meal {
 
     public Meal() {
 
+    }
+
+    public int getMealId() {
+        return mealId;
+    }
+
+    public void setMealId(int mealId) {
+        this.mealId = mealId;
+    }
+
+    public Meal(int mealId, LocalDate mealDate, String type, int totalCalories, List<Food> foodList) {
+        this.mealId = mealId;
+        this.mealDate = mealDate;
+        this.type = type;
+        this.totalCalories = totalCalories;
+        this.foodList = foodList;
     }
 
     public Meal(LocalDate mealDate, String type, int totalCalories, List<Food> foodList) {

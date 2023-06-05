@@ -6,14 +6,13 @@ import com.techelevator.model.Food;
 import com.techelevator.model.Meal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.security.Principal;
+import java.util.List;
 
+@PreAuthorize("isAuthenticated()")
 @RestController
 @CrossOrigin
 public class MealController {
@@ -25,13 +24,18 @@ public class MealController {
     private UserDao userdao;
 
     @PostMapping(value="create-meal")
-    public void createMeal(@RequestBody @Valid Meal meal) {
-        //String username = principal.getName();
-        //int userId = userdao.findIdByUsername(username);
-        //mealDao.addMeal(meal, userId);
-        for(Food food : meal.getFoodList()) {
-            System.out.println(food);
-        }
+    public void createMeal(@RequestBody @Valid Meal meal, Principal principal) {
+        String username = principal.getName();
+        int userId = userdao.findIdByUsername(username);
+        mealDao.addMeal(meal, userId);
+    }
+
+    @GetMapping(value="get-meals")
+    public List<Meal> getMeals(Principal principal) {
+        String username = principal.getName();
+        int userId = userdao.findIdByUsername(username);
+        return mealDao.getMealsByUserId(userId);
+
     }
 
 
