@@ -24,7 +24,7 @@ public class MindfulnessController {
     @Autowired
     private UserDao userdao;
 
-    @PostMapping(value="create-mindful")
+    @PostMapping(value="mindfulness")
     public void createMindful(@RequestBody @Valid Mindfulness mindfulness, Principal principal) {
         String username = principal.getName();
         int userId = userdao.findIdByUsername(username);

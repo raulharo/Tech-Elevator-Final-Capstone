@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Mindfulness {
     private String firstName;
     private String lastName;
@@ -12,6 +14,7 @@ public class Mindfulness {
     private String activity;
     private int mindfulId;
     private int userId;
+    @JsonProperty("minutes")
     private int lengthMinutes;
 
     public Mindfulness() {

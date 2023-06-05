@@ -35,7 +35,7 @@ public class JdbcMindfulnessDao implements MindfulnessDao {
 
      try {
         Integer newMindfulId = jdbcTemplate.queryForObject(sql, Integer.class, mindfulness.getActivity(),
-                mindfulness.getUserId(), mindfulness.getLengthMinutes());
+                userId, mindfulness.getLengthMinutes());
      } catch (DataAccessException e) {
          if (e instanceof CannotGetJdbcConnectionException) {
              System.out.println("Cannot get JDBC connection: " + e.getMessage());
