@@ -44,6 +44,7 @@ public class UserController {
         return profileDao.getProfileByUserId(userId);
 
     }
-
+    @DeleteMapping (value="delete-user")
+    public Profile deleteUser ()
 
 }

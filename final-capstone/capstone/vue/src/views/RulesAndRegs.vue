@@ -1,15 +1,11 @@
 <template>
   <div class="container">
-      <h1>These are the rules</h1>
-      <p>Abide by them or we won't let you in</p>
-      <ul>
-        <li>Don't sue us</li>
-        <li>Be nice to other people</li>
-        <li>Don't sue us</li>
-      </ul>
+      <h1>Rules and Regulations</h1>
+      <p>User agrees that Head and Health Sidekick is not responsible for essentially anything that could possibly go wrong. 
+        User will not hold head and health sidekick responsible for anything at all, ever, no matter what.</p>
       <br>
-      <v-btn @click="$router.push('/')">I agree, let me in!</v-btn> 
-      <scoped><v-btn v-on:clock="deleteUser(user.id)">I don't agree, I like to sue</v-btn></scoped>
+      <v-btn @click="$router.push('/')">I agree</v-btn> 
+      <scoped><v-btn v-on:click="deleteUser(user.id)">I don't agree</v-btn></scoped>
   </div>
 </template>
 
