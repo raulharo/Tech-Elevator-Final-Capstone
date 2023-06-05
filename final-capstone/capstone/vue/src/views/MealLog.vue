@@ -4,8 +4,8 @@
       <h1>Meal Log</h1>
       <h3>Choose Meal Type:</h3>
       <select name="mealType" id="mealType" v-model="meal.mealType">
-          <option value="breakfast" selected>Breakfast</option>
-          <option value="lunch">Lunch</option>
+          <option value="breakfast">Breakfast</option>
+          <option value="lunch" selected>Lunch</option>
           <option value="dinner">Dinner</option>
           <option value="snack">Snack</option>
       </select>
@@ -47,12 +47,19 @@
       <v-btn v-on:click="saveMeal">Save Meal</v-btn>
       <v-btn v-on:click="getMeals">Test Button to get this users meals in console</v-btn>
 
-
+      <div>
+          <meal-history-row
+          v-for="mealRecord in mealRecordList"
+          v-bind:key="mealRecord.type"
+          v-bind:mealRecord="mealRecord"
+          />
+      </div>
   </div>
 </template>
 
 <script>
 import mealItemRow from '../components/MealItemRow.vue'
+import mealHistoryRow from '../components/MealHistoryRow.vue'
 import Navigation from '../components/Navigation.vue'
 import foodService from '../services/FoodService.js'
 
@@ -76,14 +83,22 @@ export default {
             },
             mealRecordList: [
                 {
-
+                    type: "Breakfast",
+                    totalCalories: 550,
+                    numOfServings: 2
+                },
+                {
+                    type: "Lunch",
+                    totalCalories: 623,
+                    numOfServings: 1
                 }
             ]
         }
     },
     components: {
         mealItemRow,
-        Navigation
+        Navigation,
+        mealHistoryRow
     },
     methods: {
         addFoodToMeal() {
@@ -128,7 +143,7 @@ h1, h3, #mealType {
 }
 
 #mealType {
-    
+    border: 1px solid black;
 }
 
 #food-entry {
