@@ -1,11 +1,13 @@
 <template>
   <div>
-      <tr>
-          <td>{{food.foodName}}</td>
-          <td>{{food.calories}}</td>
-          <td>{{food.sizeAndUnit}}</td>
-          <td>{{food.numOfServings}}</td>
-      </tr>
+      <v-simple-table>
+        <tr>
+            <td>{{food.foodName}}</td>
+            <td>{{food.calories}}</td>
+            <td>{{food.sizeAndUnit}}</td>
+            <td>{{food.numOfServings}}</td>
+        </tr>
+      </v-simple-table>
   </div>
 </template>
 

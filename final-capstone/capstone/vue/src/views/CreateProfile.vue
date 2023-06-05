@@ -40,7 +40,7 @@
           </div>
 
           <div class="form-input">
-          <label for="mindfulGoal">Mindfulness Goal</label>
+          <label for="mindfulGoal">Goal for mindfulness (minutes)</label>
           <input type="number" name="mindfulGoal" id="mindfulGoal" v-model="user.mindfulGoal" min="0">
           </div>
 

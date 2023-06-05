@@ -5,7 +5,7 @@
      <navigation id="navigation"/>
      <br>
     </div>
-
+ 
     <div id="content">
       <progress-component id="progress-component"/>
       <friend-activity id="friend-activity"/>
@@ -17,9 +17,12 @@
 import FriendActivity from "../components/FriendActivity.vue";
 import Navigation from '../components/Navigation.vue';
 import ProgressComponent from '../components/ProgressComponent.vue';
+
+
 export default {
-  components: {FriendActivity, Navigation, ProgressComponent},
+  components: {FriendActivity, Navigation, ProgressComponent, },
   name: "home",
+  
 };
 </script>
 
@@ -60,7 +63,7 @@ export default {
     display: flex;
     justify-content: center;
     border: 1px solid gray;
-    margin: 2px;
+    padding: 2%;
   }
 }
 
