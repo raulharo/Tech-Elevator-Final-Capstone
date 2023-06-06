@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import com.techelevator.dao.FoodDao;
 import com.techelevator.dao.MealDao;
 import com.techelevator.dao.UserDao;
+import com.techelevator.model.DeleteRecord;
 import com.techelevator.model.Food;
 import com.techelevator.model.Meal;
 import com.techelevator.model.MealDto;
@@ -58,6 +59,13 @@ public class MealController {
         int userId = userdao.findIdByUsername(username);
         if (!mealDao.updateMeal(meal, userId)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Meal update failed");
+        }
+    }
+
+    @DeleteMapping(value = "delete-meal")
+    public void deleteMeal(@RequestBody @Valid DeleteRecord record) {
+        if(!mealDao.deleteMeal(record.getId())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Could not delete record");
         }
     }
 }

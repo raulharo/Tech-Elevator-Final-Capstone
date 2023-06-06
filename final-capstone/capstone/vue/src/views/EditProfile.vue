@@ -1,7 +1,12 @@
 <template>
   <div class="container">
+      <v-app-bar
+      app
+      color="teal lighten-3"
+      dark
+    > <navigation />
+    </v-app-bar>
       <h1 id="title">Edit Profile</h1>
-      <navigation/>
       <img src="../../public/profile-circle-svgrepo-com.svg" alt="">
       <form action="">
 

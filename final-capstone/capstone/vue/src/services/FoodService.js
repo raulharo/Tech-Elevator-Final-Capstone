@@ -15,5 +15,9 @@ export default {
 
     updateMeal(meal) {
         return axios.put('/update-meal', meal);
+    },
+
+    deleteMeal(mealIdVar) {
+        return axios.delete('/delete-meal', {data: {id: mealIdVar}});
     }
 }

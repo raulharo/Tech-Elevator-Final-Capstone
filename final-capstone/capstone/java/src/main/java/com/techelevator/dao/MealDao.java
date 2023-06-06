@@ -12,4 +12,6 @@ public interface MealDao {
     List<Meal> getMealsByUserId(int userId);
 
     boolean updateMeal(MealDto meal, int userId);
+
+    boolean deleteMeal(int mealId);
 }

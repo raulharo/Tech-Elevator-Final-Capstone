@@ -1,6 +1,12 @@
 <template>
-  <div class="container">
-    <div class="nav"><navigation/></div>
+  <div>
+    <v-app-bar
+      app
+      color="teal lighten-3"
+      dark
+    > <navigation />
+    </v-app-bar>
+    <div class="container">
     <div class="instructions">
     <h1>Breath Circle</h1>
     <br>
@@ -10,18 +16,26 @@
     <div class="circle-wrap">
       <div class="circle-progress"></div>
     </div>
+    </div>
   </div>
 </template>
 
 <script>
-import Navigation from '../components/Navigation.vue';
+
+import Navigation from '../components/Navigation.vue'
 export default {
-  components: { Navigation },};
+  components: {Navigation },};
 </script>
 
-<style>
+<style scoped>
+
+.body{
+  background-image: url('../../public/rays.jpg');
+};
+
 .container{
   text-align: center;
+  
 }
 .nav{
   display: flex;
@@ -147,6 +161,7 @@ export default {
   margin-bottom: 32px;
   ;
 }
+
 
 }
 

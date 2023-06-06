@@ -2,14 +2,13 @@
 <v-container class="container">
        <mindful-alert v-show="showAlert" @close-alert="showAlert = false" />
   <v-app>
-
-    <v-app-bar
+ <v-app-bar
       app
       color="primary"
       dark
-    >
-     
+    > 
     </v-app-bar>
+   
    
     <v-main>
       <router-view/>
@@ -22,8 +21,10 @@
 <script>
 import MindfulAlert from './components/MindfulAlert.vue';
 
+
+
 export default {
-  components: { MindfulAlert },
+  components: { MindfulAlert},
   name: 'App',
 
   data(){
@@ -37,5 +38,7 @@ export default {
 body {
   background-color: rgba(0, 128, 128, 0.2);
 }
+// <style>
+// @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200&display=swap');
 
-</style>
+// </style>

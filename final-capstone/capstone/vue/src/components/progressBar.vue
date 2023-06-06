@@ -1,15 +1,10 @@
 <template>
   <div class="container">
-      <h3>Weight Goal</h3>
+      <h3>Weight Change</h3>
       <p>This month</p>
-      <v-progress-linear height="15" color="pink lighten-1" background-color="pink lighten-3" value="15">{{}}</v-progress-linear>
+      <v-progress-linear height="30" color="cyan lighten-2" background-color="cyan lighten-3" value="15">2 pounds</v-progress-linear>
        <p>This year</p>
-       <v-progress-linear height="15" value="40">{{}}</v-progress-linear>
-       <h3>Mindfulness Goal</h3>
-       <p>This Month</p>
-        <v-progress-linear height="15" color="pink lighten-1" background-color="pink lighten-3" value="25">{{}}</v-progress-linear>
-         <p>This year</p>
-         <v-progress-linear height="15" value="70">{{}}</v-progress-linear>
+       <v-progress-linear height="30" color="indigo lighten-2" background-color="indigo lighten-3" value="40">15 pounds</v-progress-linear>
   </div>
 </template>
 
@@ -28,7 +23,7 @@ h3{
 }
     .v-progress-linear{
         margin: 1rem;
-        font-size: 50%;
+        font-size: 70%;
         width: 80%;
     }
 
