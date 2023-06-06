@@ -19,7 +19,8 @@
       </div>
       <div class="signin" ><button type="submit">Sign in</button></div>
       <p class="needanaccount" >
-      <router-link :to="{ name: 'register' }">Need an account? Sign up.</router-link> </p>
+      <v-btn color="cyan lighten-3" elevation="7" @click="$router.push('register')">Register</v-btn>
+      </p>
     </form>
   </div>
 </template>
