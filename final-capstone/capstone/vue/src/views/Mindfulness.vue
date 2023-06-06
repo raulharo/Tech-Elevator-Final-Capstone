@@ -152,6 +152,7 @@ export default {
 body {
   background: url("../../public/mountain.jpg");
   margin-left: -4%;
+  /* margin-top: -4%; */
   background-size: cover;
   height: 100vh;
   width: 100vw;
@@ -161,16 +162,6 @@ body {
 .container {
   align-items: center;
   justify-items: center;
-}
-
-.body {
-  background: url("../../public/mountain.jpg");
-  background-size: cover;
-  background-position: center center;
-  margin-left: -5%;
-  height: 100vh;
-  width: 100vw;
-  background-size: 100%;
 }
 
 .submit-activity {

@@ -51,7 +51,7 @@
           </div>
 
           <br>
-          <div class="button-div"><button type="submit" v-on:click="editProfile">Save Changes</button></div>
+          <div class="button-div"><v-btn color="cyan lighten-3" type="submit" v-on:click="editProfile">Save Changes</v-btn></div>
       </form>
 
   </div>

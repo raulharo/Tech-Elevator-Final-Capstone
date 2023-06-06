@@ -45,7 +45,7 @@
           </div>
 
           <br>
-          <button type="submit" v-on:click="addProfile">Create Profile</button>
+          <v-btn color="cyan lighten-3" type="submit" v-on:click="addProfile">Create Profile</v-btn>
       </form>
 
   </div>
