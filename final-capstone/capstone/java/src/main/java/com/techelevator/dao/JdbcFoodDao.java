@@ -37,6 +37,19 @@ public class JdbcFoodDao implements FoodDao {
 
     @Override
     public boolean editFood(Food food) {
+        String sql = "UPDATE foods" +
+                " SET food_name = ?, calories = ?, serving_size = ?, number_of_servings = ?" +
+                " WHERE food_id = ?";
+
+        try {
+            jdbcTemplate.update(sql, food.getFoodName(), food.getCalories(), food.getServingSize(),
+                                food.getNumberOfServings(), food.getFoodId());
+            return true;
+        }
+        catch (DataAccessException e) {
+            System.err.println("Error connecting to database");
+        }
+
         return false;
     }
 }

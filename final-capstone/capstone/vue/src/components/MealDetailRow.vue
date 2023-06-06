@@ -5,7 +5,7 @@
             <tr>
                 <td>{{food.foodName}}</td>
                 <td>{{food.calories}}</td>
-                <td>{{food.sizeAndUnit}}</td>
+                <td>{{food.servingSize}}</td>
                 <td>{{food.numOfServings}}</td>
             </tr>
         </v-simple-table>
@@ -24,50 +24,76 @@
             </div>
             <div>
                 <label for="servingSize">Serving Size:</label>
-                <input type="number" name="servingSize" id="servingSize" min="0" v-model="foodObject.servingSize" :placeholder="food.sizeAndUnit">
-                <select name="measureUnit" id="measureUnit" v-model="foodObject.measureUnit">
-                    <option value="g">g</option>
-                    <option value="fl oz">fl oz</option>
-                    <option value="cup(s)">cup(s)</option>
-                    <option value="tsp">tsp</option>
-                    <option value="tbsp">tbsp</option>
-                    <option value="slice">slice</option>
-                    <option value="oz">oz</option>
-                </select>
+                <input type="text" name="servingSize" id="servingSize" min="0" v-model="foodObject.servingSize" :placeholder="food.servingSize">
             </div>
             <div>
                 <label for="numOfServings">Number of Servings</label>
-                <input type="number" name="numOfServings" id="numOfServings" min="0" v-model="foodObject.numOfServings">
+                <input type="number" name="numOfServings" id="numOfServings" min="0" v-model="foodObject.numOfServings" :placeholder="food.numOfServings">
             </div>
+            <v-btn v-on:click="modifyFood">Accept</v-btn>
+            <v-btn v-on:click="switchToInputsMethod">Cancel</v-btn>
         </div>
       </div>
   </div>
 </template>
 
 <script>
+import foodService from '../services/FoodService.js'
+
 export default {
-    props: ["food", "servingSizeAndUnit"],
+    props: ["food", "mealRecord"],
     data() {
         return {
             foodObject: {
+                foodId: this.food.foodId,
                 foodName: "",
                 calories: "",
                 servingSize: "",
-                measureUnit: "",
                 numOfServings: ""
+            },
+            mealObject: {
+                mealId: this.mealRecord.mealId,
+                mealDate: this.mealRecord.mealDate,
+                mealType: this.mealRecord.mealType,
+                totalCalories: 0
             },
             switchToInputs: false
         }
     },
     methods: {
-        sizeAndUnits() {
-            return this.servingSizeAndUnit.servingSize + " " + this.servingSizeAndUnit.measureUnit;
-        },
         switchToInputsMethod() {
             this.switchToInputs = !this.switchToInputs;
         },
         modifyFood() {
+            if(this.foodObject.foodName === "") {
+                this.foodObject.foodName = this.food.foodName;
+            }
 
+            if(this.foodObject.calories === "") {
+                this.foodObject.calories = this.food.calories;
+            }
+
+            if(this.foodObject.servingSize === "") {
+                this.foodObject.servingSize = this.food.servingSize;
+            }
+
+            if(this.foodObject.numOfServings === "") {
+                this.foodObject.numOfServings = this.food.numOfServings;
+            }
+
+            foodService.updateFood(this.foodObject);
+
+            this.mealRecord.foods.forEach(element => {
+                if(element.foodId === this.foodObject.foodId) {
+                    element.calories = this.foodObject.calories;
+                }
+
+                this.mealObject.totalCalories += parseInt(element.calories);
+            });
+
+            foodService.updateMeal(this.mealObject);
+
+            this.switchToInputs = !this.switchToInputs;
         }
     }
 

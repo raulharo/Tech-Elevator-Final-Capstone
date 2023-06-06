@@ -5,7 +5,7 @@
             <tr>
                 <td>{{food.foodName}}</td>
                 <td>{{food.calories}}</td>
-                <td>{{food.sizeAndUnit}}</td>
+                <td>{{food.servingSize}}</td>
                 <td>{{food.numOfServings}}</td>
             </tr>
         </v-simple-table>
@@ -15,11 +15,8 @@
 
 <script>
 export default {
-    props: ["food", "servingSizeAndUnit"],
+    props: ["food"],
     methods: {
-        sizeAndUnits() {
-            return this.servingSizeAndUnit.servingSize + " " + this.servingSizeAndUnit.measureUnit;
-        }
     }
 
     
