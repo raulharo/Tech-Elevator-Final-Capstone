@@ -4,7 +4,12 @@
       app
       color="teal lighten-3"
       dark
-    > <navigation />
+    > <navigation /><v-img
+          src="../../public/logo.png"
+          max-height="60"
+          max-width="60"
+          contain
+        ></v-img>
     </v-app-bar>
       <h1>Meal Log</h1>
       <h3>Choose Meal Type:</h3>

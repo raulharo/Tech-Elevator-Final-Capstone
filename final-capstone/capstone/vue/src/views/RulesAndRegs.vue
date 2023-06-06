@@ -5,13 +5,10 @@
       <p>User agrees that Head and Health Sidekick is not responsible for essentially anything that could possibly go wrong. 
         User will not hold head and health sidekick responsible for anything at all, ever, no matter what.</p>
       </div>
-      <div id="buttonsYes">
+      <div id="buttons">
       <v-btn  color="cyan lighten-3" @click="$router.push('/')">I agree</v-btn> 
+      <v-btn color="cyan lighten-3" v-on:click="deleteUser()">I don't agree</v-btn>
       </div>
-      <div id="buttonNo">
-      <scoped><v-btn color="cyan lighten-3" v-on:click="deleteUser()">I don't agree</v-btn></scoped>
-      </div>
-
       <img id="logo" src="../../public/logo.png" alt="">
   </div>
 </template>
@@ -21,7 +18,7 @@ import UserService from "../services/UserService"
 
 export default {
   methods: {
-    deleteUser(){   //need help here
+    deleteUser(){   
      let id= this.$store.state.user.id;
       UserService.deleteUser(id)
       .then( response => {
@@ -46,6 +43,10 @@ export default {
 #buttons{
   display: flex;
   justify-content: space-evenly;
+  margin: 5px;
+}
+p{
+  text-align: center;
 }
 .container{
   display: block;
@@ -54,6 +55,31 @@ export default {
   padding: 5px;
 }
 img{
-  size: 20%;
+   display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+@media only screen and (min-width: 768px) {
+  #buttons{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 5px;
+}
+p{
+  text-align: center;
+}
+.container{
+  display: block;
+  align-items: center;
+  margin-top: 5px;
+  padding: 5px;
+}
+img{
+   display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 }
 </style>

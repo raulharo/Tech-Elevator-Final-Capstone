@@ -4,7 +4,12 @@
       app
       color="teal lighten-3"
       dark
-    > <navigation />
+    > <navigation /><v-img
+          src="../../public/logo.png"
+          max-height="60"
+          max-width="60"
+          contain
+        ></v-img>
     </v-app-bar>
     <div id="header">
       <h1>My Dashboard</h1>
@@ -15,6 +20,26 @@
       <progress-component id="progress-component"/>
       <friend-activity id="friend-activity"/>
     </div>
+    <v-footer
+    dark
+    padless
+  >
+    <v-card
+      flat
+      tile
+      class="indigo lighten-1 white--text text-center"
+    >
+          <v-card-text class="white--text pt-0">
+        This app was created with love by Tech Elevator Graduates Andrew Morrison, Whitney Bescheinen, Raul, Margie
+      </v-card-text>
+
+      <v-divider></v-divider>
+
+      <v-card-text class="white--text">
+        {{ new Date().getFullYear() }} — <strong>Tech Elevator</strong>
+      </v-card-text>
+    </v-card>
+  </v-footer>
   </div>
 </template>
 

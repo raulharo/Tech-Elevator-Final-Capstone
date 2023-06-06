@@ -1,29 +1,32 @@
 <template>
   <body>
-    
-  
-  <div class="container">
-    <v-app-bar app color="teal lighten-3" dark> <navigation /> </v-app-bar>
-    <div class="content">
-      <v-banner rounded color="indigo lighten-2">
-        <br>
-      <h1>Breath Circle</h1>
-      <br />
-      <p id="instructions">
-        Try your best to sync your breath with the growing circle. Inhale as the
-        circle increases, hold your inhale until it resets, and then exhale as
-        the circle increases.
-      </p>
-      <p>
-        Studies show that even one deep breath can cause a positive shift in
-        wellbeing.
-      </p>
-      </v-banner>
-      <div class="circle-wrap">
-        <div class="circle-progress"></div>
+    <div class="container">
+      <v-app-bar app color="teal lighten-3" dark>
+        <navigation />
+        <v-img
+          src="../../public/logo.png"
+          max-height="60"
+          max-width="60"
+          contain
+        ></v-img>
+      </v-app-bar>
+      <div class="content">
+        <v-banner rounded color="indigo lighten-2">
+          <p id="instructions">
+            Try your best to sync your breath with the growing circle. Inhale as
+            the circle increases, hold your inhale until it resets, and then
+            exhale as the circle increases.
+          </p>
+          <p>
+            Studies show that even one deep breath can cause a positive shift in
+            wellbeing.
+          </p>
+        </v-banner>
+        <div class="circle-wrap">
+          <div class="circle-progress"></div>
+        </div>
       </div>
     </div>
-  </div>
   </body>
 </template>
 
@@ -35,9 +38,8 @@ export default {
 </script>
 
 <style scoped>
-
 .container {
-  position: relative; 
+  position: relative;
   height: 100vh;
   width: 100%;
   display: flex;
@@ -46,8 +48,6 @@ export default {
   text-align: center;
   background: url("../../public/rays.jpg");
   background-size: cover;
- 
-
 }
 
 .circle-wrap {
@@ -99,11 +99,10 @@ export default {
   margin-bottom: 24px;
   font-size: 24px;
 }
-h1{
+h1 {
   color: white;
-  
 }
-p{
+p {
   color: white;
 }
 
