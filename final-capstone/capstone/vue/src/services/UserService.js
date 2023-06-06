@@ -23,13 +23,21 @@ export default {
         return axios.delete(`delete-user/${id}`);
     }, 
 
-    getMindfulGoal(id) {
-        return axios.get(`get-mindful-goal/${id}`);
+    getMindfulGoal() {
+        return axios.get(`get-mindful-goal/`);
     },
 
-    getCalorieGoal(id){
-        return axios.get(`get-calorie-goal/${id}`);
+    getCalorieGoal(){
+        return axios.get(`get-calorie-goal/`);
 
+    },
+
+    getDayCalories() {
+        return axios.get('day-calories');
+    },
+
+    getDayMindful() {
+        return axios.get('day-mindful');
     }
 
 }

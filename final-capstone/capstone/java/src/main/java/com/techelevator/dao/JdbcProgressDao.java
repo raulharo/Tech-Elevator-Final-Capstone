@@ -18,7 +18,7 @@ public class JdbcProgressDao implements ProgressDao {
         String sql = "SELECT * FROM meal_history WHERE user_ID = ? AND meal_date = NOW()::date;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while(results.next()) {
-            todayCalories += results.getInt("calories");
+            todayCalories += results.getInt("total_calories");
         }
         return todayCalories;
     }

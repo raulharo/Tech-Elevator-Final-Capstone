@@ -92,14 +92,14 @@ public class ProgressController {
         int userId = userdao.findIdByUsername(username);
         return progressDao.getLifetimeMindfulMins(userId);
     }
-    @GetMapping (value="get-calorie-goal/{id}")
+    @GetMapping (value="get-calorie-goal/")
     public int getCalorieGoal (Principal principal){
         String username = principal.getName();
         int userId = userdao.findIdByUsername(username);
         return progressDao.getCalorieGoal(userId);
     }
 
-    @GetMapping (value="get-mindful-goal/{id}")
+    @GetMapping (value="get-mindful-goal/")
     public int getMindfulGoal (Principal principal){
         String username = principal.getName();
         int userId = userdao.findIdByUsername(username);
