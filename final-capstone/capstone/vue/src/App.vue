@@ -1,6 +1,6 @@
 <template>
 <v-container class="container">
-       <mindful-alert v-show="showAlert" @close-alert="showAlert = false" />
+       
   <v-app>
  <v-app-bar
       app
@@ -11,10 +11,11 @@
    
    
     <v-main>
+      
       <router-view/>
     </v-main>
   </v-app>
-  
+  <mindful-alert v-show="showAlert" @close-alert="showAlert = false" />
      </v-container>
 </template>
 
@@ -29,12 +30,18 @@ export default {
 
   data(){
     return {
-      showAlert: false
+      showAlert: true
     }
   },
+// methods:{
+//   displayAlert(){
+//     setInterval(() => {
+
+//     }
+// },
 };
 </script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200&display=swap');
+
 
 </style>

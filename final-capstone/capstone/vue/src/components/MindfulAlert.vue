@@ -3,18 +3,21 @@
     <div class="modal">
       <p>
         You've been enjoying the physical health side of this app for 5 minutes.
-        Now is a great time to take a break and do a mindfulness activity
+        Now is a great time to take a break and do a mindfulness activity.
       </p>
-      <v-btn @click="$router.push('/mindfulness')">Go to mindfulness Page</v-btn>
+      <v-btn id="logTab" @click="$router.push('/mindfulness')">Log Mindfulness</v-btn>
     </div>
     <div class="close">
-      <v-btn @click="$emit('close-alert')">X</v-btn>
+      <v-btn @click="$emit('close-alert')">close</v-btn>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+
+
+};
 </script>
 <style scoped>
 
@@ -32,7 +35,7 @@ export default {};
 .modal {
   text-align: center;
   background-color: white;
-  height: 500px;
+  height: 200px;
   width: 500px;
   margin-top: 10%;
   padding: 60px 0;
@@ -41,34 +44,13 @@ export default {};
 .close {
   margin: 10% 0 0 16px;
   cursor: pointer;
-}
-
-.close-img {
-  width: 25px;
-}
-
-.check {
-  width: 150px;
-}
-
-h6 {
-  font-weight: 500;
-  font-size: 28px;
-  margin: 20px 0;
+  font-size: 8;
 }
 
 p {
   font-size: 16px;
-  margin: 20px 0;
+  margin: 10px 0;
+  padding: 5px;
 }
 
-button {
-  background-color: #ac003e;
-  width: 150px;
-  height: 40px;
-  color: white;
-  font-size: 14px;
-  border-radius: 16px;
-  margin-top: 50px;
-}
 </style>
