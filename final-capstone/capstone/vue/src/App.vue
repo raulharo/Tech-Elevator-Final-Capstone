@@ -20,15 +20,13 @@
 </template>
 
 <script>
-import MindfulAlert from './components/MindfulAlert.vue';
-
-
+import MindfulAlert from "./components/MindfulAlert.vue";
 
 export default {
-  components: { MindfulAlert},
-  name: 'App',
+  components: { MindfulAlert },
+  name: "App",
 
-  data(){
+  data() {
     return {
       showAlert: true
     }
@@ -42,6 +40,13 @@ export default {
 };
 </script>
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200&display=swap");
 
+body {
+  background-color: rgba(0, 128, 128, 0.1);
+}
 
+main {
+  padding-top: 60px;
+}
 </style>
