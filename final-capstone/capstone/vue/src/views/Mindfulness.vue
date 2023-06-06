@@ -1,5 +1,11 @@
 <template>
   <div>
+    <v-app-bar
+      app
+      color="teal lighten-3"
+      dark
+    > <navigation />
+    </v-app-bar>
       <h1>
           <v-alert
       color="light-blue"
@@ -12,10 +18,6 @@
     </v-alert>
           </h1> 
           <h2>
-
-  <div>
-    <navigation/>
-  </div>
   <v-form>
     
     <v-container>

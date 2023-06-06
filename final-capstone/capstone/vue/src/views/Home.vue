@@ -1,8 +1,13 @@
 <template>
   <div class="home">
+    <v-app-bar
+      app
+      color="teal lighten-3"
+      dark
+    > <navigation />
+    </v-app-bar>
     <div id="header">
       <h1>My Dashboard</h1>
-     <navigation id="navigation"/>
      <br>
     </div>
  
@@ -15,12 +20,12 @@
 
 <script>
 import FriendActivity from "../components/FriendActivity.vue";
-import Navigation from '../components/Navigation.vue';
 import ProgressComponent from '../components/ProgressComponent.vue';
+import Navigation from '../components/Navigation.vue'
 
 
 export default {
-  components: {FriendActivity, Navigation, ProgressComponent, },
+  components: {FriendActivity, ProgressComponent, Navigation },
   name: "home",
   
 };
@@ -37,11 +42,6 @@ export default {
 
   #header {
     text-align: center;
-  }
-
-  #navigation {
-    display: flex;
-    justify-content: center;
   }
 
   #content {

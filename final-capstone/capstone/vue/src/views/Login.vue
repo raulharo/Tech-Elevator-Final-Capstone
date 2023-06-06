@@ -119,16 +119,12 @@ button {
 h1 {
   margin: 35% 0%;
 }
-body{
-  background: url("../../public/grass.jpg");
-}
+
 @media only screen and (min-width: 768px) {
   #login {
     background-color: rgb(144, 178, 179);
   }
-body{
-  background: url("../../public/grass.jpg")
-}
+
 }
   
 

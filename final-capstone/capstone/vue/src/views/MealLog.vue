@@ -1,6 +1,11 @@
 <template>
   <div class="root">
-      <navigation/>
+      <v-app-bar
+      app
+      color="teal lighten-3"
+      dark
+    > <navigation />
+    </v-app-bar>
       <h1>Meal Log</h1>
       <h3>Choose Meal Type:</h3>
       <select name="mealType" id="mealType" v-model="meal.mealType">
@@ -56,9 +61,9 @@
 <script>
 import mealItemRow from '../components/MealItemRow.vue'
 import mealHistoryRow from '../components/MealHistoryRow.vue'
-import Navigation from '../components/Navigation.vue'
 import foodService from '../services/FoodService.js'
 import mealDetailRow from '../components/MealDetailRow.vue'
+import Navigation from '../components/Navigation.vue'
 
 export default {
     data() {
@@ -80,9 +85,9 @@ export default {
     },
     components: {
         mealItemRow,
-        Navigation,
         mealHistoryRow,
-        mealDetailRow
+        mealDetailRow,
+        Navigation
     },
     methods: {
         addFoodToMeal() {
