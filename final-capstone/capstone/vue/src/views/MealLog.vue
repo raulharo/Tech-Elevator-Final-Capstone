@@ -1,6 +1,11 @@
 <template>
   <div class="root">
-      <navigation/>
+      <v-app-bar
+      app
+      color="teal lighten-3"
+      dark
+    > <navigation />
+    </v-app-bar>
       <h1>Meal Log</h1>
       <h3>Choose Meal Type:</h3>
       <select name="mealType" id="mealType" v-model="meal.mealType">
@@ -36,12 +41,12 @@
           v-bind:food="food"/>
       </div>
       <v-btn v-on:click="saveMeal">Save Meal</v-btn>
-      <v-btn v-on:click="getMeals">Test Button to get this users meals in console</v-btn>
 
       <div v-for="mealRecord in mealRecordList" v-bind:key="mealRecord.mealId">
           <meal-history-row
-          v-bind:mealRecord="mealRecord" :key="componentKey"/>
+          v-bind:mealRecord="mealRecord"/>
           <v-btn v-on:click="showFoodList(mealRecord)">Show Foods</v-btn>
+          <v-btn v-on:click="deleteMealRecord(mealRecord.mealId)">Delete Meal</v-btn>
           <div v-if="mealRecord.showFoods">
               <meal-detail-row
               v-for="food in mealRecord.foods"
@@ -56,9 +61,9 @@
 <script>
 import mealItemRow from '../components/MealItemRow.vue'
 import mealHistoryRow from '../components/MealHistoryRow.vue'
-import Navigation from '../components/Navigation.vue'
 import foodService from '../services/FoodService.js'
 import mealDetailRow from '../components/MealDetailRow.vue'
+import Navigation from '../components/Navigation.vue'
 
 export default {
     data() {
@@ -74,15 +79,14 @@ export default {
                 foods: [],
                 totalCalories: 0
             },
-            mealRecordList: [],
-            componentKey: 0
+            mealRecordList: []
         }
     },
     components: {
         mealItemRow,
-        Navigation,
         mealHistoryRow,
-        mealDetailRow
+        mealDetailRow,
+        Navigation
     },
     methods: {
         addFoodToMeal() {
@@ -100,18 +104,13 @@ export default {
         saveMeal() {
             console.log(this.meal.foods);
             console.log(this.meal.mealType);
-            foodService.createMeal(this.meal);
+            foodService.createMeal(this.meal).then(this.$router.go());
         },
-
-        getMeals() {
-            console.log(foodService.getMeals());
-        },
-
         showFoodList(meal) {
             meal.showFoods = !meal.showFoods;
         },
-        forceRerender() {
-            this.componentKey += 1;
+        deleteMealRecord(mealId) {
+            foodService.deleteMeal(mealId).then(this.$router.go());
         }
     },
     created() {

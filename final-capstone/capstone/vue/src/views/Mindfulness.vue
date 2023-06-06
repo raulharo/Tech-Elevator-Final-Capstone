@@ -1,6 +1,8 @@
 <template>
-  <body class="body">
+  <body>
     <div>
+      <v-app-bar app color="teal lighten-3" dark> <navigation /> </v-app-bar>
+
       <h1>
         <v-alert color="light-blue" dark dense icon="mdi-leaf" prominent>
           Mindfulness and meditation is important. Some examples of mindfulness
@@ -11,9 +13,6 @@
         </v-alert>
       </h1>
       <h2>
-        <div>
-          <navigation />
-        </div>
         <v-form>
           <v-container>
             <v-row>
@@ -26,7 +25,6 @@
                 >
                 </v-text-field>
               </v-col>
-
               <v-col cols="12" sm="6">
                 <v-text-field
                   v-model="mindfulness.minutes"
@@ -37,7 +35,6 @@
             </v-row>
           </v-container>
         </v-form>
-
         <div class="container">
           <v-flex justify="center">
             <v-btn
@@ -45,14 +42,65 @@
               class="button"
               color="light-blue"
               elevation="7"
-              >Submit Activity</v-btn
-            >
+              >Submit Activity</v-btn>
           </v-flex>
         </div>
       </h2>
     </div>
   </body>
 </template>
+
+
+
+      <!-- <h1>
+        <v-alert color="light-blue" dark dense icon="mdi-leaf" prominent>
+          Mindfulness and meditation is important. Some examples of mindfulness
+          activities could be: breath-work, meditation, physical activity, going
+          outdoors, yoga, limiting social media, bedtime routines, or anything
+          that makes you feel happy! Track your mindfulness activities and reach
+          your goal below.
+        </v-alert>
+      </h1>
+      <h2>
+        <v-form>
+          <v-container class="container">
+            <v-row>
+              <v-col cols="12" sm="6">
+                <v-text-field
+                  placeholder="Mindfulness Activity"
+                  v-model="mindfulness.activity"
+                  label="Mindfulness Activity"
+                  filled
+                >
+                </v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6">
+                <v-text-field
+                  placeholder="Mindfulness Minutes"
+                  v-model="mindfulness.minutes"
+                  label="Mindfulness Minutes"
+                  filled
+                >
+                </v-text-field>
+              </v-col>
+            
+            <div class="container">
+              <v-flex justify="center">
+                <v-btn
+                  v-on:click="addActivity"
+                  class="button"
+                  color="light-blue"
+                  elevation="7"
+                  >Submit Activity</v-btn
+                >
+              </v-flex>
+            </div>
+          </v-container>
+        </v-form>
+      </h2>
+    </div>
+  </body>
+</template> -->
 
 <script>
 import MindfulnessService from "../services/MindfulnessService.js";
@@ -99,8 +147,9 @@ export default {
   },
 };
 </script>
+
 <style scoped>
-.body {
+body {
   background: url("../../public/mountain.jpg");
   margin-left: -4%;
   background-size: cover;
