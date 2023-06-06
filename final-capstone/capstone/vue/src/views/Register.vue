@@ -6,27 +6,16 @@
         {{ registrationErrorMsg }}
       </div>
       <div class="form-input-group">
-        <label for="username">Username</label>
-        <input
-          type="text"
-          id="username"
-          v-model="user.username"
-          required
-          autofocus
-        />
+        <!-- <label for="username">Username</label> -->
+        <v-text-field label="Username" type="text" id="username" v-model="user.username" required autofocus />
       </div>
       <div class="form-input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" v-model="user.password" required />
+        <!-- <label for="password">Password</label> -->
+        <v-text-field label="Password" type="password" id="password" v-model="user.password" required />
       </div>
       <div class="form-input-group">
-        <label for="confirmPassword">Confirm Password</label>
-        <input
-          type="password"
-          id="confirmPassword"
-          v-model="user.confirmPassword"
-          required
-        />
+        <!-- <label for="confirmPassword">Confirm Password</label> -->
+        <v-text-field label="Confirm password" input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
       </div>
       <div class="bottom-div">
         <div class="submit-button">
@@ -153,9 +142,9 @@ input {
 }
 
 button {
-  width: 85%;
+  width: 25px;
   height: 100%;
-  background-color: #76c4fa;
+  background-color: lightblue;
   border-radius: 4px;
 }
 

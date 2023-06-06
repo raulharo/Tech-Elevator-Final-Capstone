@@ -37,10 +37,10 @@
         </v-form>
         <div class="container">
           <div class="submit-activity">
-            <v-btn 
+            <v-btn
               v-on:click="addActivity"
               class="button"
-              color="light-blue"
+              color="cyan lighten-3"
               elevation="7"
               >Submit Activity</v-btn>
           </div>
@@ -152,6 +152,7 @@ export default {
 body {
   background: url("../../public/mountain.jpg");
   margin-left: -4%;
+  /* margin-top: -4%; */
   background-size: cover;
   height: 100vh;
   width: 100vw;
