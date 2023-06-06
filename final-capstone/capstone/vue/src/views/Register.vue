@@ -137,9 +137,9 @@ input {
 }
 
 button {
-  width: 85%;
+  width: 25px;
   height: 100%;
-  background-color: #76c4fa;
+  background-color: lightblue;
   border-radius: 4px;
 }
 

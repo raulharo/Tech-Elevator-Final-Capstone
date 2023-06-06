@@ -5,11 +5,10 @@
 
     <v-app-bar
       app
-      color="teal lighten-3"
+      color="primary"
       dark
-       
-    > 
- 
+    >
+     
     </v-app-bar>
    
     <v-main>
@@ -35,6 +34,8 @@ export default {
 };
 </script>
 <style lang="scss">
-
+body {
+  background-color: rgba(0, 128, 128, 0.2);
+}
 
 </style>

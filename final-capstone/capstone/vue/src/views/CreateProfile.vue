@@ -93,9 +93,6 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-    margin-top: 5%;
-}
 
 .container {
     display: flex;
@@ -129,7 +126,7 @@ label {
 }
 img {
     width: 10rem;
-    margin-bottom: 4%;
+    margin-bottom: 1%;
 }
 
 .button-div {
@@ -141,9 +138,10 @@ img {
 
 button {
   width: 100%;
-  height: 100%;
+  height: 10%;
   background-color: #76c4fa;
   border-radius: 4px;
+  margin-bottom: 10%;
 }
 
 input:hover {

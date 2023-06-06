@@ -1,4 +1,5 @@
 <template>
+<body class="body">
   <div>
       <h1>
           <v-alert
@@ -56,6 +57,7 @@
 </div>
 </h2>
 </div>
+</body>
 <!-- 
   //         
   // <v-card flat>
@@ -164,5 +166,15 @@ export default {
 .container {
   align-items: center;
   justify-items: center;
+}
+
+.body {
+  background: url("../../public/mountain.jpg");
+  background-size: cover;
+  background-position: center center;
+  margin-left: -5%;
+  height: 100vh;
+  width: 100vw;
+  background-size: 100%;
 }
 </style>
