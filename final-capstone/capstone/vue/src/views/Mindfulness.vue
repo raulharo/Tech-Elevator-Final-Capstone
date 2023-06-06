@@ -36,14 +36,14 @@
           </v-container>
         </v-form>
         <div class="container">
-          <v-flex justify="center">
-            <v-btn
+          <div class="submit-activity">
+            <v-btn 
               v-on:click="addActivity"
               class="button"
               color="light-blue"
               elevation="7"
               >Submit Activity</v-btn>
-          </v-flex>
+          </div>
         </div>
       </h2>
     </div>
@@ -161,5 +161,10 @@ body {
 .container {
   align-items: center;
   justify-items: center;
+}
+
+.submit-activity {
+  display: flex;
+  justify-content: center;
 }
 </style>
