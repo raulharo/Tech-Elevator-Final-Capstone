@@ -9,10 +9,10 @@
       <h1>Meal Log</h1>
       <h3>Choose Meal Type:</h3>
       <select name="mealType" id="mealType" v-model="meal.mealType">
-          <option value="breakfast">Breakfast</option>
-          <option value="lunch">Lunch</option>
-          <option value="dinner">Dinner</option>
-          <option value="snack">Snack</option>
+          <option value="Breakfast">Breakfast</option>
+          <option value="Lunch">Lunch</option>
+          <option value="Dinner">Dinner</option>
+          <option value="Snack">Snack</option>
       </select>
       <div id="food-entry">
         <div>
@@ -34,6 +34,7 @@
 
         <v-btn v-on:click="addFoodToMeal">Add Food</v-btn>
       </div>
+
       <div>
           <meal-item-row
           v-for="food in meal.foods"
@@ -42,7 +43,11 @@
       </div>
       <v-btn v-on:click="saveMeal">Save Meal</v-btn>
 
-      <div v-for="mealRecord in mealRecordList" v-bind:key="mealRecord.mealId">
+      <div class="calendar">
+          <v-date-picker v-model="dates" range></v-date-picker>
+      </div>
+
+      <div v-for="mealRecord in filteredList" v-bind:key="mealRecord.mealId">
           <meal-history-row
           v-bind:mealRecord="mealRecord"/>
           <v-btn v-on:click="showFoodList(mealRecord)">Show Foods</v-btn>
@@ -79,7 +84,11 @@ export default {
                 foods: [],
                 totalCalories: 0
             },
-            mealRecordList: []
+            mealRecordList: [],
+            today1: new Date().toLocaleDateString,
+            today2: new Date().toLocaleDateString,
+            dates: [this.today1, this.today2],
+            placeholderDate: ""
         }
     },
     components: {
@@ -111,6 +120,28 @@ export default {
         },
         deleteMealRecord(mealId) {
             foodService.deleteMeal(mealId).then(this.$router.go());
+        },
+        sortDates(dates) {
+            if(Date.parse(dates[0]) > Date.parse(dates[1])) {
+                this.placeholderDate = dates[0];
+                dates.shift();
+                dates.push(this.placeholderDate);
+                this.dates = dates;
+            }
+        }
+    },
+    computed: {
+        filteredList() {
+            let filteredMeals = this.mealRecordList.filter(item => {
+                if(this.dates.length == 2) {
+                    this.sortDates(this.dates);
+                }
+
+                return item.mealDate >= this.dates[0] && item.mealDate <= this.dates[1];
+            });
+
+
+            return filteredMeals;
         }
     },
     created() {
@@ -119,8 +150,7 @@ export default {
                     this.mealRecordList.push(element);
                 });
             });
-    },
-    
+    }
 }
 </script>
 

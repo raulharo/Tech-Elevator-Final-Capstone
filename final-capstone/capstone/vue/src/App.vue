@@ -37,4 +37,8 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200&display=swap');
 
+body {
+  background-color: rgba(0, 128, 128, 0.1);
+}
+
 </style>
