@@ -5,7 +5,7 @@
       <h3>Choose Meal Type:</h3>
       <select name="mealType" id="mealType" v-model="meal.mealType">
           <option value="breakfast">Breakfast</option>
-          <option value="lunch" selected>Lunch</option>
+          <option value="lunch">Lunch</option>
           <option value="dinner">Dinner</option>
           <option value="snack">Snack</option>
       </select>
@@ -20,16 +20,7 @@
         </div>
         <div>
             <label for="servingSize">Serving Size:</label>
-            <input type="number" name="servingSize" id="servingSize" min="0" v-model="servingSizeAndUnit.servingSize">
-            <select name="measureUnit" id="measureUnit" v-model="servingSizeAndUnit.measureUnit">
-                <option value="g">g</option>
-                <option value="fl oz">fl oz</option>
-                <option value="cup(s)">cup(s)</option>
-                <option value="tsp">tsp</option>
-                <option value="tbsp">tbsp</option>
-                <option value="slice">slice</option>
-                <option value="oz">oz</option>
-            </select>
+            <input type="text" name="servingSize" id="servingSize" min="0" v-model="food.servingSize">
         </div>
         <div>
             <label for="numOfServings">Number of Servings</label>
@@ -49,13 +40,14 @@
 
       <div v-for="mealRecord in mealRecordList" v-bind:key="mealRecord.mealId">
           <meal-history-row
-          v-bind:mealRecord="mealRecord"/>
+          v-bind:mealRecord="mealRecord" :key="componentKey"/>
           <v-btn v-on:click="showFoodList(mealRecord)">Show Foods</v-btn>
           <div v-if="mealRecord.showFoods">
-              <meal-item-row
+              <meal-detail-row
               v-for="food in mealRecord.foods"
               v-bind:key="food.foodId"
-              v-bind:food="food"/>
+              v-bind:food="food"
+              v-bind:mealRecord="mealRecord"/>
           </div>
       </div>
   </div>
@@ -66,6 +58,7 @@ import mealItemRow from '../components/MealItemRow.vue'
 import mealHistoryRow from '../components/MealHistoryRow.vue'
 import Navigation from '../components/Navigation.vue'
 import foodService from '../services/FoodService.js'
+import mealDetailRow from '../components/MealDetailRow.vue'
 
 export default {
     data() {
@@ -73,7 +66,7 @@ export default {
             food: {
                 foodName: "",
                 calories: 0,
-                sizeAndUnit: "",
+                servingSize: "",
                 numOfServings: "",
             },
             meal: {
@@ -81,17 +74,15 @@ export default {
                 foods: [],
                 totalCalories: 0
             },
-            servingSizeAndUnit: {
-                servingSize: "",
-                measureUnit: "",
-            },
             mealRecordList: [],
+            componentKey: 0
         }
     },
     components: {
         mealItemRow,
         Navigation,
-        mealHistoryRow
+        mealHistoryRow,
+        mealDetailRow
     },
     methods: {
         addFoodToMeal() {
@@ -100,7 +91,6 @@ export default {
             }
             else {
                 this.meal.totalCalories += parseInt(this.food.calories);
-                this.food.sizeAndUnit = this.servingSizeAndUnit.servingSize + " " + this.servingSizeAndUnit.measureUnit;
                 this.meal.foods.push(this.food);
                 this.food = {};
                 
@@ -119,11 +109,9 @@ export default {
 
         showFoodList(meal) {
             meal.showFoods = !meal.showFoods;
-        }
-    },
-    computed: {
-        sizeAndUnit() {
-            return this.food.servingSize + " " + this.food.measureUnit
+        },
+        forceRerender() {
+            this.componentKey += 1;
         }
     },
     created() {
@@ -132,7 +120,8 @@ export default {
                     this.mealRecordList.push(element);
                 });
             });
-    }
+    },
+    
 }
 </script>
 

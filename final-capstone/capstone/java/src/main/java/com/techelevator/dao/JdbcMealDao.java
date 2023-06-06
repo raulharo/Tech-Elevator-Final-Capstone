@@ -3,6 +3,7 @@ package com.techelevator.dao;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.techelevator.model.Food;
 import com.techelevator.model.Meal;
+import com.techelevator.model.MealDto;
 import org.springframework.dao.*;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -75,7 +76,8 @@ public class JdbcMealDao implements MealDao {
     @Override
     public List<Meal> getMealsByUserId(int userId) {
         List<Meal> mealList = new ArrayList<>();
-        String sql = "SELECT * FROM meal_history WHERE user_id = ?;";
+        String sql = "SELECT * FROM meal_history WHERE user_id = ?" +
+                    " ORDER BY meal_date;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while(results.next()) {
             mealList.add(mapRowToMeals(results));
@@ -153,6 +155,23 @@ public class JdbcMealDao implements MealDao {
 
 
         return foodIds;
+    }
+
+    public boolean updateMeal(MealDto meal, int userId) {
+        String sql = "UPDATE meal_history" +
+                " SET user_id = ?, meal_date = ?, type = ?, total_calories = ?" +
+                " WHERE meal_history_id = ?";
+
+        try {
+            jdbcTemplate.update(sql, userId, meal.getMealDate(), meal.getMealType(),
+                                meal.getTotalCalories(), meal.getMealId());
+            return true;
+        }
+        catch (DataAccessException e) {
+            System.err.println("Could not connect to database.");
+        }
+
+        return false;
     }
 
     public Meal mapRowToMeals(SqlRowSet rs) {
