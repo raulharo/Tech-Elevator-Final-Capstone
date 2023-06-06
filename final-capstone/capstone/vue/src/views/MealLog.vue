@@ -68,31 +68,20 @@ export default {
         return {
             food: {
                 foodName: "",
-                calories: "",
+                calories: 0,
                 sizeAndUnit: "",
                 numOfServings: "",
             },
             meal: {
                 mealType: "",
                 foods: [],
-                totalCalories: ""
+                totalCalories: 0
             },
             servingSizeAndUnit: {
                 servingSize: "",
                 measureUnit: "",
             },
-            mealRecordList: [
-                {
-                    type: "Breakfast",
-                    totalCalories: 550,
-                    numOfServings: 2
-                },
-                {
-                    type: "Lunch",
-                    totalCalories: 623,
-                    numOfServings: 1
-                }
-            ]
+            mealRecordList: []
         }
     },
     components: {
@@ -106,7 +95,7 @@ export default {
                 window.alert("Meal Limit Reached.");
             }
             else {
-                this.meal.totalCalories += this.food.calories;
+                this.meal.totalCalories += parseInt(this.food.calories);
                 this.food.sizeAndUnit = this.servingSizeAndUnit.servingSize + " " + this.servingSizeAndUnit.measureUnit;
                 this.meal.foods.push(this.food);
                 this.food = {};
