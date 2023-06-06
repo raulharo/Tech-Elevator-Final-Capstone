@@ -14,6 +14,7 @@ public class Meal {
     private int totalCalories;
     @JsonProperty("foods")
     private List<Food> foodList;
+    private boolean showFoods = false;
 
     public Meal() {
 
@@ -40,6 +41,14 @@ public class Meal {
         this.type = type;
         this.totalCalories = totalCalories;
         this.foodList = foodList;
+    }
+
+    public boolean isShowFoods() {
+        return showFoods;
+    }
+
+    public void setShowFoods(boolean showFoods) {
+        this.showFoods = showFoods;
     }
 
     public LocalDate getMealDate() {

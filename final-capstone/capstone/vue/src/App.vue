@@ -1,6 +1,8 @@
 <template>
+<v-container class="container">
+       <mindful-alert v-show="showAlert" @close-alert="showAlert = false" />
   <v-app>
-     <mindful-alert v-show="showAlert" @close-modal="showAlert = false" />
+
     <v-app-bar
       app
       color="primary"
@@ -42,6 +44,8 @@
       <router-view/>
     </v-main>
   </v-app>
+  
+     </v-container>
 </template>
 
 <script>
@@ -58,3 +62,7 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+
+
+</style>

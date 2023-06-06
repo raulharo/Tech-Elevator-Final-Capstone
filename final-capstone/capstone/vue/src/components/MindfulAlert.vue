@@ -8,7 +8,7 @@
       <v-btn @click="$router.push('/mindfulness')">Go to mindfulness Page</v-btn>
     </div>
     <div class="close">
-      <v-btn @click="$emit('close-modal')">X</v-btn>
+      <v-btn @click="$emit('close-alert')">X</v-btn>
     </div>
   </div>
 </template>

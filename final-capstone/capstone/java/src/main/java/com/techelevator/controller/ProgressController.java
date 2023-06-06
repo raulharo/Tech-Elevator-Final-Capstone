@@ -2,10 +2,12 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.ProgressDao;
 import com.techelevator.dao.UserDao;
+import com.techelevator.model.Profile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
@@ -90,6 +92,18 @@ public class ProgressController {
         int userId = userdao.findIdByUsername(username);
         return progressDao.getLifetimeMindfulMins(userId);
     }
+    @GetMapping (value="get-calorie-goal/")
+    public int getCalorieGoal (Principal principal){
+        String username = principal.getName();
+        int userId = userdao.findIdByUsername(username);
+        return progressDao.getCalorieGoal(userId);
+    }
 
+    @GetMapping (value="get-mindful-goal/")
+    public int getMindfulGoal (Principal principal){
+        String username = principal.getName();
+        int userId = userdao.findIdByUsername(username);
+        return progressDao.getMindfulGoal(userId);
+    }
 
 }

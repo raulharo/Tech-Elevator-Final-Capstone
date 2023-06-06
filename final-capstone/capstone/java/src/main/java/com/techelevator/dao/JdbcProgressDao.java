@@ -18,7 +18,7 @@ public class JdbcProgressDao implements ProgressDao {
         String sql = "SELECT * FROM meal_history WHERE user_ID = ? AND meal_date = NOW()::date;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while(results.next()) {
-            todayCalories += results.getInt("calories");
+            todayCalories += results.getInt("total_calories");
         }
         return todayCalories;
     }
@@ -117,5 +117,25 @@ public class JdbcProgressDao implements ProgressDao {
         return lifetimeMindfulMins;
     }
 
+    @Override
+    public int getMindfulGoal(int userId) {
+        int mindfulGoal = 0;
+        String sql = "SELECT * FROM profiles WHERE user_ID = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+        while(results.next()) {
+            mindfulGoal = results.getInt("mindful_goal");
+        }
+        return mindfulGoal;
+    }
 
+    @Override
+    public int getCalorieGoal(int userId) {
+        int calorieGoal = 0;
+        String sql = "SELECT * FROM profiles WHERE user_ID = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+        while(results.next()) {
+            calorieGoal = results.getInt("calorie_limit");
+        }
+        return calorieGoal;
+    }
 }
