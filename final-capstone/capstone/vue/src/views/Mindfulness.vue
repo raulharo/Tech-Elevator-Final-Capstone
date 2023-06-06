@@ -39,7 +39,7 @@
         >
           <v-text-field
             v-model="mindfulness.minutes"
-            label="Desired Minutes"
+            label="Minutes Spent on Activity"
             filled
           ></v-text-field>
         </v-col>

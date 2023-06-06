@@ -1,11 +1,14 @@
 <template>
   <div class="container">
+  
       <h1>Rules and Regulations</h1>
       <p>User agrees that Head and Health Sidekick is not responsible for essentially anything that could possibly go wrong. 
         User will not hold head and health sidekick responsible for anything at all, ever, no matter what.</p>
       <br>
       <v-btn @click="$router.push('/')">I agree</v-btn> 
       <scoped><v-btn v-on:click="deleteUser()">I don't agree</v-btn></scoped>
+      <br>
+      <img id="logo" src="../../public/logo.png" alt="">
   </div>
 </template>
 
@@ -41,8 +44,7 @@ export default {
   margin-top: 5px;
   padding: 5px;
 }
-body{
-  background: url(../../public/backgroundImg.jpg);
+img{
+  size: 20%;
 }
-
 </style>

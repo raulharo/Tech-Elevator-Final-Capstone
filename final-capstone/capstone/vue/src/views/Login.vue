@@ -72,7 +72,7 @@ export default {
 div {
   height: 100%;
   width: 100%;
-  background-color: rgb(110, 226, 228);
+  background-color: rgb(144, 178, 179);
 }
 .form-input-group {
   margin-bottom: 2rem;
@@ -80,8 +80,6 @@ div {
   flex-direction: column;
   align-items: center;
   height: 20%;
-  background-color: rgb(110, 226, 228);
-
 }
 label {
   margin-right: 0.5rem;
@@ -91,7 +89,7 @@ label {
 .signin {
   display:flex;
   justify-content: center;
-  background-color: rgb(110, 226, 228);
+  background-color: rgb(144, 178, 179);
 }
 
 input {
@@ -110,7 +108,7 @@ input {
 button {
   width: 80%;
   height: 100%;
-  background-color: #76c4fa;
+  background-color: #f8f9fa;
   border-radius: 4px;
 }
 .needanaccount {
@@ -121,10 +119,16 @@ button {
 h1 {
   margin: 35% 0%;
 }
+body{
+  background: url("../../public/grass.jpg");
+}
 @media only screen and (min-width: 768px) {
   #login {
-    background-color: rgb(110, 226, 228);
+    background-color: rgb(144, 178, 179);
   }
+body{
+  background: url("../../public/grass.jpg")
+}
 }
   
 

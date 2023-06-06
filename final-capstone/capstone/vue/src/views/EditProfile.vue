@@ -144,7 +144,7 @@ input:hover {
     .container {
         display: flex;
         align-items: center;      
-        background-color: antiquewhite;
+        background-color: rgb(255, 253, 251);
         width: 100%;
         
     }
