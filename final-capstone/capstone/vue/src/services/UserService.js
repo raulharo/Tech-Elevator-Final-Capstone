@@ -34,6 +34,10 @@ export default {
 
     getDayCalories() {
         return axios.get('day-calories');
+    },
+
+    getDayMindful() {
+        return axios.get('day-mindful');
     }
 
 }

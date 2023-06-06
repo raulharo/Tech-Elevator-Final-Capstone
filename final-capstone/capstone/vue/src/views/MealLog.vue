@@ -145,7 +145,5 @@ h1, h3, #mealType {
     border: 1px solid black;
 }
 
-#food-entry {
 
-}
 </style>
