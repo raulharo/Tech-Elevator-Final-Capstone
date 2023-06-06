@@ -52,7 +52,7 @@
           v-bind:mealRecord="mealRecord"/>
           <v-btn v-on:click="showFoodList(mealRecord)">Show Foods</v-btn>
           <div v-if="mealRecord.showFoods">
-              <meal-item-row
+              <meal-detail-row
               v-for="food in mealRecord.foods"
               v-bind:key="food.foodId"
               v-bind:food="food"/>
@@ -66,6 +66,7 @@ import mealItemRow from '../components/MealItemRow.vue'
 import mealHistoryRow from '../components/MealHistoryRow.vue'
 import Navigation from '../components/Navigation.vue'
 import foodService from '../services/FoodService.js'
+import mealDetailRow from '../components/MealDetailRow.vue'
 
 export default {
     data() {
@@ -91,7 +92,8 @@ export default {
     components: {
         mealItemRow,
         Navigation,
-        mealHistoryRow
+        mealHistoryRow,
+        mealDetailRow
     },
     methods: {
         addFoodToMeal() {
