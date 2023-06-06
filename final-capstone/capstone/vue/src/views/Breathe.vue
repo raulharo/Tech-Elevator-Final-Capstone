@@ -5,6 +5,8 @@
   <div class="container">
     <v-app-bar app color="teal lighten-3" dark> <navigation /> </v-app-bar>
     <div class="content">
+      <v-banner rounded color="indigo lighten-2">
+        <br>
       <h1>Breath Circle</h1>
       <br />
       <p id="instructions">
@@ -16,6 +18,7 @@
         Studies show that even one deep breath can cause a positive shift in
         wellbeing.
       </p>
+      </v-banner>
       <div class="circle-wrap">
         <div class="circle-progress"></div>
       </div>
@@ -32,10 +35,7 @@ export default {
 </script>
 
 <style scoped>
-.body{
-   background: url("../../public/rays.jpg");
-  background-size: cover;
-}
+
 .container {
   position: relative; 
   height: 100vh;
@@ -44,6 +44,8 @@ export default {
   align-items: center;
   justify-content: center;
   text-align: center;
+  background: url("../../public/rays.jpg");
+  background-size: cover;
  
 
 }
@@ -97,11 +99,17 @@ export default {
   margin-bottom: 24px;
   font-size: 24px;
 }
+h1{
+  color: white;
+  
+}
+p{
+  color: white;
+}
 
 .instructions {
   text-align: center;
   margin-bottom: 32px;
-  color: white;
 }
 @media only screen and (min-width: 768px) {
   .container {
