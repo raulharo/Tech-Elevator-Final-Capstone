@@ -11,6 +11,7 @@ public class Meal {
     private LocalDate mealDate;
     @JsonProperty("mealType")
     private String type;
+    private int userId;
     private int totalCalories;
     @JsonProperty("foods")
     private List<Food> foodList;
@@ -28,12 +29,13 @@ public class Meal {
         this.mealId = mealId;
     }
 
-    public Meal(int mealId, LocalDate mealDate, String type, int totalCalories, List<Food> foodList) {
+    public Meal(int mealId, LocalDate mealDate, String type, int totalCalories, List<Food> foodList, int userId) {
         this.mealId = mealId;
         this.mealDate = mealDate;
         this.type = type;
         this.totalCalories = totalCalories;
         this.foodList = foodList;
+        this.userId = userId;
     }
 
     public Meal(LocalDate mealDate, String type, int totalCalories, List<Food> foodList) {
@@ -41,6 +43,14 @@ public class Meal {
         this.type = type;
         this.totalCalories = totalCalories;
         this.foodList = foodList;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public boolean isShowFoods() {

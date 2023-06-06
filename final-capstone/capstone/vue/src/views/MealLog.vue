@@ -36,12 +36,12 @@
           v-bind:food="food"/>
       </div>
       <v-btn v-on:click="saveMeal">Save Meal</v-btn>
-      <v-btn v-on:click="getMeals">Test Button to get this users meals in console</v-btn>
 
       <div v-for="mealRecord in mealRecordList" v-bind:key="mealRecord.mealId">
           <meal-history-row
-          v-bind:mealRecord="mealRecord" :key="componentKey"/>
+          v-bind:mealRecord="mealRecord"/>
           <v-btn v-on:click="showFoodList(mealRecord)">Show Foods</v-btn>
+          <v-btn v-on:click="deleteMealRecord(mealRecord.mealId)">Delete Meal</v-btn>
           <div v-if="mealRecord.showFoods">
               <meal-detail-row
               v-for="food in mealRecord.foods"
@@ -74,8 +74,7 @@ export default {
                 foods: [],
                 totalCalories: 0
             },
-            mealRecordList: [],
-            componentKey: 0
+            mealRecordList: []
         }
     },
     components: {
@@ -100,18 +99,13 @@ export default {
         saveMeal() {
             console.log(this.meal.foods);
             console.log(this.meal.mealType);
-            foodService.createMeal(this.meal);
+            foodService.createMeal(this.meal).then(this.$router.go());
         },
-
-        getMeals() {
-            console.log(foodService.getMeals());
-        },
-
         showFoodList(meal) {
             meal.showFoods = !meal.showFoods;
         },
-        forceRerender() {
-            this.componentKey += 1;
+        deleteMealRecord(mealId) {
+            foodService.deleteMeal(mealId).then(this.$router.go());
         }
     },
     created() {

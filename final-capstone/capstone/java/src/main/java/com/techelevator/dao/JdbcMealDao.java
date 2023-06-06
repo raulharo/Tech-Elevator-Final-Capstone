@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import javax.xml.crypto.Data;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +78,7 @@ public class JdbcMealDao implements MealDao {
     public List<Meal> getMealsByUserId(int userId) {
         List<Meal> mealList = new ArrayList<>();
         String sql = "SELECT * FROM meal_history WHERE user_id = ?" +
-                    " ORDER BY meal_date;";
+                    " ORDER BY meal_date, meal_history_id;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while(results.next()) {
             mealList.add(mapRowToMeals(results));
@@ -174,6 +175,34 @@ public class JdbcMealDao implements MealDao {
         return false;
     }
 
+    public boolean deleteMeal(int mealId) {
+        String junctionSql = "DELETE FROM meal_history_foods WHERE meal_history_id = ?";
+        String deleteSql = "DELETE FROM meal_history WHERE meal_history_id = ?";
+
+        try {
+            jdbcTemplate.update(junctionSql, mealId);
+            jdbcTemplate.update(deleteSql, mealId);
+            return true;
+        }
+        catch (DataAccessException e) {
+            if (e instanceof CannotGetJdbcConnectionException) {
+                System.out.println("Cannot get JDBC connection: " + e.getMessage());
+            } else if (e instanceof DataIntegrityViolationException) {
+                System.out.println("Data integrity violation: " + e.getMessage());
+            } else if (e instanceof DuplicateKeyException) {
+                System.out.println("Duplicate key violation: " + e.getMessage());
+            } else if (e instanceof IncorrectResultSizeDataAccessException) {
+                System.out.println("Incorrect result size: " + e.getMessage());
+            } else if (e instanceof InvalidDataAccessApiUsageException) {
+                System.out.println("Invalid usage of JdbcTemplate: " + e.getMessage());
+            } else {
+                System.out.println("Data access exception occurred: " + e.getMessage());
+            }
+        }
+
+        return false;
+    }
+
     public Meal mapRowToMeals(SqlRowSet rs) {
         Meal meal = new Meal();
         meal.setMealId(rs.getInt("meal_history_id"));
@@ -182,6 +211,7 @@ public class JdbcMealDao implements MealDao {
         meal.setMealDate(localDate);
         meal.setType(rs.getString("type"));
         meal.setTotalCalories(rs.getInt("total_calories"));
+        meal.setUserId(rs.getInt("user_id"));
         meal.setShowFoods(false);
 
         int mealId = meal.getMealId();

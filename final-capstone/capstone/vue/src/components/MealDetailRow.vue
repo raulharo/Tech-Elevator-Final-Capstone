@@ -91,9 +91,7 @@ export default {
                 this.mealObject.totalCalories += parseInt(element.calories);
             });
 
-            foodService.updateMeal(this.mealObject);
-
-            this.switchToInputs = !this.switchToInputs;
+            foodService.updateMeal(this.mealObject).then(this.$router.go());
         }
     }
 
