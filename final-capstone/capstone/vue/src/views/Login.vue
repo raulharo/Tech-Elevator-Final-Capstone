@@ -9,6 +9,7 @@
       <div role="alert" v-if="this.$route.query.registration">
         Thank you for registering, please sign in.
       </div>
+      <div class="formsNStuff">
       <div class="form-input-group">
         <!-- <label for="username">Username</label> -->
         <v-text-field
@@ -30,21 +31,22 @@
           required
         />
       </div>
+      </div>
     </form>
-    <div class="signin">
+    
       <v-btn type="submit" class="button" color="cyan lighten-3" elevation="7"
         >Sign in</v-btn
       >
-    </div>
-
-    <p class="needanaccount">
-      <v-btn
-        color="cyan lighten-3"
-        elevation="7"
-        @click="$router.push('register')"
-        >Register</v-btn
-      >
-    </p>
+      <br/>
+      <p class="needanaccount">
+        <v-btn
+          color="cyan lighten-3"
+          elevation="7"
+          @click="$router.push('register')"
+          >Register</v-btn
+        >
+      </p>
+   
   </div>
 </template>
 
@@ -88,6 +90,25 @@ export default {
 
 <style scoped>
 .login {
+  background-color: rgb(144, 178, 179);
+  display: block;
+}
+
+#logo {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  height: 30%;
+}
+.form-input-group {
+  padding: 6px;
+}
+.formsNStuff{
+  display: flex;
+  justify-content: center;
+}
+
+/* .login {
   display: flex;
   justify-content: center;
   height: 100vh;
@@ -110,27 +131,24 @@ label {
   font-size: 2rem;
 }
 .signin {
-  display: flex;
+  display:flex;
   justify-content: center;
   background-color: rgb(144, 178, 179);
 }
-
 input {
   border: solid 1.5px, black;
   border-radius: 4px;
   height: 30%;
 }
-
 .signin {
   display: flex;
   justify-content: center;
   height: 8%;
 }
-
 button {
   width: 80%;
   height: 100%;
-  background-color: #f8f9fa;
+  background-color: #F8F9FA;
   border-radius: 4px;
 }
 .needanaccount {
@@ -139,7 +157,7 @@ button {
 }
 h1 {
   margin: 35% 0%;
-}
+} */
 
 @media only screen and (max-width: 768px) {
   #login {
@@ -158,6 +176,5 @@ h1 {
     padding: 6px;
     margin-top: -50px;
   }
- 
 }
 </style>

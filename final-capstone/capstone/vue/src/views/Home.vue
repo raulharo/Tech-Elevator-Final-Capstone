@@ -42,12 +42,41 @@ export default {
 </script>
 
 <style scoped>
-
 .picture {
   display: flex;
   justify-content: flex-end;
   width: 100%;
 }
+  to  Everyone
+.picture {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+  "progress-component"
+  "friend-activity";
+
+}
+
+#progress-component {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#friend-activity {
+    grid-area: friend-activity;
+    display: flex;
+    justify-content: center;
+    border: 1px solid gray;
+}
+
+
+
 @media only screen and (mmax-width: 768px) {
   .home {
     display: grid;
