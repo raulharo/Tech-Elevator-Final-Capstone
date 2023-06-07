@@ -17,10 +17,10 @@
           <v-list-item-title>Home</v-list-item-title>
         </v-list-item>
         <v-list-item>
-          <v-list-item-title @click="$router.push('meal-log')">Track Food</v-list-item-title>
+          <v-list-item-title @click="$router.push('meal-log')">Log Meals</v-list-item-title>
         </v-list-item>
         <v-list-item>
-          <v-list-item-title @click="$router.push('mindfulness')">Track Mindfullness</v-list-item-title>
+          <v-list-item-title @click="$router.push('mindfulness')">Log Mindfullness</v-list-item-title>
         </v-list-item>
         <v-list-item @click="$router.push('breathe')">
           <v-list-item-title>Breath Work</v-list-item-title>

@@ -12,15 +12,18 @@
       </v-app-bar>
       <div class="content">
         <v-banner rounded color="indigo lighten-2">
+          <h3>Breathing App</h3>
+          <br>
+           <p>
+            Studies show that even one deep breath can cause a positive shift in
+            wellbeing.
+          </p>
           <p id="instructions">
             Try your best to sync your breath with the growing circle. Inhale as
             the circle increases, hold your inhale until it resets, and then
             exhale as the circle increases.
           </p>
-          <p>
-            Studies show that even one deep breath can cause a positive shift in
-            wellbeing.
-          </p>
+         
         </v-banner>
         <div class="circle-wrap">
           <div class="circle-progress"></div>
@@ -48,6 +51,7 @@ export default {
   text-align: center;
   background: url("../../public/rays.jpg");
   background-size: cover;
+  background-color: rgba(0, 128, 128, 0.1)
 }
 
 .circle-wrap {
@@ -99,7 +103,7 @@ export default {
   margin-bottom: 24px;
   font-size: 24px;
 }
-h1 {
+h3 {
   color: white;
 }
 p {
