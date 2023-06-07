@@ -32,11 +32,11 @@
         />
       </div>
       </div>
+
+      <v-btn type="submit" class="button" color="cyan lighten-3" elevation="7">Sign in</v-btn>
     </form>
     
-      <v-btn type="submit" class="button" color="cyan lighten-3" elevation="7"
-        >Sign in</v-btn
-      >
+      
       <br/>
       <p class="needanaccount">
         <v-btn
