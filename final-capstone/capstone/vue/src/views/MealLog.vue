@@ -358,6 +358,7 @@ export default {
 
 h1, h3, #mealType {
     text-align: center;
+    font-family: "Hanken Grotesk";
 }
 
 #mealType {
