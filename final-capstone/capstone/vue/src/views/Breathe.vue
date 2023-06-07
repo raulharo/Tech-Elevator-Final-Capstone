@@ -3,12 +3,14 @@
     <div class="container">
       <v-app-bar app color="teal lighten-3" dark>
         <navigation />
-        <v-img
+        <div class="picture">
+          <v-img
           src="../../public/logo.png"
           max-height="60"
           max-width="60"
           contain
         ></v-img>
+        </div>
       </v-app-bar>
       <div class="content">
         <v-banner rounded color="indigo lighten-2">
@@ -41,6 +43,12 @@ export default {
 </script>
 
 <style scoped>
+
+.picture {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
 .container {
   position: relative;
   height: 100vh;

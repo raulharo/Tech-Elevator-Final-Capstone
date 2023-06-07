@@ -4,12 +4,15 @@
       app
       color="teal lighten-3"
       dark
-    > <navigation /><v-img
+    > <navigation />
+    <div class="picture">
+    <v-img
           src="../../public/logo.png"
           max-height="60"
           max-width="60"
           contain
         ></v-img>
+        </div>
     </v-app-bar>
     <div class="content">
       <h1 id="title">Edit Profile</h1>
@@ -94,6 +97,12 @@ export default {
 </script>
 
 <style scoped>
+.picture {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
 h1 {
     margin-top: 5%;
 }
