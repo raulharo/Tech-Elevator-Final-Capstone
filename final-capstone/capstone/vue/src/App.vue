@@ -50,7 +50,7 @@ body {
   background-color: rgba(0, 128, 128, 0.1);
 }
 
-main {
-  padding-top: 60px;
+.container {
+  padding-top: 0px;
 }
 </style>

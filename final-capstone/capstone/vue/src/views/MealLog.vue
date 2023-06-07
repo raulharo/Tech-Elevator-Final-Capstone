@@ -1,6 +1,6 @@
 <template>
   <div class="root">
-      <v-app-bar
+    <v-app-bar
       app
       color="teal lighten-3"
       dark
@@ -13,46 +13,203 @@
     </v-app-bar>
       <h1>Meal Log</h1>
       <h3>Choose Meal Type:</h3>
-      <select name="mealType" id="mealType" v-model="meal.mealType">
-          <option value="Breakfast">Breakfast</option>
-          <option value="Lunch">Lunch</option>
-          <option value="Dinner">Dinner</option>
-          <option value="Snack">Snack</option>
-      </select>
+      <v-select id="mealType" v-model="meal.mealType"
+        :items="mealTypes"
+      ></v-select>
       <div id="food-entry">
         <div>
-            <label for="foodName">Food Name:</label>
-            <input type="text" name="foodName" id="foodName" v-model="food.foodName">
+            <v-text-field label="Food Name" id="foodName" v-model="food.foodName"></v-text-field>
         </div>
         <div>
-            <label for="calories">Calories:</label>
-            <input type="number" name="calories" id="calories" min="0" v-model="food.calories">
+            <v-text-field type="number" label="Calories" id="calories" min="0" v-model="food.calories"></v-text-field>
         </div>
         <div>
-            <label for="servingSize">Serving Size:</label>
-            <input type="text" name="servingSize" id="servingSize" min="0" v-model="food.servingSize">
+            <v-text-field label="Serving Size" id="servingSize" v-model="food.servingSize"></v-text-field>
         </div>
         <div>
-            <label for="numOfServings">Number of Servings</label>
-            <input type="number" name="numOfServings" id="numOfServings" min="0" v-model="food.numOfServings">
+            <v-text-field type="number" label="Number of Servings" id="numOfServings" min="0" v-model="food.numOfServings"></v-text-field>
         </div>
-
-        <v-btn v-on:click="addFoodToMeal">Add Food</v-btn>
       </div>
-
+      
+      <div class="btn-group">
+        <v-btn v-on:click="addFoodToMeal">Add Food</v-btn>
+        <v-btn v-on:click="saveMeal">Save Meal</v-btn>
+      </div>
       <div>
           <meal-item-row
           v-for="food in meal.foods"
           v-bind:key="food.foodName"
           v-bind:food="food"/>
       </div>
-      <v-btn v-on:click="saveMeal">Save Meal</v-btn>
 
       <div class="calendar">
           <v-date-picker v-model="dates" range></v-date-picker>
       </div>
+      
+      <v-container fluid>
+          <v-data-iterator
+          :items="mealRecordList"
+          :items-per-page.sync="itemsPerPage"
+          :page.sync="page"
+          :search="search"
+          :sort-by="sortBy.toLowerCase()"
+          :sort-desc="sortDesc"
+          hide-default-footer
+          >
+            <template v-slot:header>
+              <v-toolbar
+                dark
+                color="teal"
+                class="mb-1"
+              >
+                <v-text-field
+                  v-model="search"
+                  clearable
+                  flat
+                  solo-inverted
+                  hide-details
+                  prepend-inner-icon="mdi-magnify"
+                  label="Search"
+                ></v-text-field>
+                <template v-if="$vuetify.breakpoint.mdAndUp">
+                    <v-spacer></v-spacer>
+                    <v-select
+                      v-model="sortBy"
+                      flat
+                      solo-inverted
+                      hide-details
+                      :items="keys"
+                      prepend-inner-icon="mdi-magnify"
+                      label="Sort by"
+                    ></v-select>
+                    <v-spacer></v-spacer>
+                    <v-btn-toggle
+                      v-model="sortDesc"
+                      mandatory
+                    >
+                      <v-btn
+                        large
+                        depressed
+                        color="teal-darken-4"
+                        :value="false"
+                      >
+                        <v-icon>mdi-arrow-up</v-icon>
+                      </v-btn>
+                      <v-btn
+                        large
+                        depressed
+                        color="teal-darken-4"
+                        :value="true"
+                      >
+                        <v-icon>mdi-arrow-down</v-icon>
+                      </v-btn>
+                    </v-btn-toggle>
+                </template>
+              </v-toolbar>
+            </template>
 
-      <div v-for="mealRecord in filteredList" v-bind:key="mealRecord.mealId">
+            <template v-slot:default="props">
+              <v-row>
+                <v-col
+                  v-for="item in props.mealRecordList"
+                  :key="item.mealId"
+                  cols="12"
+                  sm="6"
+                  md="4"
+                  lg="3"
+                >
+                  <v-card>
+                    <v-card-title class="subheading font-weight-bold">
+                        {{item.name}}
+                    </v-card-title>
+
+                    <v-divider></v-divider>
+
+                    <v-list dense>
+                      <v-list-item
+                        v-for="(key, index) in filteredKeys"
+                        :key="index"
+                      >
+                        <v-list-item-content :class="{ 'blue--text' : sortBy === key}">
+                            {{key}}:
+                        </v-list-item-content>
+                        <v-list-item-content
+                          class="align-end"
+                          :class="{ 'blue--text': sortBy === key }"
+                        >
+                          {{ item[key.toLowerCase()] }}
+                        </v-list-item-content>
+                      </v-list-item>
+                    </v-list>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </template>
+
+            <template v-slot:footer>
+                <v-row
+                  class="mt-2"
+                  align="center"
+                  justify="center"
+                >
+                  <span class="grey--text">Items per page</span>
+                  <v-menu offset-y>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn
+                        dark
+                        text
+                        color="primary"
+                        class="ml-2"
+                        v-bind="attrs"
+                        v-on="on"
+                      >
+                        {{ itemsPerPage }}
+                        <v-icon>mdi-chevron-down</v-icon>
+                      </v-btn>
+                    </template>
+                    <v-list>
+                      <v-list-item
+                        v-for="(number, index) in itemsPerPageArray"
+                        :key="index"
+                        @click="updateItemsPerPage(number)"
+                      >
+                        <v-list-item-title>{{ number }}</v-list-item-title>
+                      </v-list-item>
+                    </v-list>
+                  </v-menu>
+
+                  <v-spacer></v-spacer>
+
+                  <span
+                    class="mr-4
+                    grey--text"
+                  >
+                    Page {{ page }} of {{ numberOfPages }}
+                  </span>
+                  <v-btn
+                    fab
+                    dark
+                    color="blue darken 3"
+                    class="ml-1"
+                    @click="formerPage"
+                  >
+                    <v-icon>mdi-chevron-left</v-icon>
+                  </v-btn>
+                  <v-btn
+                    fab
+                    dark
+                    color="blue darken-3"
+                    class="ml-1"
+                    @click="nextPage"
+                  >
+                    <v-icon>mdi-chevron-right</v-icon>
+                  </v-btn>
+                </v-row>
+            </template>
+          </v-data-iterator>
+      </v-container>
+
+      <!-- <div v-for="mealRecord in filteredList" v-bind:key="mealRecord.mealId">
           <meal-history-row
           v-bind:mealRecord="mealRecord"/>
           <v-btn v-on:click="showFoodList(mealRecord)">Show Foods</v-btn>
@@ -64,15 +221,15 @@
               v-bind:food="food"
               v-bind:mealRecord="mealRecord"/>
           </div>
-      </div>
+      </div> -->
   </div>
 </template>
 
 <script>
 import mealItemRow from '../components/MealItemRow.vue'
-import mealHistoryRow from '../components/MealHistoryRow.vue'
+//import mealHistoryRow from '../components/MealHistoryRow.vue'
 import foodService from '../services/FoodService.js'
-import mealDetailRow from '../components/MealDetailRow.vue'
+//import mealDetailRow from '../components/MealDetailRow.vue'
 import Navigation from '../components/Navigation.vue'
 
 export default {
@@ -80,26 +237,36 @@ export default {
         return {
             food: {
                 foodName: "",
-                calories: 0,
+                calories: "",
                 servingSize: "",
                 numOfServings: "",
             },
             meal: {
-                mealType: "",
+                mealType: "Breakfast",
                 foods: [],
                 totalCalories: 0
             },
             mealRecordList: [],
-            today1: new Date().toLocaleDateString,
-            today2: new Date().toLocaleDateString,
-            dates: [this.today1, this.today2],
+            itemsPerPage: 4,
+            itemsPerPageArray: [4, 8, 12],
+            page: 1,
+            filter: {},
+            search: '',
+            sortBy: 'name',
+            keys: [
+                'Date Logged',
+                'Meal Type',
+                'Total Calories'
+            ],
+            mealTypes: ["Breakfast", "Lunch", "Dinner", "Snack"],
+            dates: [],
             placeholderDate: ""
         }
     },
     components: {
         mealItemRow,
-        mealHistoryRow,
-        mealDetailRow,
+        // mealHistoryRow,
+        // mealDetailRow,
         Navigation
     },
     methods: {
@@ -133,6 +300,15 @@ export default {
                 dates.push(this.placeholderDate);
                 this.dates = dates;
             }
+        },
+        nextPages() {
+            if(this.page + 1 <= this.numberOfPages) this.page += 1
+        },
+        formerPage() {
+            if(this.page - 1 >= 1) this.page -= 1
+        },
+        updateItemsPerPage(number) {
+            this.itemsPerPage = number
         }
     },
     computed: {
@@ -147,6 +323,12 @@ export default {
 
 
             return filteredMeals;
+        },
+        numberOfPages() {
+            return Math.ceil(this.mealRecordList.length / this.itemsPerPage)
+        },
+        filteredKeys() {
+            return this.keys.filter(key => key !== 'mealId')
         }
     },
     created() {
@@ -160,13 +342,49 @@ export default {
 </script>
 
 <style>
+.root {
+    padding: 10px;
+}
+
 h1, h3, #mealType {
     text-align: center;
 }
 
 #mealType {
-    border: 1px solid black;
+    align-items: center;
+    display: block;
+    margin: 0 auto;
 }
 
+#food-entry {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-group > .v-btn {
+    margin: 15px 10px 20px 10px;
+}
+
+@media only screen and (min-width: 768px) {
+    #food-entry {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .v-select__selection {
+        widows: 100%;
+        justify-content: center;
+    }
+
+    .btn-group > .v-btn {
+        margin: 0px 10px 10px 5px;
+    }
+}
 
 </style>
