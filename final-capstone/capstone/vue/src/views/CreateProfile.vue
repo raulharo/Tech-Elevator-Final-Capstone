@@ -1,7 +1,15 @@
 <template>
   <div class="container">
       <h1 id="title">Create Profile</h1>
-      <img src="../../public/profile-circle-svgrepo-com.svg" alt="">
+
+      <div class="pfp-div">
+        <div class="profile-picture">
+            <img :src="user.profilePicture" alt="">
+        </div>
+        <v-text-field label="Image URL" type="text" v-model="usersPfp"/>
+        <v-btn v-on:click="updateProfilePic">Update</v-btn>
+      </div>
+    
       <form action="">
 
           <div class="form-input">
@@ -66,8 +74,10 @@ export default {
                 currentWeight: "",
                 goalWeight: "",
                 calorieLimit: "",
-                mindfulGoal: ""
-            }
+                mindfulGoal: "",
+                profilePicture: "https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_1539,h_1069/https://h-o-m-e.org/wp-content/uploads/2022/04/Blank-Profile-Picture-1.jpg"
+            },
+            usersPfp: ""
         }
     },
     methods: {
@@ -87,6 +97,10 @@ export default {
             }
           });
             this.$router.push('/rules');
+        },
+        updateProfilePic() {
+            this.user.profilePicture = this.usersPfp;
+            this.usersPfp = "";
         }
     }
 }
@@ -113,6 +127,15 @@ form {
     height: 13%;
 }
 
+.profile-picture > img {
+    border-radius: 50%;
+    border-color: black;
+    border-style: solid;
+    height: 130px;
+    width: 100x;
+    object-fit: cover;
+}
+
 input {
   border-radius: 4px;
   height: 100%;
@@ -135,7 +158,6 @@ img {
     justify-content: center;
     height: 9%;
     width: 100%;
-    padding: 
 }
 
 button {
