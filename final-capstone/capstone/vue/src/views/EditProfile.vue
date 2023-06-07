@@ -11,6 +11,7 @@
           contain
         ></v-img>
     </v-app-bar>
+    <div class="content">
       <h1 id="title">Edit Profile</h1>
       <img src="../../public/profile-circle-svgrepo-com.svg" alt="">
       <form action="">
@@ -58,7 +59,7 @@
           <br>
           <div class="button-div"><v-btn color="cyan lighten-3" type="submit" v-on:click="editProfile">Save Changes</v-btn></div>
       </form>
-
+</div>
   </div>
 </template>
 
@@ -102,10 +103,12 @@ h1 {
     flex-direction: column;
     align-items: center;
     height: 100vh;
+    background-color: rgba (0, 128, 128, 0.1);
 }
 
 form {
     align-items: center;
+    background-color: rgba (0, 128, 128, 0.1)
 }
 
 .form-input {
@@ -154,7 +157,7 @@ input:hover {
     .container {
         display: flex;
         align-items: center;      
-        background-color: rgb(255, 253, 251);
+        background-color: rgba(0, 128, 128, 0.1);
         width: 100%;
         
     }

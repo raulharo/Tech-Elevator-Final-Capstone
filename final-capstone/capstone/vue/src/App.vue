@@ -1,7 +1,7 @@
 <template>
 <v-container class="container">
        
-  <v-app>
+  <v-app id="dumbWhiteBar">
  <v-app-bar
       app
       color="teal lighten-3"
@@ -36,10 +36,13 @@ export default {
   },
 methods:{
   displayAlert(){
-    this.showAlert = true
-    setInterval(this.displayAlert, 5000)
+   
+    setTimeout(() => this.showAlert = true, 120000)
 },
 },
+mounted(){
+  this.displayAlert()
+}
 }
 
 </script>
@@ -57,4 +60,8 @@ body {
 .container {
   padding-top: 0px;
 }
+#dumbWhiteBar{
+  background: rgba(0, 128, 128, 0);
+}
+
 </style>
