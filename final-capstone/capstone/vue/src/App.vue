@@ -20,7 +20,7 @@
     </v-main>
    
   </v-app>
-  <mindful-alert v-show="showAlert" @close-alert="showAlert = false" />
+  <mindful-alert v-show="$store.state.showAlert" @close-alert="hideAlert()" />
   
      </v-container>
      
@@ -33,16 +33,14 @@ export default {
   components: { MindfulAlert },
   name: "App",
 
-  data() {
-    return {
-      showAlert: false
-    }
-  },
 methods:{
   displayAlert(){
    
-    setTimeout(() => this.showAlert = true, 120000)
+    setTimeout(() => this.$store.commit("SET_ALERT", true), 120000 )
 },
+hideAlert(){
+  this.$store.commit("SET_ALERT", false)
+}
 },
 mounted(){
   this.displayAlert()

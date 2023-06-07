@@ -27,9 +27,10 @@
           </p>
          
         </v-banner>
-        <div class="circle-wrap">
+        <breath-circle id="breathThing" />
+        <!-- <div class="circle-wrap">
           <div class="circle-progress"></div>
-        </div>
+        </div> -->
       </div>
     </div>
   </body>
@@ -37,13 +38,17 @@
 
 <script>
 import Navigation from "../components/Navigation.vue";
+import BreathCircle from "../components/BreathCircle.vue"
 export default {
-  components: { Navigation },
+  components: { Navigation, BreathCircle },
 };
 </script>
 
 <style scoped>
-
+#breathThing{
+  display: flex;
+  justify-content: center;
+}
 .picture {
   display: flex;
   justify-content: flex-end;
@@ -102,15 +107,6 @@ export default {
   }
 }
 
-.circle-grow {
-  transform: scale(5.3);
-}
-
-.breaths {
-  text-align: center;
-  margin-bottom: 24px;
-  font-size: 24px;
-}
 h3 {
   color: white;
 }
@@ -175,36 +171,9 @@ p {
     transform: scale(5.3);
   }
 
-  .breaths {
-    text-align: center;
-    margin-bottom: 24px;
-    font-size: 24px;
-  }
-
   .instructions {
     text-align: center;
     margin-bottom: 32px;
   }
 }
-
-/* button {
-  padding: 8px 20px;
-  border-radius: 8px;
-  background-color: #421bd1;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s ease all;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-}
-
-button:hover {
-  background-color: #f1f1f1;
-  color: #6236ff;
-}
-
-.button-inactive {
-  pointer-events: none;
-  background-color: #969696;
-} */
 </style>

@@ -24,7 +24,13 @@ export default {};
 </script>
 
 <style scoped>
+.container{
+  padding: 30px;
+}
 .title{
   text-align: center;
+}
+@media only screen and (max-width: 768px){
+ 
 }
 </style>

@@ -112,12 +112,11 @@ h1 {
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    background-color: rgba (0, 128, 128, 0.1);
+    background-color: rgba(0, 128, 128, 0.1);
 }
 
 form {
     align-items: center;
-    background-color: rgba (0, 128, 128, 0.1)
 }
 
 .form-input {
@@ -149,6 +148,7 @@ img {
     justify-content: center;
     height: 9%;
     width: 100%;
+    margin-top: -20px;
 }
 
 button {
@@ -168,8 +168,8 @@ input:hover {
         align-items: center;      
         background-color: rgba(0, 128, 128, 0.1);
         width: 100%;
-        
     }
+
     
 
  

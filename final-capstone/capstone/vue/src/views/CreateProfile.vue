@@ -45,7 +45,7 @@
           </div>
 
           <br>
-          <v-btn color="cyan lighten-3" type="submit" v-on:click="addProfile">Create Profile</v-btn>
+          <v-btn id="submit" color="cyan lighten-3" type="submit" v-on:click="addProfile">Create Profile</v-btn>
       </form>
 
   </div>
@@ -100,7 +100,6 @@ export default {
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background-color: black;
 }
 
 form {
@@ -136,6 +135,7 @@ img {
     justify-content: center;
     height: 9%;
     width: 100%;
+    padding: 
 }
 
 button {
@@ -155,7 +155,7 @@ input:hover {
         display: flex;
         align-items: center;      
         background-color: rgb(255, 255, 255);
-        width: 100%;
+      
         
     }
     
