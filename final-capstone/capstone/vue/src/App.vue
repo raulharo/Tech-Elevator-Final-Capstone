@@ -46,6 +46,10 @@ methods:{
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200&display=swap");
 
+.application {
+  font-family: "Hanken Grotesk";
+}
+
 body {
   background-color: rgba(0, 128, 128, 0.1);
 }

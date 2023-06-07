@@ -32,10 +32,10 @@
       </div>
       
       <div class="btn-group">
-        <v-btn v-on:click="addFoodToMeal">Add Food</v-btn>
-        <v-btn v-on:click="saveMeal">Save Meal</v-btn>
+        <v-btn v-on:click="addFoodToMeal" class="button" color="cyan lighten-3" elevation="7">Add Food</v-btn>
+        <v-btn v-on:click="saveMeal" class="button" color="cyan lighten-3" elevation="7">Save Meal</v-btn>
       </div>
-      <div>
+      <div id="food-list">
           <meal-item-row
           v-for="food in meal.foods"
           v-bind:key="food.foodName"
@@ -108,10 +108,10 @@
               </v-toolbar>
             </template>
 
-            <template v-slot:default="props">
+            <template v-slot:default="mealRecordList">
               <v-row>
                 <v-col
-                  v-for="item in props.mealRecordList"
+                  v-for="item in mealRecordList"
                   :key="item.mealId"
                   cols="12"
                   sm="6"
@@ -120,7 +120,7 @@
                 >
                   <v-card>
                     <v-card-title class="subheading font-weight-bold">
-                        {{item.name}}
+                        {{item.mealType}}
                     </v-card-title>
 
                     <v-divider></v-divider>
@@ -342,6 +342,7 @@ export default {
 </script>
 
 <style>
+
 .root {
     padding: 10px;
 }
@@ -359,6 +360,11 @@ h1, h3, #mealType {
 #food-entry {
     display: flex;
     flex-direction: column;
+}
+
+#food-list {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .btn-group {

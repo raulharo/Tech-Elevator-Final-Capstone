@@ -1,14 +1,26 @@
 <template>
   <div>
       <div class="food-container">
-        <v-simple-table>
-            <tr>
-                <td>{{food.foodName}}</td>
-                <td>{{food.calories}}</td>
-                <td>{{food.servingSize}}</td>
-                <td>{{food.numOfServings}}</td>
-            </tr>
-        </v-simple-table>
+        <v-card flat class="pa-3">
+            <v-layout rowclass="">
+              <v-flex xs12 md6>
+                <div class="caption grey--text">Food Name</div>
+                <div>{{food.foodName}}</div>
+              </v-flex>
+              <v-flex xs12 md6>
+                <div class="caption grey--text">Calories</div>
+                <div>{{food.calories}}</div>
+              </v-flex>
+              <v-flex xs12 md6>
+                <div class="caption grey--text">Serving Size</div>
+                <div>{{food.servingSize}}</div>
+              </v-flex>
+              <v-flex xs12 md6>
+                <div class="caption grey--text">Number of Servings</div>
+                <div>{{food.numOfServings}}</div>
+              </v-flex>
+            </v-layout>
+        </v-card>
       </div>
   </div>
 </template>
