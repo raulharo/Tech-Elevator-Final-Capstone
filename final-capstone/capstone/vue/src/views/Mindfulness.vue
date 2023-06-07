@@ -1,6 +1,6 @@
 <template>
-  <body>
-    <div>
+  
+    <div id="mindfulnessdiv">
       <v-app-bar app color="teal lighten-3" dark> <navigation />
       <div class="picture">
       <v-img
@@ -56,60 +56,10 @@
         </div>
       </h2>
     </div>
-  </body>
+  
 </template>
 
 
-
-      <!-- <h1>
-        <v-alert color="light-blue" dark dense icon="mdi-leaf" prominent>
-          Mindfulness and meditation is important. Some examples of mindfulness
-          activities could be: breath-work, meditation, physical activity, going
-          outdoors, yoga, limiting social media, bedtime routines, or anything
-          that makes you feel happy! Track your mindfulness activities and reach
-          your goal below.
-        </v-alert>
-      </h1>
-      <h2>
-        <v-form>
-          <v-container class="container">
-            <v-row>
-              <v-col cols="12" sm="6">
-                <v-text-field
-                  placeholder="Mindfulness Activity"
-                  v-model="mindfulness.activity"
-                  label="Mindfulness Activity"
-                  filled
-                >
-                </v-text-field>
-              </v-col>
-              <v-col cols="12" sm="6">
-                <v-text-field
-                  placeholder="Mindfulness Minutes"
-                  v-model="mindfulness.minutes"
-                  label="Mindfulness Minutes"
-                  filled
-                >
-                </v-text-field>
-              </v-col>
-            
-            <div class="container">
-              <v-flex justify="center">
-                <v-btn
-                  v-on:click="addActivity"
-                  class="button"
-                  color="light-blue"
-                  elevation="7"
-                  >Submit Activity</v-btn
-                >
-              </v-flex>
-            </div>
-          </v-container>
-        </v-form>
-      </h2>
-    </div>
-  </body>
-</template> -->
 
 <script>
 import MindfulnessService from "../services/MindfulnessService.js";
@@ -164,10 +114,13 @@ export default {
   width: 100%;
 }
 
-body {
+#mindfulnessdiv {
   background: url("../../public/mountain.jpg");
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   margin-left: -4%;
-  margin-top: -3.7%;
+  margin-top: -64px;
 
   height: 100vh;
   width: 100vw;
@@ -187,4 +140,15 @@ body {
 v-alert {
   margin: 0;
 }
+
+@media only screen and (max-width: 600px) {
+  #mindfulnessdiv {
+  background: none;
+  background-color: #D1C4E9;
+  width: 100%;
+  height: 120%;
+  }
+}
+
+
 </style>
