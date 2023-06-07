@@ -59,6 +59,7 @@ export default {
 </script>
 
 <style scoped>
+
 .progress {
   display: flex;
   flex-direction: column;

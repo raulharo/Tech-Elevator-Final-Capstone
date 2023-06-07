@@ -11,47 +11,47 @@
       <form action="">
 
           <div class="form-input">
-          <label for="firstName">First Name</label>
-          <input type="text" name="firstName" id="firstName" v-model="user.firstName">
+          <!-- <label for="firstName">First Name</label> -->
+          <v-text-field label="First Name" type="text" name="firstName" id="firstName" v-model="user.firstName"/>
           </div>
 
           <div class="form-input">
-          <label for="lastName">Last Name</label>
-          <input type="text" name="lastName" id="lastName" v-model="user.lastName">
+          <!-- <label for="lastName">Last Name</label> -->
+          <v-text-field label="Last Name" type="text" name="lastName" id="lastName" v-model="user.lastName"/>
           </div>
 
           <div class="form-input">
-          <label for="age">Age</label>
-          <input type="number" name="age" id="age" v-model="user.age">
+          <!-- <label for="age">Age</label> -->
+          <v-text-field label="Age" type="number" name="age" id="age" v-model="user.age"/>
           </div>
 
           <div class="form-input">
-          <label for="height">Height (in.)</label>
-          <input type="number" name="height" id="height" v-model="user.height">
+          <!-- <label for="height">Height (in.)</label> -->
+          <v-text-field label="Height" input type="number" name="height" id="height" v-model="user.height"/>
           </div>
 
           <div class="form-input">
-          <label for="currentWeight">Current Weight</label>
-          <input type="number" name="currentWeight" id="currentWeight" v-model="user.currentWeight">
+          <!-- <label for="currentWeight">Current Weight</label> -->
+          <v-text-field label="Current Weight" type="number" name="currentWeight" id="currentWeight" v-model="user.currentWeight"/>
           </div>
 
           <div class="form-input">
-          <label for="goalWeight">Goal Weight</label>
-          <input type="number" name="goalWeight" id="goalWeight" v-model="user.goalWeight">
+          <!-- <label for="goalWeight">Goal Weight</label> -->
+          <v-text-field label="Goal Weight" type="number" name="goalWeight" id="goalWeight" v-model="user.goalWeight"/>
           </div>
 
           <div class="form-input">
-          <label for="calorieLimit">Calorie Limit</label>
-          <input type="number" name="calorieLimit" id="calorieLimit" v-model="user.calorieLimit">
+          <!-- <label for="calorieLimit">Calorie Limit</label> -->
+          <v-text-field label="Calorie Limit" type="number" name="calorieLimit" id="calorieLimit" v-model="user.calorieLimit"/>
           </div>
 
           <div class="form-input">
-          <label for="mindfulGoal">Mindfulness Goal</label>
-          <input type="number" name="mindfulGoal" id="mindfulGoal" v-model="user.mindfulGoal" min="0">
+          <!-- <label for="mindfulGoal">Mindfulness Goal</label> -->
+          <v-text-field label="Mindfulness Goal" type="number" name="mindfulGoal" id="mindfulGoal" v-model="user.mindfulGoal" min="0"/>
           </div>
 
           <br>
-          <div class="button-div"><button type="submit" v-on:click="editProfile">Save Changes</button></div>
+          <div class="button-div"><v-btn color="cyan lighten-3" type="submit" v-on:click="editProfile">Save Changes</v-btn></div>
       </form>
 
   </div>

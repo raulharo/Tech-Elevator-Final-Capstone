@@ -1,13 +1,17 @@
 <template>
   <div class="container">
-  
+    <div>
       <h1>Rules and Regulations</h1>
       <p>User agrees that Head and Health Sidekick is not responsible for essentially anything that could possibly go wrong. 
         User will not hold head and health sidekick responsible for anything at all, ever, no matter what.</p>
-      <br>
-      <v-btn @click="$router.push('/')">I agree</v-btn> 
-      <scoped><v-btn v-on:click="deleteUser()">I don't agree</v-btn></scoped>
-      <br>
+      </div>
+      <div id="buttonsYes">
+      <v-btn  color="cyan lighten-3" @click="$router.push('/')">I agree</v-btn> 
+      </div>
+      <div id="buttonNo">
+      <scoped><v-btn color="cyan lighten-3" v-on:click="deleteUser()">I don't agree</v-btn></scoped>
+      </div>
+
       <img id="logo" src="../../public/logo.png" alt="">
   </div>
 </template>
@@ -39,8 +43,13 @@ export default {
 </script>
 
 <style scoped>
+#buttons{
+  display: flex;
+  justify-content: space-evenly;
+}
 .container{
   display: block;
+  align-items: center;
   margin-top: 5px;
   padding: 5px;
 }

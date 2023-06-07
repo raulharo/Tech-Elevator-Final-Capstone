@@ -6,49 +6,55 @@
         {{ registrationErrorMsg }}
       </div>
       <div class="form-input-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" v-model="user.username" required autofocus />
+        <!-- <label for="username">Username</label> -->
+        <v-text-field label="Username" type="text" id="username" v-model="user.username" required autofocus />
       </div>
       <div class="form-input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" v-model="user.password" required />
+        <!-- <label for="password">Password</label> -->
+        <v-text-field label="Password" type="password" id="password" v-model="user.password" required />
       </div>
       <div class="form-input-group">
-        <label for="confirmPassword">Confirm Password</label>
-        <input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
+        <!-- <label for="confirmPassword">Confirm Password</label> -->
+        <v-text-field label="Confirm password" input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
       </div>
       <div class="bottom-div">
-      <div class="submit-button"><button type="submit">Sign Up</button></div>
-      <p><router-link :to="{ name: 'login' }">Already have an account? Log in.</router-link></p>
+        <div class="submit-button">
+          <v-btn color="cyan lighten-3" @click="$router.push('rules')"
+            >Sign Up</v-btn
+          >
+        </div>
+        <div>
+          <v-btn color="cyan lighten-3" @click="$router.push('login')"
+            >Already have an account? Sign In</v-btn
+          >
+        </div>
       </div>
     </form>
-    
-  
   </div>
 </template>
 
 <script>
-import authService from '../services/AuthService';
+import authService from "../services/AuthService";
 
 export default {
-  name: 'register',
+  name: "register",
   data() {
     return {
       user: {
-        username: '',
-        password: '',
-        confirmPassword: '',
-        role: 'user',
+        username: "",
+        password: "",
+        confirmPassword: "",
+        role: "user",
       },
       registrationErrors: false,
-      registrationErrorMsg: 'There were problems registering this user.',
+      registrationErrorMsg: "There were problems registering this user.",
     };
   },
   methods: {
     register() {
       if (this.user.password != this.user.confirmPassword) {
         this.registrationErrors = true;
-        this.registrationErrorMsg = 'Password & Confirm Password do not match.';
+        this.registrationErrorMsg = "Password & Confirm Password do not match.";
       } else {
         authService
           .register(this.user)
@@ -61,7 +67,7 @@ export default {
             const response = error.response;
             this.registrationErrors = true;
             if (response.status === 400) {
-              this.registrationErrorMsg = 'Bad Request: Validation Errors';
+              this.registrationErrorMsg = "Bad Request: Validation Errors";
             }
           });
       }
@@ -69,17 +75,17 @@ export default {
     login() {
       authService
         .login(this.user)
-        .then(response => {
+        .then((response) => {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
             this.$router.push({
-                path: '/create-profile',
-                query: { registration: 'success' },
-              });
+              path: "/create-profile",
+              query: { registration: "success" },
+            });
           }
         })
-        .catch(error => {
+        .catch((error) => {
           const response = error.response;
 
           if (response.status === 401) {
@@ -89,14 +95,13 @@ export default {
     },
     clearErrors() {
       this.registrationErrors = false;
-      this.registrationErrorMsg = 'There were problems registering this user.';
+      this.registrationErrorMsg = "There were problems registering this user.";
     },
   },
 };
 </script>
 
 <style scoped>
-
 #register {
   display: flex;
   justify-content: center;
@@ -137,9 +142,9 @@ input {
 }
 
 button {
-  width: 85%;
+  width: 25px;
   height: 100%;
-  background-color: #76c4fa;
+  background-color: lightblue;
   border-radius: 4px;
 }
 
@@ -195,7 +200,5 @@ h1 {
   label {
     margin: 2% 0%;
   }
-
-
 }
 </style>

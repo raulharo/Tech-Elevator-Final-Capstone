@@ -36,14 +36,14 @@
           </v-container>
         </v-form>
         <div class="container">
-          <v-flex justify="center">
+          <div class="submit-activity">
             <v-btn
               v-on:click="addActivity"
               class="button"
-              color="light-blue"
+              color="cyan lighten-3"
               elevation="7"
               >Submit Activity</v-btn>
-          </v-flex>
+          </div>
         </div>
       </h2>
     </div>
@@ -152,6 +152,7 @@ export default {
 body {
   background: url("../../public/mountain.jpg");
   margin-left: -4%;
+  /* margin-top: -4%; */
   background-size: cover;
   height: 100vh;
   width: 100vw;
@@ -161,5 +162,10 @@ body {
 .container {
   align-items: center;
   justify-items: center;
+}
+
+.submit-activity {
+  display: flex;
+  justify-content: center;
 }
 </style>

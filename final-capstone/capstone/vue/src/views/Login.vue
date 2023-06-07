@@ -10,16 +10,37 @@
         Thank you for registering, please sign in.
       </div>
       <div class="form-input-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" v-model="user.username" required autofocus />
+        <!-- <label for="username">Username</label> -->
+        <v-text-field type="text" label="Username" id="username" v-model="user.username" required autofocus />
       </div>
       <div class="form-input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" v-model="user.password" required />
+        <!-- <label for="password">Password</label> -->
+        <v-text-field type="password" label="Password" id="password" v-model="user.password" required />
+
+      
+
       </div>
-      <div class="signin" ><button type="submit">Sign in</button></div>
+      <!-- <v-text-field
+                  v-model="user.username"
+                  label="Username"
+                  required
+                  autofocus
+                  filled
+                >Test</v-text-field>
+      <v-text-field
+                  v-model="user.password"
+                  label="Password"
+                  type="password"
+                  required
+                  filled
+                >Test</v-text-field> -->
+      <div class="signin" ><v-btn type="submit"  class="button" color="cyan lighten-3" elevation="7">Sign in</v-btn></div>
+
+
+
       <p class="needanaccount" >
-      <router-link :to="{ name: 'register' }">Need an account? Sign up.</router-link> </p>
+      <v-btn color="cyan lighten-3" elevation="7" @click="$router.push('register')">Register</v-btn>
+      </p>
     </form>
   </div>
 </template>

@@ -1,14 +1,22 @@
 <template>
-  <v-container class="container">
-    <mindful-alert v-show="showAlert" @close-alert="showAlert = false" />
-    <v-app>
-      <v-app-bar app color="teal lighten-3" dark> </v-app-bar>
-
-      <main>
-        <router-view />
-      </main>
-    </v-app>
-  </v-container>
+<v-container class="container">
+       
+  <v-app>
+ <v-app-bar
+      app
+      color="teal lighten-3"
+      dark
+    > 
+    </v-app-bar>
+   
+   
+    <v-main>
+      
+      <router-view/>
+    </v-main>
+  </v-app>
+  <mindful-alert v-show="showAlert" @close-alert="showAlert = false" />
+     </v-container>
 </template>
 
 <script>
@@ -20,9 +28,15 @@ export default {
 
   data() {
     return {
-      showAlert: false,
-    };
+      showAlert: true
+    }
   },
+// methods:{
+//   displayAlert(){
+//     setInterval(() => {
+
+//     }
+// },
 };
 </script>
 <style>
@@ -32,7 +46,7 @@ body {
   background-color: rgba(0, 128, 128, 0.1);
 }
 
-main {
-  padding-top: 60px;
+.container {
+  padding-top: 0px;
 }
 </style>
