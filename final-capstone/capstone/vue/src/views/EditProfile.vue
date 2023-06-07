@@ -16,7 +16,15 @@
     </v-app-bar>
     <div class="content">
       <h1 id="title">Edit Profile</h1>
-      <img src="../../public/profile-circle-svgrepo-com.svg" alt="">
+
+      <div class="pfp-div">
+        <div class="profile-picture">
+            <img :src="user.profilePicture" alt="">
+        </div>
+        <v-text-field label="Image URL" type="text" v-model="usersPfp"/>
+        <v-btn v-on:click="updateProfilePic">Update</v-btn>
+      </div>
+
       <form action="">
 
           <div class="form-input">
@@ -75,7 +83,17 @@ export default {
     data() {
         return {
             user: {
-            }
+                firstName: "",
+                lastName: "",
+                age: "",
+                height: "",
+                currentWeight: "",
+                goalWeight: "",
+                calorieLimit: "",
+                mindfulGoal: "",
+                profilePicture: ""
+            },
+            usersPfp: ""
         }
     },
     created() {
@@ -91,6 +109,10 @@ export default {
     methods: {
         editProfile() {
             userService.editProfile(this.user);
+        },
+        updateProfilePic() {
+            this.user.profilePicture = this.usersPfp;
+            this.usersPfp = "";
         }
     }
 }
@@ -139,6 +161,16 @@ input {
 label {
     margin-bottom: 3%;
 }
+
+.profile-picture > img {
+    border-radius: 50%;
+    border-color: black;
+    border-style: solid;
+    height: 130px;
+    width: 100x;
+    object-fit: cover;
+}
+
 img {
     width: 10rem;
     margin-bottom: 4%;

@@ -1,37 +1,53 @@
 <template>
   <div>
       <div class="food-container" v-if="!switchToInputs">
-        <v-simple-table>
-            <tr>
-                <td>{{food.foodName}}</td>
-                <td>{{food.calories}}</td>
-                <td>{{food.servingSize}}</td>
-                <td>{{food.numOfServings}}</td>
-            </tr>
-        </v-simple-table>
+        <v-card flat class="pa-3">
+            <v-layout rowclass="">
+              <v-flex xs12 md6>
+                <div class="caption grey--text">Food Name</div>
+                <div>{{food.foodName}}</div>
+              </v-flex>
+              <v-flex xs12 md6>
+                <div class="caption grey--text">Calories</div>
+                <div>{{food.calories}}</div>
+              </v-flex>
+              <v-flex xs12 md6>
+                <div class="caption grey--text">Serving Size</div>
+                <div>{{food.servingSize}}</div>
+              </v-flex>
+              <v-flex xs12 md6>
+                <div class="caption grey--text">Number of Servings</div>
+                <div>{{food.numOfServings}}</div>
+              </v-flex>
+            </v-layout>
+        </v-card>
         <v-btn v-on:click="switchToInputsMethod">Modify Food</v-btn>
       </div>
 
       <div class="input-container" v-if="switchToInputs">
           <div id="food-entry">
-            <div>
-                <label for="foodName">Food Name:</label>
-                <input type="text" name="foodName" id="foodName" v-model="foodObject.foodName" :placeholder="food.foodName">
-            </div>
-            <div>
-                <label for="calories">Calories:</label>
-                <input type="number" name="calories" id="calories" min="0" v-model="foodObject.calories" :placeholder="food.calories">
-            </div>
-            <div>
-                <label for="servingSize">Serving Size:</label>
-                <input type="text" name="servingSize" id="servingSize" min="0" v-model="foodObject.servingSize" :placeholder="food.servingSize">
-            </div>
-            <div>
-                <label for="numOfServings">Number of Servings</label>
-                <input type="number" name="numOfServings" id="numOfServings" min="0" v-model="foodObject.numOfServings" :placeholder="food.numOfServings">
-            </div>
-            <v-btn v-on:click="modifyFood">Accept</v-btn>
-            <v-btn v-on:click="switchToInputsMethod">Cancel</v-btn>
+             <v-card flat class="pa-3">
+               <v-layout rowclass="">
+                <v-flex xs12 md6>
+                  <label for="foodName">Food Name:</label>
+                  <input type="text" name="foodName" id="foodName" v-model="foodObject.foodName" :placeholder="food.foodName">
+                </v-flex>
+                <v-flex xs12 md6>
+                  <label for="calories">Calories:</label>
+                  <input type="number" name="calories" id="calories" min="0" v-model="foodObject.calories" :placeholder="food.calories">
+                </v-flex>
+                <v-flex xs12 md6>
+                  <label for="servingSize">Serving Size:</label>
+                  <input type="text" name="servingSize" id="servingSize" min="0" v-model="foodObject.servingSize" :placeholder="food.servingSize">
+                </v-flex>
+                <v-flex xs12 md6>
+                  <label for="numOfServings">Number of Servings</label>
+                  <input type="number" name="numOfServings" id="numOfServings" min="0" v-model="foodObject.numOfServings" :placeholder="food.numOfServings">
+                </v-flex>
+                <v-btn v-on:click="modifyFood">Accept</v-btn>
+                <v-btn v-on:click="switchToInputsMethod">Cancel</v-btn>
+               </v-layout>
+             </v-card>
         </div>
       </div>
   </div>
@@ -100,5 +116,11 @@ export default {
 </script>
 
 <style>
+.food-container {
+    margin-left: 20px;
+}
 
+.food-entry {
+    margin-left: 20px;
+}
 </style>
