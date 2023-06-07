@@ -53,12 +53,8 @@ mounted(){
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200&display=swap");
 
-html, body {
-  font-family: "Hanken Grotesk", sans-serif;
-}
-
-#app {
-  font-family: "Hanken Grotesk", sans-serif;
+.application {
+  font-family: "Hanken Grotesk";
 }
 
 body {
