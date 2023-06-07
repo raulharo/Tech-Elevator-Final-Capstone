@@ -152,8 +152,8 @@ export default {
 body {
   background: url("../../public/mountain.jpg");
   margin-left: -4%;
-  /* margin-top: -4%; */
-  background-size: cover;
+  margin-top: -3.7%;
+
   height: 100vh;
   width: 100vw;
   background-size: 100%;
@@ -167,5 +167,9 @@ body {
 .submit-activity {
   display: flex;
   justify-content: center;
+}
+
+v-alert {
+  margin: 0;
 }
 </style>
