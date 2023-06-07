@@ -1,7 +1,12 @@
 <template>
   <body>
     <div>
-      <v-app-bar app color="teal lighten-3" dark> <navigation /> </v-app-bar>
+      <v-app-bar app color="teal lighten-3" dark> <navigation /><v-img
+          src="../../public/logo.png"
+          max-height="60"
+          max-width="60"
+          contain
+        ></v-img> </v-app-bar>
 
       <h1>
         <v-alert color="light-blue" dark dense icon="mdi-leaf" prominent>

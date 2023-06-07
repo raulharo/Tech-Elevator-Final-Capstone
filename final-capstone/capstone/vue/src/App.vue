@@ -14,9 +14,12 @@
       
       <router-view/>
     </v-main>
+   
   </v-app>
   <mindful-alert v-show="showAlert" @close-alert="showAlert = false" />
+  
      </v-container>
+     
 </template>
 
 <script>
@@ -31,13 +34,14 @@ export default {
       showAlert: false
     }
   },
-// methods:{
-//   displayAlert(){
-//     setInterval(() => {
+methods:{
+  displayAlert(){
+    this.showAlert = true
+    setInterval(this.displayAlert, 5000)
+},
+},
+}
 
-//     }
-// },
-};
 </script>
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200&display=swap");
