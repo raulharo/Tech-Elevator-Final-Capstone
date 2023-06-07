@@ -16,6 +16,12 @@
 <script>
 export default {
 
+methods: {
+  onCloseButton(){
+   setTimeout(() => this.showAlert = true, 5000) 
+    this.$emit('close-alert');
+  }
+},
 
 };
 </script>
