@@ -1,25 +1,23 @@
 <template>
   <div>
-      <v-simple-table>
-          <thead>
-              <tr>
-                  <th class="text-left">
-                      Date
-                  </th>
-                  <th class="text-left">
-                      Meal Type
-                  </th>
-                  <th class="text-left">
-                      Total Calories
-                  </th>
-              </tr>
-          </thead>
-      <tr>
-          <td>{{mealRecord.mealDate}}</td>
-          <td>{{mealRecord.mealType}}</td>
-          <td>{{mealRecord.totalCalories}}</td>
-      </tr>
-      </v-simple-table>
+      <div class="meal-container">
+        <v-card flat class="pa-3">
+            <v-layout rowclass="">
+              <v-flex xs12 md6>
+                <div class="caption grey--text">Date Logged</div>
+                <div>{{mealRecord.mealDate}}</div>
+              </v-flex>
+              <v-flex xs12 md6>
+                <div class="caption grey--text">Meal Type</div>
+                <div>{{mealRecord.mealType}}</div>
+              </v-flex>
+              <v-flex xs12 md6>
+                <div class="caption grey--text">Total Calories</div>
+                <div>{{mealRecord.totalCalories}}</div>
+              </v-flex>
+            </v-layout>
+        </v-card>
+      </div>
   </div>
 </template>
 

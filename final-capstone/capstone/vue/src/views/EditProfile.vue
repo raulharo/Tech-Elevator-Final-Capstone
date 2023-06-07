@@ -16,7 +16,15 @@
     </v-app-bar>
     <div class="content">
       <h1 id="title">Edit Profile</h1>
-      <img src="../../public/profile-circle-svgrepo-com.svg" alt="">
+
+      <div class="pfp-div">
+        <div class="profile-picture">
+            <img :src="profilePicture" alt="">
+        </div>
+        <v-text-field label="Image URL" type="text" v-model="usersPfp"/>
+        <v-btn v-on:click="updateProfilePic">Update</v-btn>
+      </div>
+
       <form action="">
 
           <div class="form-input">
@@ -75,7 +83,9 @@ export default {
     data() {
         return {
             user: {
-            }
+            },
+            profilePicture: "https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_1539,h_1069/https://h-o-m-e.org/wp-content/uploads/2022/04/Blank-Profile-Picture-1.jpg",
+            usersPfp: ""
         }
     },
     created() {
@@ -91,6 +101,10 @@ export default {
     methods: {
         editProfile() {
             userService.editProfile(this.user);
+        },
+        updateProfilePic() {
+            this.profilePicture = this.usersPfp;
+            this.usersPfp = "";
         }
     }
 }
@@ -139,6 +153,16 @@ input {
 label {
     margin-bottom: 3%;
 }
+
+.profile-picture > img {
+    border-radius: 50%;
+    border-color: black;
+    border-style: solid;
+    height: 130px;
+    width: 100x;
+    object-fit: cover;
+}
+
 img {
     width: 10rem;
     margin-bottom: 4%;

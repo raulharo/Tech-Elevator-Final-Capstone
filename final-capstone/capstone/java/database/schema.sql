@@ -21,6 +21,7 @@ CREATE TABLE profiles (
     goal_weight numeric(6,2) NOT NULL,
     calorie_limit int NOT NULL,
     mindful_goal int NOT NULL,
+    profile_picture varchar(500),
     CONSTRAINT PK_profile_id PRIMARY KEY (profile_id),
     CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users (user_id)
 );

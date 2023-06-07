@@ -19,7 +19,7 @@
       </div>
       <div class="bottom-div">
         <div class="submit-button">
-          <v-btn size="small" color="cyan lighten-3" @click="$router.push('rules')">Sign Up</v-btn>
+          <v-btn size="small" color="cyan lighten-3" @click="register">Sign Up</v-btn>
         </div>
         <div>
           <v-btn size="small" color="cyan lighten-3" @click="$router.push('login')"
@@ -77,7 +77,7 @@ export default {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
             this.$router.push({
-              path: "/create-profile",
+              path: "/rules",
               query: { registration: "success" },
             });
           }
