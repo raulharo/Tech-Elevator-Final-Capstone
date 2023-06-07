@@ -1,4 +1,5 @@
 <template>
+
   <div class="home">
     <v-app-bar
       app
@@ -20,26 +21,7 @@
       <progress-component id="progress-component"/>
       <friend-activity id="friend-activity"/>
     </div>
-    <v-footer
-    dark
-    padless
-  >
-    <v-card
-      flat
-      tile
-      class="indigo lighten-1 white--text text-center"
-    >
-          <v-card-text class="white--text pt-0">
-        This app was created with love by Tech Elevator Graduates Andrew Morrison, Whitney Bescheinen, Raul, Margie
-      </v-card-text>
-
-      <v-divider></v-divider>
-
-      <v-card-text class="white--text">
-        {{ new Date().getFullYear() }} — <strong>Tech Elevator</strong>
-      </v-card-text>
-    </v-card>
-  </v-footer>
+    
   </div>
 </template>
 
