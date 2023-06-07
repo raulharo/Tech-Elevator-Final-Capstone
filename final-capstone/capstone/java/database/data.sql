@@ -6,8 +6,8 @@ INSERT INTO users (username, password_hash, role) VALUES ('TestingAccount', '$2a
 
 INSERT INTO profiles (user_id, first_name, last_name, age, height, current_weight, goal_weight, calorie_limit, mindful_goal)
 VALUES (1, 'Test', 'User', 25, 72, 180.74, 170.00, 1500, 10);
-INSERT INTO profiles (user_id, first_name, last_name, age, height, current_weight, goal_weight, calorie_limit, mindful_goal)
-VALUES (3, 'Testing', 'Account', 24, 70, 170, 160, 1800, 30);
+INSERT INTO profiles (user_id, first_name, last_name, age, height, current_weight, goal_weight, calorie_limit, mindful_goal, profile_picture)
+VALUES (3, 'Testing', 'Account', 24, 70, 170, 160, 1800, 30, 'https://www.shutterstock.com/image-photo/stacked-rocks-front-waterfall-260nw-1744689107.jpg');
 
 INSERT INTO foods (food_name, calories, serving_size, number_of_servings)
 VALUES ('Banana', 120, '1 banana', 1);

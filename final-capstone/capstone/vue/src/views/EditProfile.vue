@@ -19,7 +19,7 @@
 
       <div class="pfp-div">
         <div class="profile-picture">
-            <img :src="profilePicture" alt="">
+            <img :src="user.profilePicture" alt="">
         </div>
         <v-text-field label="Image URL" type="text" v-model="usersPfp"/>
         <v-btn v-on:click="updateProfilePic">Update</v-btn>
@@ -83,8 +83,16 @@ export default {
     data() {
         return {
             user: {
+                firstName: "",
+                lastName: "",
+                age: "",
+                height: "",
+                currentWeight: "",
+                goalWeight: "",
+                calorieLimit: "",
+                mindfulGoal: "",
+                profilePicture: ""
             },
-            profilePicture: "https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_1539,h_1069/https://h-o-m-e.org/wp-content/uploads/2022/04/Blank-Profile-Picture-1.jpg",
             usersPfp: ""
         }
     },
@@ -103,7 +111,7 @@ export default {
             userService.editProfile(this.user);
         },
         updateProfilePic() {
-            this.profilePicture = this.usersPfp;
+            this.user.profilePicture = this.usersPfp;
             this.usersPfp = "";
         }
     }
