@@ -19,14 +19,11 @@
       </div>
       <div class="bottom-div">
         <div class="submit-button">
-          <v-btn color="cyan lighten-3" @click="$router.push('rules')"
-            >Sign Up</v-btn
-          >
+          <v-btn size="small" color="cyan lighten-3" @click="$router.push('rules')">Sign Up</v-btn>
         </div>
         <div>
-          <v-btn color="cyan lighten-3" @click="$router.push('login')"
-            >Already have an account? Sign In</v-btn
-          >
+          <v-btn size="small" color="cyan lighten-3" @click="$router.push('login')"
+            >Already have an account? Sign In</v-btn>
         </div>
       </div>
     </form>
@@ -142,7 +139,6 @@ input {
 }
 
 button {
-  width: 25px;
   height: 100%;
   background-color: lightblue;
   border-radius: 4px;
@@ -151,7 +147,9 @@ button {
 h1 {
   margin-top: 65%;
 }
-
+/* .v-main {
+  background-color: #E0F2F1;
+} */
 @media only screen and (min-width: 768px) {
   h1 {
     margin-top: 10rem;
@@ -171,10 +169,6 @@ h1 {
     background-color: lightblue;
     height: 40%;
     margin-top: 4%;
-  }
-
-  button {
-    width: 32%;
   }
 
   p {

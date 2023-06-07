@@ -6,7 +6,7 @@
       <h2> Calories Consumed: {{dayCalories}}</h2>
       <h2>Calories Remaining: {{(dailyGoal - dayCalories)}}</h2> 
       <h2>Mindfulness Goal: {{mindfulnessGoal}}</h2>
-      <h2>Mindful Activity: </h2>
+      <!-- <h2>Mindful Activity: </h2> -->
       <progress-ring />
       </div>
       <div class="overall">

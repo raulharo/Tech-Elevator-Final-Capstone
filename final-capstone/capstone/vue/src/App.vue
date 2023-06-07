@@ -1,7 +1,7 @@
 <template>
 <v-container class="container">
        
-  <v-app>
+  <v-app id="dumbWhiteBar">
 <v-app-bar app color="teal lighten-3" dark> <navigation />
       <div class="picture">
       <v-img
@@ -40,15 +40,22 @@ export default {
   },
 methods:{
   displayAlert(){
-    this.showAlert = true
-    setInterval(this.displayAlert, 5000)
+   
+    setTimeout(() => this.showAlert = true, 120000)
 },
 },
+mounted(){
+  this.displayAlert()
+}
 }
 
 </script>
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200&display=swap");
+
+.application {
+  font-family: "Hanken Grotesk";
+}
 
 body {
   background-color: rgba(0, 128, 128, 0.1);
@@ -57,4 +64,8 @@ body {
 .container {
   padding-top: 0px;
 }
+#dumbWhiteBar{
+  background: rgba(0, 128, 128, 0);
+}
+
 </style>
