@@ -4,12 +4,15 @@
       app
       color="teal lighten-3"
       dark
-    > <navigation /><v-img
+    > <navigation />
+    <div class="picture">
+      <v-img
           src="../../public/logo.png"
           max-height="60"
           max-width="60"
           contain
         ></v-img>
+        </div>
     </v-app-bar>
       <h1>Meal Log</h1>
       <h3>Choose Meal Type:</h3>
@@ -342,6 +345,13 @@ export default {
 </script>
 
 <style>
+
+.picture {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
 .root {
     padding: 10px;
 }

@@ -5,12 +5,15 @@
       app
       color="teal lighten-3"
       dark
-    > <navigation /><v-img
+    > <navigation />
+    <div class="picture">
+    <v-img
           src="../../public/logo.png"
           max-height="60"
           max-width="60"
           contain
         ></v-img>
+      </div>
     </v-app-bar>
     <div id="header">
       <h1>My Dashboard</h1>
@@ -39,7 +42,11 @@ export default {
 </script>
 
 <style scoped>
-
+.picture {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
 
 @media only screen and (min-width: 768px) {
   .home {

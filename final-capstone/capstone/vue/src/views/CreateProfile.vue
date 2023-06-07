@@ -99,6 +99,8 @@ export default {
     flex-direction: column;
     align-items: center;
     height: 100vh;
+    width: 100vw;
+    background-color: black;
 }
 
 form {

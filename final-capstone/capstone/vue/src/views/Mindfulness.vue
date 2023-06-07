@@ -1,12 +1,16 @@
 <template>
   <body>
     <div>
-      <v-app-bar app color="teal lighten-3" dark> <navigation /><v-img
+      <v-app-bar app color="teal lighten-3" dark> <navigation />
+      <div class="picture">
+      <v-img
           src="../../public/logo.png"
           max-height="60"
           max-width="60"
           contain
-        ></v-img> </v-app-bar>
+        ></v-img> 
+      </div>
+      </v-app-bar>
 
       <h1>
         <v-alert color="light-blue" dark dense icon="mdi-leaf" prominent>
@@ -154,6 +158,12 @@ export default {
 </script>
 
 <style scoped>
+.picture {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
 body {
   background: url("../../public/mountain.jpg");
   margin-left: -4%;
