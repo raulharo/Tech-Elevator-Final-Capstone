@@ -1,7 +1,12 @@
 <template>
   <body>
     <div>
-      <v-app-bar app color="teal lighten-3" dark> <navigation /> </v-app-bar>
+      <v-app-bar app color="teal lighten-3" dark> <navigation /><v-img
+          src="../../public/logo.png"
+          max-height="60"
+          max-width="60"
+          contain
+        ></v-img> </v-app-bar>
 
       <h1>
         <v-alert color="light-blue" dark dense icon="mdi-leaf" prominent>
@@ -152,8 +157,8 @@ export default {
 body {
   background: url("../../public/mountain.jpg");
   margin-left: -4%;
-  /* margin-top: -4%; */
-  background-size: cover;
+  margin-top: -3.7%;
+
   height: 100vh;
   width: 100vw;
   background-size: 100%;
@@ -167,5 +172,9 @@ body {
 .submit-activity {
   display: flex;
   justify-content: center;
+}
+
+v-alert {
+  margin: 0;
 }
 </style>

@@ -1,10 +1,16 @@
 <template>
+
   <div class="home">
     <v-app-bar
       app
       color="teal lighten-3"
       dark
-    > <navigation />
+    > <navigation /><v-img
+          src="../../public/logo.png"
+          max-height="60"
+          max-width="60"
+          contain
+        ></v-img>
     </v-app-bar>
     <div id="header">
       <h1>My Dashboard</h1>
@@ -15,6 +21,7 @@
       <progress-component id="progress-component"/>
       <friend-activity id="friend-activity"/>
     </div>
+    
   </div>
 </template>
 
