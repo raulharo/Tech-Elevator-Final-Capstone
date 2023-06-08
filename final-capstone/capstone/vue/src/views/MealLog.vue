@@ -53,49 +53,6 @@
           color="teal"
           class="mb-1"
         >
-          <v-text-field
-            v-model="search"
-            clearable
-            flat
-            solo-inverted
-            hide-details
-            prepend-inner-icon="mdi-magnify"
-            label="Search"
-          ></v-text-field>
-          <template v-if="$vuetify.breakpoint.mdAndUp">
-              <v-spacer></v-spacer>
-              <v-select
-                v-model="sortBy"
-                flat
-                solo-inverted
-                hide-details
-                :items="keys"
-                prepend-inner-icon="mdi-magnify"
-                label="Sort by"
-              ></v-select>
-              <v-spacer></v-spacer>
-              <v-btn-toggle
-                v-model="sortDesc"
-                mandatory
-              >
-                <v-btn
-                  large
-                  depressed
-                  color="teal-darken-4"
-                  :value="false"
-                >
-                  <v-icon>mdi-arrow-up</v-icon>
-                </v-btn>
-                <v-btn
-                  large
-                  depressed
-                  color="teal-darken-4"
-                  :value="true"
-                >
-                  <v-icon>mdi-arrow-down</v-icon>
-                </v-btn>
-              </v-btn-toggle>
-          </template>
         </v-toolbar>
 
       <div>
@@ -179,7 +136,16 @@ export default {
         saveMeal() {
             console.log(this.meal.foods);
             console.log(this.meal.mealType);
-            foodService.createMeal(this.meal).then(this.updateMealList());
+            foodService.createMeal(this.meal).then(response => {
+              if(response.status === 200) {
+                this.mealRecordList.unshift(this.meal);
+                this.meal = {
+                  mealType: "Breakfast",
+                  foods: [],
+                  totalCalories: 0
+                }
+              }
+            });
         },
         addQuickMeal(meal) {
           let returnMeal = 
@@ -209,23 +175,22 @@ export default {
                 numOfServings: "",
               };
             } 
-            foodService.createMeal(returnMeal).then(this.updateMealList());
-          
-        },
-        updateMealList() { 
-          foodService.getMeals().then(response => {
-                this.mealRecordList = [];
-                response.data.forEach(element => {
-                    
-                    this.mealRecordList.push(element);
-                });
+            foodService.createMeal(returnMeal).then(response => {
+              if(response.status === 200) {
+                console.log('Before: ', this.mealRecordList);
+                this.mealRecordList.unshift(returnMeal);
+                console.log('After: ', this.mealRecordList);
+              }
             });
+          
         },
         showFoodList(meal) {
             meal.showFoods = !meal.showFoods;
         },
         deleteMealRecord(mealId) {
-            foodService.deleteMeal(mealId).then(this.updateMealList());
+            foodService.deleteMeal(mealId).then(this.mealRecordList.pop(
+              this.mealRecordList.findIndex(meal => meal.mealId === mealId)
+            ));
         },
         sortDates(dates) {
             if(Date.parse(dates[0]) > Date.parse(dates[1])) {

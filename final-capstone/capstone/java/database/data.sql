@@ -20,7 +20,7 @@ VALUES ('Milk', 180, '1 cup', 1);
 INSERT INTO foods (food_name, calories, serving_size, number_of_servings)
 VALUES ('Pepsi', 150, '1 can', 1);
 INSERT INTO foods (food_name, calories, serving_size, number_of_servings)
-VALUES ('Bowl of Cereal', 120, '1 banana', 1);
+VALUES ('Bowl of Cereal', 120, '1 bowl', 1);
 INSERT INTO foods (food_name, calories, serving_size, number_of_servings)
 VALUES ('Mango', 100, '1 mango', 1);
 INSERT INTO foods (food_name, calories, serving_size, number_of_servings)

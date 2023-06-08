@@ -54,6 +54,10 @@ mounted(){
   font-family: "Hanken Grotesk";
 }
 
+h1, h2, h3, h4, p {
+  font-family: "Hanken Grotesk";
+}
+
 body {
   background-color: rgba(0, 128, 128, 0.1);
 }

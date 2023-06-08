@@ -41,6 +41,10 @@ export default {
 </script>
 
 <style scoped>
+h1, h2, h3, p {
+  font-family: "Hanken Grotesk";
+}
+
 .picture {
   display: flex;
   justify-content: flex-end;
