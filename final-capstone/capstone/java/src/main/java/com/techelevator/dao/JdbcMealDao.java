@@ -25,7 +25,7 @@ public class JdbcMealDao implements MealDao {
 
 
     @Override
-    public void addMeal(Meal meal, int userId) {
+    public int addMeal(Meal meal, int userId) {
         Integer newMealId = 0;
         Integer foodId = 0;
 
@@ -62,6 +62,8 @@ public class JdbcMealDao implements MealDao {
 
         // add meal id and food ids to associative table
         updateJunctionTable(newMealId, foodIdList);
+
+        return newMealId;
     }
 
     public Food getFoodById(int foodId) {
@@ -201,6 +203,17 @@ public class JdbcMealDao implements MealDao {
         }
 
         return false;
+    }
+
+    @Override
+    public Meal getMealById(int mealId) {
+        Meal meal = null;
+        String sql = "SELECT * FROM meal_history WHERE meal_history_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, mealId);
+        if(results.next()) {
+            meal = mapRowToMeals(results);
+        }
+        return meal;
     }
 
     public Meal mapRowToMeals(SqlRowSet rs) {

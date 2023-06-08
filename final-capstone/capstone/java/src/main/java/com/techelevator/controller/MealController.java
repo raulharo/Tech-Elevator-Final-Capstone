@@ -32,19 +32,27 @@ public class MealController {
     private UserDao userdao;
 
     @PostMapping(value="create-meal")
-    public void createMeal(@RequestBody @Valid Meal meal, Principal principal) {
+    public int createMeal(@RequestBody @Valid Meal meal, Principal principal) {
         String username = principal.getName();
         int userId = userdao.findIdByUsername(username);
-        mealDao.addMeal(meal, userId);
+        return mealDao.addMeal(meal, userId);
     }
 
     @GetMapping(value="get-meals")
+    public Meal getMeals(@Valid @RequestBody int mealId, Principal principal) {
+        String username = principal.getName();
+        int userId = userdao.findIdByUsername(username);
+        return mealDao.getMealById(mealId);
+    }
+
+    @GetMapping(value="get-meal")
     public List<Meal> getMeals(Principal principal) {
         String username = principal.getName();
         int userId = userdao.findIdByUsername(username);
         return mealDao.getMealsByUserId(userId);
-
     }
+
+
 
     @PutMapping(value = "update-food")
     public void updateFood(@RequestBody @Valid Food food) {
