@@ -57,7 +57,7 @@
 
         <div class="log-view">
           <div class="show-log-btn">
-            <v-btn v-on:click="showLogMethod">Show/Hide Activity Log</v-btn>
+            <v-btn v-on:click="showLogMethod" color="cyan lighten-3" elevation="7">Show/Hide Activity Log</v-btn>
           </div>
 
           <div class="activity-log" v-if="showLog">
@@ -66,27 +66,29 @@
               <v-date-picker v-model="chosenDate"></v-date-picker>
             </div>
 
-            <div v-for="mindful in filteredLog" :key="mindful.mindfulId">
-              <v-card flat class="pa-3">
-               <v-layout rowclass="">
-                <v-flex xs12 md6>
-                  <div class="caption grey--text">Date Logged</div>
-                  <div>{{mindful.mindfulDate}}</div>
-                </v-flex>
-                <v-flex xs12 md6>
-                  <div class="caption grey--text">Activity</div>
-                  <div>{{mindful.activity}}</div>
-                </v-flex>
-                <v-flex xs12 md6>
-                  <div class="caption grey--text">Minutes</div>
-                  <div>{{mindful.minutes}}</div>
-                </v-flex>
-               </v-layout>
-              </v-card>
-            </div>
+            <div>
+              <div class="individual-entry" v-for="mindful in filteredLog" :key="mindful.mindfulId">
+                <v-card flat class="pa-3">
+                <v-layout rowclass="">
+                  <v-flex xs12 md6>
+                    <div class="caption grey--text">Date Logged</div>
+                    <div>{{mindful.mindfulDate}}</div>
+                  </v-flex>
+                  <v-flex xs12 md6>
+                    <div class="caption grey--text">Activity</div>
+                    <div>{{mindful.activity}}</div>
+                  </v-flex>
+                  <v-flex xs12 md6>
+                    <div class="caption grey--text">Minutes</div>
+                    <div>{{mindful.minutes}}</div>
+                  </v-flex>
+                </v-layout>
+                </v-card>
+              </div>
+             </div>
           </div>
         </div>
-        
+
       </h2>
     </div>
   
@@ -194,6 +196,11 @@ export default {
 
 v-alert {
   margin: 0;
+}
+
+.log-view {
+  display: flex;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 600px) {

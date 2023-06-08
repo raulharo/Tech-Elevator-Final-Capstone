@@ -12,8 +12,11 @@
       <div class="overall">
         <h1>Overall Progress</h1>
         <progress-bar :initialWeight="initialWeight" :currentWeight="currentWeight" :goalWeight="goalWeight"/>
-        <v-text-field label="New Current Weight" type="number" v-model="newCurrentWeight"/>
-        <v-btn v-on:click="updateWeight">Update Weight</v-btn>
+
+        <div class="weight-entry">
+          <v-text-field label="New Current Weight" type="number" v-model="newCurrentWeight"/>
+          <v-btn id="update-btn" v-on:click="updateWeight" small color="cyan lighten-3" elevation="5">Update Weight</v-btn>
+        </div>
       </div>
   </div>
 </template>
@@ -125,6 +128,16 @@ export default {
 
   .today > h2{
    font-size: 1em;
+  }
+
+  .weight-entry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #update-btn {
+    width: 60%;
   }
 }
 </style>
