@@ -28,9 +28,6 @@
          
         </v-banner>
         <breath-circle id="breathThing" />
-        <!-- <div class="circle-wrap">
-          <div class="circle-progress"></div>
-        </div> -->
       </div>
     </div>
   </body>
