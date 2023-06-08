@@ -1,7 +1,7 @@
 <template>
   <div class="center">
       
-      <div class="circle pulse "></div>
+      <div class="circle pulse"></div>
 
         <a  href="https://reactgo.com/css-pulse-animation/" target="_blank" class="master"></a>
 </div>

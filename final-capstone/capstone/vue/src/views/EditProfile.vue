@@ -159,6 +159,7 @@ label {
     height: 130px;
     width: 100x;
     object-fit: cover;
+    
 }
 img {
     width: 10rem;
