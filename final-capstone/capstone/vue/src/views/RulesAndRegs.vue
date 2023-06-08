@@ -11,7 +11,7 @@
       </p>
     </div>
     <div id="buttons">
-      <v-btn color="cyan lighten-3" @click="$router.push('/')">I agree</v-btn>
+      <v-btn color="cyan lighten-3" @click="$router.push('create-profile')">I agree</v-btn>
       <v-btn color="cyan lighten-3" v-on:click="deleteUser()"
         >I don't agree</v-btn
       >
