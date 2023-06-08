@@ -7,7 +7,7 @@ INSERT INTO users (username, password_hash, role) VALUES ('TestingAccount', '$2a
 INSERT INTO profiles (user_id, first_name, last_name, age, height, initial_weight, current_weight, goal_weight, calorie_limit, mindful_goal)
 VALUES (1, 'Test', 'User', 25, 72, 200, 180.74, 170.00, 1500, 10);
 INSERT INTO profiles (user_id, first_name, last_name, age, height, initial_weight, current_weight, goal_weight, calorie_limit, mindful_goal, profile_picture)
-VALUES (3, 'Testing', 'Account', 24, 70, 170, 160, 155, 1800, 30, 'https://www.shutterstock.com/image-photo/stacked-rocks-front-waterfall-260nw-1744689107.jpg');
+VALUES (3, 'Testing', 'Account', 24, 70, 170, 160, 155, 1800, 30, 'https://i.guim.co.uk/img/media/8952af7309acc6edfa0414f42ff4c44367c2c261/0_234_4256_2554/master/4256.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=59159cc2ec4f03c9de21965572a19772');
 
 INSERT INTO foods (food_name, calories, serving_size, number_of_servings)
 VALUES ('Banana', 120, '1 banana', 1);
@@ -33,6 +33,11 @@ INSERT INTO foods (food_name, calories, serving_size, number_of_servings)
 VALUES ('Carrots', 200, '1 carrot', 4);
 INSERT INTO foods (food_name, calories, serving_size, number_of_servings)
 VALUES ('Twinkies', 600, '2 twinkies', 1);
+INSERT INTO foods (food_name, calories, serving_size, number_of_servings)
+VALUES ('Boba in a Can', 400, '1 cans', 2);
+INSERT INTO foods (food_name, calories, serving_size, number_of_servings)
+VALUES ('Pineapple', 130, '1 pineapple', 1);
+
 
 INSERT INTO meal_history (user_id, meal_date, type, total_calories)
 VALUES (3, '2023-06-06', 'Breakfast', 320);

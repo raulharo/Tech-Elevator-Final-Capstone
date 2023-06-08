@@ -18,11 +18,11 @@
           <img :src="user.profilePicture" alt="" />
         </div>
         <v-text-field label="Image URL" type="text" v-model="usersPfp" />
-        <v-btn
+        <v-btn class="update"
           v-on:click="updateProfilePic"
           color="cyan lighten-3"
           elevation="5"
-          >Update</v-btn
+          >Upload Picture</v-btn
         >
       </div>
       <form action="">
@@ -65,6 +65,16 @@
             name="height"
             id="height"
             v-model="user.height"
+          />
+        </div>
+        <div class="form-input">
+          <!-- <label for="initialWeight">Age</label> -->
+          <v-text-field
+            label="Starting Weight"
+            type="number"
+            name="initialWeight"
+            id="initialWeight"
+            v-model="user.initialWeight"
           />
         </div>
         <div class="form-input">
@@ -135,6 +145,7 @@ export default {
         lastName: "",
         age: "",
         height: "",
+        initialWeight: "",
         currentWeight: "",
         goalWeight: "",
         calorieLimit: "",
@@ -239,11 +250,14 @@ img {
 button {
   width: 100%;
   height: 100%;
-  background-color: #76c4fa;
+  background-color: #76C4FA;
   border-radius: 4px;
 }
+.update {
+    margin-bottom: 15%;
+}
 input:hover {
-  border: solid #8e8baf 1px;
+  border: solid #8E8BAF 1px;
 }
 @media only screen and (min-width: 768px) {
   .container {
