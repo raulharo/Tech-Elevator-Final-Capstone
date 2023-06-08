@@ -3,7 +3,9 @@
       <h3>Weight Change</h3>
       <p>Current Weight: {{currentWeight}} lbs.</p>
       <p>Goal Weight: {{goalWeight}} lbs.</p>
-      <v-progress-linear height="30" color="cyan lighten-2" background-color="cyan lighten-3" :value="calculateProgress">{{calculateProgress}}%</v-progress-linear>
+      <div class="weight-bar">
+      <v-progress-linear height="30" color="cyan-lighten-1" background-color="cyan lighten-1" :value="calculateProgress">{{calculateProgress}}%</v-progress-linear>
+      </div>
   </div>
 </template>
 
@@ -28,6 +30,13 @@ export default {
     margin: 1rem;
     font-size: 70%;
     width: 80%;
+}
+
+@media only screen and (max-width: 768px) {
+    .weight-bar {
+    margin-left: 10px;
+    }
+  
 }
 
 

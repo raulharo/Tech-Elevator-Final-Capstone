@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="progress-rings">
       <v-progress-circular  :rotate= "360" :size="200" :width="10" :value="dayGoalPercent" color="teal">Calories</v-progress-circular>
        <v-progress-circular :rotate= "360" :size="200" :width="10" :value="dayMindfulPercent" color="teal">Mindfulness</v-progress-circular>
   </div>
@@ -99,5 +99,18 @@ export default {
 .v-progress-circular {
   margin: 1rem;
   font-size: 150%;
+}
+
+.progress-rings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+  .progress-rings {
+    display: flex;
+    flex-direction: row;
+  }
 }
 </style>

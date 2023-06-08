@@ -80,7 +80,7 @@ h1, h2, h3, p {
 
 
 
-@media only screen and (mmax-width: 768px) {
+@media only screen and (max-width: 768px) {
   .home {
     display: grid;
     grid-template-columns: 1fr;

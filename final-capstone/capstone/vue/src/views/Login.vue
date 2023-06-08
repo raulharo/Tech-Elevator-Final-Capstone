@@ -34,7 +34,6 @@
           />
         </div>
       </div>
-    </form>
     <div class="buttons">
       <v-btn id="submit" type="submit" class="button" color="cyan lighten-3" elevation="7"
         >Sign in</v-btn
@@ -46,13 +45,11 @@
         >Register</v-btn
       >
     </div>
-    
+   </form>
   </div>
 </template>
-
 <script>
 import authService from "../services/AuthService";
-
 export default {
   name: "login",
   components: {},
@@ -78,7 +75,6 @@ export default {
         })
         .catch((error) => {
           const response = error.response;
-
           if (response.status === 401) {
             this.invalidCredentials = true;
           }
@@ -87,7 +83,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 h3{
   color: white;
@@ -116,7 +111,6 @@ h1 {
   max-width: 100%;
   height: auto;
 }
-
 .form-input-group {
   padding: 10px;
 }
@@ -124,10 +118,7 @@ h1 {
   display: flex;
   justify-content: center;
 }
-
 @media only screen and (min-width: 768px) {
-  
-  
   #logo{
     max-width: 100%;
     height: auto;
@@ -145,6 +136,14 @@ h1 {
     max-width: 100%;
     height: 30%;
   }
-  
 }
 </style>
+
+
+
+
+
+
+
+
+

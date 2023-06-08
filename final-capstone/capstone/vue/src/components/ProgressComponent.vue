@@ -11,8 +11,9 @@
       </div>
       <div class="overall">
         <h1>Overall Progress</h1>
+        <div class="prog-bar">
         <progress-bar :initialWeight="initialWeight" :currentWeight="currentWeight" :goalWeight="goalWeight"/>
-
+        </div>
         <div class="weight-entry">
           <v-text-field label="New Current Weight" type="number" v-model="newCurrentWeight"/>
           <v-btn id="update-btn" v-on:click="updateWeight" small color="cyan lighten-3" elevation="5">Update Weight</v-btn>
@@ -93,6 +94,13 @@ h1, h2, h3, p {
   flex-direction: column;
 }
 
+.prog-bar {
+  display: flex;
+  justify-content: center;
+
+  width: 70%;
+}
+
 .today {
     border: 1px solid gray;
     margin-bottom: 20px;
@@ -108,17 +116,35 @@ h1, h2, h3, p {
     border: 1px solid gray;
     margin-bottom: 20px;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
+
+.weight-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+}
+
+#update-btn {
+  margin-bottom: 20px;
+}
+
+
 
 @media only screen and (min-width: 768px) {
   .progress{
     display: flex;
     flex-direction: row;
+    justify-content: center;
   }
 
   .today {
     border: 1px solid gray;
-    margin-right: 10px;
+    margin-right: 0px;
     margin-bottom: 20px;
     padding: 10px;
   }
@@ -141,7 +167,7 @@ h1, h2, h3, p {
   }
 
   #update-btn {
-    width: 60%;
+    width: 70%;
   }
 }
 </style>
