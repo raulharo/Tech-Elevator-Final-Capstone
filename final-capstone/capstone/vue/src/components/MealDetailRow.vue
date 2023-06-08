@@ -123,7 +123,7 @@ export default {
 }
 
 .food-entry {
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .modify-food {

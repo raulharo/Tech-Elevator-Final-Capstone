@@ -5,6 +5,10 @@ export default {
         return axios.post('/create-meal', meal);
     },
 
+    getMeal(mealId) {
+        return axios.get(`/get-meal/${mealId}`)
+    },
+
     getMeals() {
         return axios.get('/get-meals');
     },

@@ -45,20 +45,21 @@
           </v-container>
         </v-form>
         <div class="container">
-          <div class="submit-activity">
+          <div  class="submit-activity">
             <v-btn
               v-on:click="addActivity"
               class="button"
               color="cyan lighten-3"
-              elevation="7"
+              elevation="7" 
               >Submit Activity</v-btn>
           </div>
         </div>
 
         <div class="log-view">
           <div class="show-log-btn">
-            <v-btn v-on:click="showLogMethod" color="cyan lighten-3" elevation="7">Show/Hide Activity Log</v-btn>
+            <v-btn v-on:click="showLogMethod" color="cyan lighten-3"  elevation="7">Show/Hide Activity Log</v-btn>
           </div>
+         
 
           <div class="activity-log" v-if="showLog">
             
@@ -178,7 +179,7 @@ export default {
   justify-content: flex-start;
   margin-left: -4%;
   margin-top: -64px;
-
+  font-family: "Hanken Grotesk";
   height: 100vh;
   width: 100vw;
   background-size: 100%;
@@ -192,6 +193,8 @@ export default {
 .submit-activity {
   display: flex;
   justify-content: center;
+  font-family: "Hanken Grotesk";
+  font-weight: bold;
 }
 
 v-alert {

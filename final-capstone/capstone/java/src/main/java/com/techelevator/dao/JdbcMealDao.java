@@ -80,7 +80,7 @@ public class JdbcMealDao implements MealDao {
     public List<Meal> getMealsByUserId(int userId) {
         List<Meal> mealList = new ArrayList<>();
         String sql = "SELECT * FROM meal_history WHERE user_id = ?" +
-                    " ORDER BY meal_date, meal_history_id;";
+                    " ORDER BY meal_date, meal_history_id DESC;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
         while(results.next()) {
             mealList.add(mapRowToMeals(results));
