@@ -46,8 +46,9 @@
         </v-form>
         <div class="container">
           <div  class="submit-activity">
-            <v-btn
+            <v-btn id="button"
               v-on:click="addActivity"
+    
               class="button"
               color="cyan lighten-3"
               elevation="7" 
@@ -57,7 +58,7 @@
 
         <div class="log-view">
           <div class="show-log-btn">
-            <v-btn v-on:click="showLogMethod" color="cyan lighten-3"  elevation="7">Show/Hide Activity Log</v-btn>
+            <v-btn id="button" v-on:click="showLogMethod" color="cyan lighten-3"  elevation="7">Show/Hide Activity Log</v-btn>
           </div>
          
 
@@ -210,6 +211,11 @@ v-alert {
 
 .calendar {
   margin-top: 4%;
+}
+
+#button{
+  font-weight: 1000;
+  /* font-weight: bold; */
 }
 
 @media only screen and (max-width: 600px) {
