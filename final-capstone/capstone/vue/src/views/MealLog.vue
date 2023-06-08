@@ -103,6 +103,8 @@
           <meal-history-row
           v-bind:mealRecord="mealRecord"/>
           <v-btn v-on:click="showFoodList(mealRecord)">Show Foods</v-btn>
+          <v-btn v-on:click="addQuickMeal(mealRecord)">Add Quick Meal</v-btn>
+          
           <v-btn v-on:click="deleteMealRecord(mealRecord.mealId)">Delete Meal</v-btn>
           <div v-if="mealRecord.showFoods">
             <meal-detail-row
@@ -153,12 +155,25 @@ export default {
         addFoodToMeal() {
             if(this.meal.foods.length >= 10) {
               window.alert("Meal Limit Reached.");
+            } else if (this.validateFields()) {
+              alert('All fields must be filled out.')
             }
             else {
               this.meal.totalCalories += parseInt(this.food.calories);
               this.meal.foods.push(this.food);
-              this.food = {};
+              this.food = {
+                foodName: "",
+                calories: "",
+                servingSize: "",
+                numOfServings: "",
+              };
             }
+        },
+        validateFields() {
+          if(this.food.foodName == "" || this.food.calories == ""|| this.food.servingSize == ""|| this.food.numOfServings == "") {
+            return true;
+          } 
+          return false;
         },
 
         saveMeal() {
@@ -166,9 +181,43 @@ export default {
             console.log(this.meal.mealType);
             foodService.createMeal(this.meal).then(this.updateMealList());
         },
+        addQuickMeal(meal) {
+          let returnMeal = 
+            {
+                mealType: meal.mealType,
+                foods: [],
+                totalCalories: meal.totalCalories
+            }
+            let returnFood = {
+              foodName: "",
+              calories: "",
+              servingSize: "",
+              numOfServings: "",
+            }
+            for(let i = 0; i < Object.keys(meal.foods).length; i++) {
+              returnFood.foodName = meal.foods[i].foodName;
+              returnFood.calories = meal.foods[i].calories;
+              returnFood.servingSize = meal.foods[i].servingSize;
+              returnFood.numOfServings = meal.foods[i].numOfServings;
+
+              returnMeal.foods.push(returnFood);
+
+              returnFood = {
+                foodName: "",
+                calories: "",
+                servingSize: "",
+                numOfServings: "",
+              };
+            } 
+            foodService.createMeal(returnMeal).then(this.updateMealList());
+          
+        },
         updateMealList() {
+          
           foodService.getMeals().then(response => {
+                this.mealRecordList = [];
                 response.data.forEach(element => {
+                    
                     this.mealRecordList.push(element);
                 });
             });
