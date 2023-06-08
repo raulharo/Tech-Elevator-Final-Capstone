@@ -29,25 +29,24 @@
       <div class="input-container" v-if="switchToInputs">
           <div id="food-entry">
              <v-card flat class="pa-3">
-               <v-layout rowclass="">
+               <v-layout class="input-container" rowclass="">
                 <v-flex xs12 md6>
-                  <label for="foodName">Food Name:</label>
-                  <input type="text" name="foodName" id="foodName" v-model="foodObject.foodName" :placeholder="food.foodName">
+                  <v-text-field type="text" label="Food Name" id="foodName" v-model="foodObject.foodName" :placeholder="food.foodName"></v-text-field>
                 </v-flex>
                 <v-flex xs12 md6>
-                  <label for="calories">Calories:</label>
-                  <input type="number" name="calories" id="calories" min="0" v-model="foodObject.calories" :placeholder="food.calories">
+                  <v-text-field type="number" label="Calories" id="calories" min="0" v-model="foodObject.calories" :placeholder="food.calories"></v-text-field>
                 </v-flex>
                 <v-flex xs12 md6>
-                  <label for="servingSize">Serving Size:</label>
-                  <input type="text" name="servingSize" id="servingSize" min="0" v-model="foodObject.servingSize" :placeholder="food.servingSize">
+                  <v-text-field type="text" label="Serving Size" id="servingSize" min="0" v-model="foodObject.servingSize" :placeholder="food.servingSize"></v-text-field>
                 </v-flex>
                 <v-flex xs12 md6>
-                  <label for="numOfServings">Number of Servings</label>
-                  <input type="number" name="numOfServings" id="numOfServings" min="0" v-model="foodObject.numOfServings" :placeholder="food.numOfServings">
+                  <v-text-field type="number" label="Number of Servings" id="numOfServings" min="0" v-model="foodObject.numOfServings" :placeholder="food.numOfServings"></v-text-field>
                 </v-flex>
-                <v-btn v-on:click="modifyFood">Accept</v-btn>
-                <v-btn v-on:click="switchToInputsMethod">Cancel</v-btn>
+
+                <div class="btn-container">
+                <v-btn id="accept-btn" class="white--text" v-on:click="modifyFood" color="#AED581">Accept</v-btn>
+                <v-btn id="cancel-btn" class="white--text" v-on:click="switchToInputsMethod" color="#E57373">Cancel</v-btn>
+                </div>
                </v-layout>
              </v-card>
         </div>
@@ -133,5 +132,28 @@ export default {
 .input-container {
   margin-left: 20px;
   margin-bottom: 10px;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 7px;
+}
+
+#accept-btn {
+    margin-bottom: 7px;
+}
+
+@media only screen and (max-width: 768px) {
+  .v-btn {
+    font-size: x-small;
+    width: 30%;
+  }
+
+  .input-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+  }
 }
 </style>

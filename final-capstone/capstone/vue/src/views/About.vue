@@ -50,8 +50,8 @@
         <br />
         <p>
           Margie lives in Milwauke, Wi and is looking forward to continuing her
-          apprenticeship with Associated Bank. Margie is a former ICU nurse and
-          she has a BS in Microbiology, Economics, and Nursing.
+          apprenticeship with Associated Bank. She is a former ICU nurse and
+          has a BS in Microbiology, Economics, and Nursing. In her free time, she can be found watching movies/shows and traveling.
         </p>
       </v-banner>
     </div>
@@ -96,7 +96,7 @@
           She has a BS degree in interdiscplinary studies with focuses on
           behavioral science and business management. When she's not coding her
           heart out, you can find her either practicing permaculture in the garden or on her mountain
-          bike.
+          bike shredding trails.
         </p>
       </v-banner>
     </div>
@@ -135,5 +135,10 @@ export default {
 .about-raul {
   display: block;
   text-align: center;
+}
+.picture {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
 </style>

@@ -34,6 +34,7 @@
           />
         </div>
       </div>
+  
     <div class="buttons">
       <v-btn id="submit" type="submit" class="button" color="cyan lighten-3" elevation="7"
         >Sign in</v-btn
@@ -45,7 +46,7 @@
         >Register</v-btn
       >
     </div>
-   </form>
+   </form> 
   </div>
 </template>
 <script>
