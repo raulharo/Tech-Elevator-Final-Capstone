@@ -266,6 +266,7 @@ h1, h3, #mealType {
 .calendar {
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 #food-entry {
@@ -302,6 +303,19 @@ h1, h3, #mealType {
     .btn-group > .v-btn {
         margin: 0px 10px 10px 5px;
     }
+}
+
+@media only screen and (max-width: 768px) {
+  .v-btn {
+    font-size: x-small;
+    width: 30%;
+  }
+
+  .meal-record {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
 
 </style>
