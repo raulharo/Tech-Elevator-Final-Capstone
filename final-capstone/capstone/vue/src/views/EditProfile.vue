@@ -119,10 +119,22 @@ export default {
 </script>
 
 <style scoped>
+.profile-picture {
+    display: flex;
+    justify-content: center;
+}
+
 .picture {
   display: flex;
   justify-content: flex-end;
   width: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 h1 {
@@ -168,6 +180,7 @@ label {
     height: 130px;
     width: 100x;
     object-fit: cover;
+    
 }
 
 img {
