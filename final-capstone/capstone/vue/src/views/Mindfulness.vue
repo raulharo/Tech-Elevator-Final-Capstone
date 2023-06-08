@@ -200,7 +200,13 @@ v-alert {
 
 .log-view {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+}
+
+.calendar {
+  margin-top: 4%;
 }
 
 @media only screen and (max-width: 600px) {

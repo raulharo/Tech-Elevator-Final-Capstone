@@ -21,7 +21,9 @@
               </v-flex>
             </v-layout>
         </v-card>
+        <div class="modify-food">
         <v-btn v-on:click="switchToInputsMethod">Modify Food</v-btn>
+        </div>
       </div>
 
       <div class="input-container" v-if="switchToInputs">
@@ -122,5 +124,14 @@ export default {
 
 .food-entry {
     margin-left: 20px;
+}
+
+.modify-food {
+  margin: 0.2% 0% 0.5% 0%;
+}
+
+.input-container {
+  margin-left: 20px;
+  margin-bottom: 10px;
 }
 </style>

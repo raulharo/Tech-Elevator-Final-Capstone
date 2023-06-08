@@ -57,12 +57,15 @@
 
       <div>
         <div v-for="mealRecord in filteredList" v-bind:key="mealRecord.mealId">
+          
           <meal-history-row
           v-bind:mealRecord="mealRecord"/>
-          <v-btn v-on:click="showFoodList(mealRecord)">Show Foods</v-btn>
-          <v-btn v-on:click="addQuickMeal(mealRecord)">Add Quick Meal</v-btn>
+          <div class="meal-record">
+          <v-btn v-on:click="showFoodList(mealRecord)" color="cyan lighten-3" elevation="7">Show Foods</v-btn>
+          <v-btn v-on:click="addQuickMeal(mealRecord)" color="cyan lighten-3" elevation="7">Add Quick Meal</v-btn>
           
-          <v-btn v-on:click="deleteMealRecord(mealRecord.mealId)">Delete Meal</v-btn>
+          <v-btn v-on:click="deleteMealRecord(mealRecord.mealId)" color="cyan lighten-3" elevation="7">Delete Meal</v-btn>
+          </div>
           <div v-if="mealRecord.showFoods">
             <meal-detail-row
             v-for="food in mealRecord.foods"
@@ -239,6 +242,12 @@ export default {
 h1, h3, #mealType {
     text-align: center;
     font-family: "Hanken Grotesk";
+}
+
+.meal-record {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0.2% 0% 1% 0%;
 }
 
 #mealType {
