@@ -246,6 +246,25 @@ v-alert {
   width: 100%;
   height: 120%;
   }
+
+  .activity-log {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4%;
+  }
+
+  .grey--text {
+  width: 3rem;
+  margin-right: 1rem;
+  }
+
+  .individual-entry {
+  margin-bottom: 2%;
+  }
+
+  .calendar {
+    margin-bottom: 2%;
+  }
 }
 
 
