@@ -17,6 +17,7 @@ CREATE TABLE profiles (
     last_name varchar(50) NOT NULL,
     age int NOT NULL,
     height int NOT NULL,
+    initial_weight numeric(6,2) NOT NULL,
     current_weight numeric(6,2) NOT NULL,
     goal_weight numeric(6,2) NOT NULL,
     calorie_limit int NOT NULL,

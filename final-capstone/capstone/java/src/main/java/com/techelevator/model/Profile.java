@@ -5,6 +5,7 @@ public class Profile {
     private String lastName;
     private int age;
     private int height;
+    private double initialWeight;
     private double currentWeight;
     private double goalWeight;
     private int calorieLimit;
@@ -15,11 +16,12 @@ public class Profile {
 
     }
 
-    public Profile(String firstName, String lastName, int age, int height, double currentWeight, double goalWeight, int calorieWeight, int mindfulGoal, String profilePicture) {
+    public Profile(String firstName, String lastName, int age, int height, double initialWeight, double currentWeight, double goalWeight, int calorieWeight, int mindfulGoal, String profilePicture) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.height = height;
+        this.initialWeight = initialWeight;
         this.currentWeight = currentWeight;
         this.goalWeight = goalWeight;
         this.calorieLimit = calorieWeight;
@@ -33,6 +35,14 @@ public class Profile {
 
     public void setProfilePicture(String profilePicture) {
         this.profilePicture = profilePicture;
+    }
+
+    public double getInitialWeight() {
+        return initialWeight;
+    }
+
+    public void setInitialWeight(double initialWeight) {
+        this.initialWeight = initialWeight;
     }
 
     public String getFirstName() {

@@ -4,10 +4,10 @@ INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULi
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 INSERT INTO users (username, password_hash, role) VALUES ('TestingAccount', '$2a$10$3nKljvR0YWzj51pwZpe9/epA/VoRWRlDot0Z8ybD1vHjOdZiFXMeK', 'ROLE_USER');
 
-INSERT INTO profiles (user_id, first_name, last_name, age, height, current_weight, goal_weight, calorie_limit, mindful_goal)
-VALUES (1, 'Test', 'User', 25, 72, 180.74, 170.00, 1500, 10);
-INSERT INTO profiles (user_id, first_name, last_name, age, height, current_weight, goal_weight, calorie_limit, mindful_goal, profile_picture)
-VALUES (3, 'Testing', 'Account', 24, 70, 170, 160, 1800, 30, 'https://www.shutterstock.com/image-photo/stacked-rocks-front-waterfall-260nw-1744689107.jpg');
+INSERT INTO profiles (user_id, first_name, last_name, age, height, initial_weight, current_weight, goal_weight, calorie_limit, mindful_goal)
+VALUES (1, 'Test', 'User', 25, 72, 200, 180.74, 170.00, 1500, 10);
+INSERT INTO profiles (user_id, first_name, last_name, age, height, initial_weight, current_weight, goal_weight, calorie_limit, mindful_goal, profile_picture)
+VALUES (3, 'Testing', 'Account', 24, 70, 170, 160, 155, 1800, 30, 'https://www.shutterstock.com/image-photo/stacked-rocks-front-waterfall-260nw-1744689107.jpg');
 
 INSERT INTO foods (food_name, calories, serving_size, number_of_servings)
 VALUES ('Banana', 120, '1 banana', 1);

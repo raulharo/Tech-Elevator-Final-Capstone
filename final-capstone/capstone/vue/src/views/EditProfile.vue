@@ -48,6 +48,10 @@
           </div>
 
           <div class="form-input">
+          <v-text-field label="Starting Weight" type="number" name="currentWeight" id="currentWeight" v-model="user.initialWeight"/>
+          </div>
+
+          <div class="form-input">
           <!-- <label for="currentWeight">Current Weight</label> -->
           <v-text-field label="Current Weight" type="number" name="currentWeight" id="currentWeight" v-model="user.currentWeight"/>
           </div>
@@ -87,6 +91,7 @@ export default {
                 lastName: "",
                 age: "",
                 height: "",
+                initialWeight: "",
                 currentWeight: "",
                 goalWeight: "",
                 calorieLimit: "",
@@ -119,10 +124,22 @@ export default {
 </script>
 
 <style scoped>
+.profile-picture {
+    display: flex;
+    justify-content: center;
+}
+
 .picture {
   display: flex;
   justify-content: flex-end;
   width: 100%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 h1 {
@@ -168,6 +185,7 @@ label {
     height: 130px;
     width: 100x;
     object-fit: cover;
+    
 }
 
 img {
@@ -201,10 +219,6 @@ input:hover {
         background-color: rgba(0, 128, 128, 0.1);
         width: 100%;
     }
-
-    
-
- 
 }
 
 </style>
