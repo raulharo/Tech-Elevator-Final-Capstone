@@ -145,6 +145,7 @@ v-alert {
   #mindfulnessdiv {
   background: none;
   background-color: #D1C4E9;
+  margin-right: -4%;
   width: 100%;
   height: 120%;
   }
