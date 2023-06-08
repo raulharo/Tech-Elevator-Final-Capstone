@@ -11,7 +11,7 @@
       </div>
       <div class="overall">
         <h1>Overall Progress</h1>
-        <progress-bar :currentWeight="currentWeight" :goalWeight="goalWeight"/>
+        <progress-bar :initialWeight="initialWeight" :currentWeight="currentWeight" :goalWeight="goalWeight"/>
         <v-text-field label="New Current Weight" type="number" v-model="newCurrentWeight"/>
         <v-btn v-on:click="updateWeight">Update Weight</v-btn>
       </div>
@@ -31,6 +31,7 @@ export default {
       mindfulnessGoal: 0,
       dayCalories: 0,
       goalWeight: "",
+      initialWeight: "",
       currentWeight: "",
       newCurrentWeight: ""
     }
@@ -69,7 +70,7 @@ export default {
     );
     userService.getWeights().then(response => {
       if(response.status === 200) {
-        console.log(response.data)
+        this.initialWeight = response.data.initialWeight;
         this.currentWeight = response.data.currentWeight;
         this.goalWeight = response.data.goalWeight;
       }

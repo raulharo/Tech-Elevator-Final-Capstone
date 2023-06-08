@@ -98,7 +98,7 @@
           </template>
         </v-toolbar>
 
-      <div v-if="forceRerenderList">
+      <div>
         <div v-for="mealRecord in filteredList" v-bind:key="mealRecord.mealId">
           <meal-history-row
           v-bind:mealRecord="mealRecord"/>
@@ -138,7 +138,6 @@ export default {
                 totalCalories: 0
             },
             mealRecordList: [],
-            forceRerenderList: true,
             mealTypes: ["Breakfast", "Lunch", "Dinner", "Snack"],
             dates: [],
             placeholderDate: ""
@@ -173,10 +172,6 @@ export default {
                     this.mealRecordList.push(element);
                 });
             });
-          
-          this.forceRerenderList = false;
-
-          this.forceRerenderList = true;
         },
         showFoodList(meal) {
             meal.showFoods = !meal.showFoods;
