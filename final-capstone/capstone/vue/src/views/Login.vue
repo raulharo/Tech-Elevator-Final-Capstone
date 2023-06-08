@@ -108,56 +108,7 @@ export default {
   justify-content: center;
 }
 
-/* .login {
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-}
-div {
-  height: 100%;
-  width: 100%;
-  background-color: rgb(144, 178, 179);
-}
-.form-input-group {
-  margin-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 20%;
-}
-label {
-  margin-right: 0.5rem;
-  margin-bottom: 3%;
-  font-size: 2rem;
-}
-.signin {
-  display:flex;
-  justify-content: center;
-  background-color: rgb(144, 178, 179);
-}
-input {
-  border: solid 1.5px, black;
-  border-radius: 4px;
-  height: 30%;
-}
-.signin {
-  display: flex;
-  justify-content: center;
-  height: 8%;
-}
-button {
-  width: 80%;
-  height: 100%;
-  background-color: #F8F9FA;
-  border-radius: 4px;
-}
-.needanaccount {
-  display: flex;
-  justify-content: center;
-}
-h1 {
-  margin: 35% 0%;
-} */
+
 
 @media only screen and (max-width: 768px) {
   #login {

@@ -31,7 +31,9 @@
         <v-list-item @click="$router.push('logout')">
           <v-list-item-title>Logout</v-list-item-title>
         </v-list-item>
-         
+          <v-list-item>
+          <v-list-item-title @click="$router.push('about-us')">About Us</v-list-item-title>
+        </v-list-item>
       </v-list>
     </v-menu>
   
