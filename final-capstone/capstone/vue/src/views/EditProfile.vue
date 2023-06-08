@@ -22,7 +22,7 @@
             <img :src="user.profilePicture" alt="">
         </div>
         <v-text-field label="Image URL" type="text" v-model="usersPfp"/>
-        <v-btn v-on:click="updateProfilePic">Update</v-btn>
+        <v-btn v-on:click="updateProfilePic" color="cyan lighten-3" elevation="5" >Update</v-btn>
       </div>
 
       <form action="">
@@ -72,7 +72,7 @@
           </div>
 
           <br>
-          <div class="button-div"><v-btn color="cyan lighten-3" type="submit" v-on:click="editProfile">Save Changes</v-btn></div>
+          <div class="button-div"><v-btn color="cyan lighten-3" elevation="5" type="submit" v-on:click="editProfile">Save Changes</v-btn></div>
       </form>
 </div>
   </div>
@@ -150,7 +150,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: 100;
     background-color: rgba(0, 128, 128, 0.1);
 }
 
