@@ -212,8 +212,7 @@ export default {
             foodService.createMeal(returnMeal).then(this.updateMealList());
           
         },
-        updateMealList() {
-          
+        updateMealList() { 
           foodService.getMeals().then(response => {
                 this.mealRecordList = [];
                 response.data.forEach(element => {

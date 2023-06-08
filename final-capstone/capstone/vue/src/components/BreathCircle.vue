@@ -43,7 +43,7 @@ body {
 
 .pulse {
   animation: pulse-animation 5s infinite;
-  background-color: #663399
+  background-color: #7986CB
 }
 
 @keyframes pulse-animation {
