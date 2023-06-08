@@ -36,5 +36,7 @@ export default {
 </script>
 
 <style scoped>
-
+.food-container {
+  margin-bottom: 7px;
+}
 </style>
