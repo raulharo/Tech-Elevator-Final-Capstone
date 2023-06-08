@@ -166,6 +166,7 @@ export default {
   methods: {
     editProfile() {
       userService.editProfile(this.user);
+      this.$router.push('/');
     },
     updateProfilePic() {
       this.user.profilePicture = this.usersPfp;

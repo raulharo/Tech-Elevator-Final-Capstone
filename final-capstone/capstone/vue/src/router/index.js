@@ -33,7 +33,7 @@ const router = new Router({
       name: 'home',
       component: Home,
       meta: {
-        requiresAuth: false //change this back to true
+        requiresAuth: true //change this back to true
       }
     },
     {
@@ -41,7 +41,7 @@ const router = new Router({
       name: 'admin-home',
       component: Admin,
       meta: {
-        requiresAuth: false //change to true before final impolementation
+        requiresAuth: true //change to true before final impolementation
       }
     },
     {
@@ -73,7 +73,7 @@ const router = new Router({
       name: "create-profile",
       component: CreateProfile,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
     {
@@ -81,7 +81,7 @@ const router = new Router({
       name: "about-us",
       component: About,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
     {
@@ -89,7 +89,7 @@ const router = new Router({
       name: "rules",
       component: RulesAndRegs,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
     {
@@ -97,7 +97,7 @@ const router = new Router({
       name: "breath-work",
       component: Breathe,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
     {
@@ -105,7 +105,7 @@ const router = new Router({
       name: "mindfulness",
       component: Mindfulness,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
     {
@@ -113,7 +113,7 @@ const router = new Router({
       name: "edit-profile",
       component: EditProfile,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
     {
@@ -121,7 +121,7 @@ const router = new Router({
       name: "meal-log",
       component: MealLog,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     }
   ]

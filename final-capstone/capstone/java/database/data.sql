@@ -7,7 +7,7 @@ INSERT INTO users (username, password_hash, role) VALUES ('RaulH', '$2a$10$3nKlj
 INSERT INTO profiles (user_id, first_name, last_name, age, height, initial_weight, current_weight, goal_weight, calorie_limit, mindful_goal)
 VALUES (1, 'Test', 'User', 25, 72, 200, 180.74, 170.00, 1500, 10);
 INSERT INTO profiles (user_id, first_name, last_name, age, height, initial_weight, current_weight, goal_weight, calorie_limit, mindful_goal, profile_picture)
-VALUES (3, 'Raul', 'Haro', 24, 70, 170, 160, 155, 1800, 30, 'https://i.guim.co.uk/img/media/8952af7309acc6edfa0414f42ff4c44367c2c261/0_234_4256_2554/master/4256.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=59159cc2ec4f03c9de21965572a19772');
+VALUES (3, 'Raul', 'Haro', 24, 70, 170, 160, 155, 2000, 45, 'https://i.guim.co.uk/img/media/8952af7309acc6edfa0414f42ff4c44367c2c261/0_234_4256_2554/master/4256.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=59159cc2ec4f03c9de21965572a19772');
 
 INSERT INTO foods (food_name, calories, serving_size, number_of_servings)
 VALUES ('Banana', 120, '1 banana', 1);

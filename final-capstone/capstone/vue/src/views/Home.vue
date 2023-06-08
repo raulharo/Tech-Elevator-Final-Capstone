@@ -78,6 +78,9 @@ h1, h2, h3, p {
     border: 1px solid gray;
 }
 
+#header {
+    text-align: center;
+  }
 
 
 @media only screen and (max-width: 768px) {

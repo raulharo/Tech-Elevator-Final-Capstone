@@ -194,9 +194,8 @@ export default {
             meal.showFoods = !meal.showFoods;
         },
         deleteMealRecord(mealId) {
-            foodService.deleteMeal(mealId).then(this.mealRecordList.pop(
-              this.mealRecordList.findIndex(meal => meal.mealId === mealId)
-            ));
+            foodService.deleteMeal(mealId);
+            this.mealRecordList.splice(this.mealRecordList.findIndex(meal => meal.mealId === mealId), 1);
         },
         sortDates(dates) {
             if(Date.parse(dates[0]) > Date.parse(dates[1])) {
@@ -227,10 +226,6 @@ export default {
                     this.mealRecordList.push(element);
                 });
             });
-        
-        this.mealRecordList.sort(function(a, b) {
-          return a.mealDate - b.mealDate;
-        });
     }
 }
 </script>
