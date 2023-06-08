@@ -96,7 +96,7 @@
           She has a BS degree in interdiscplinary studies with focuses on
           behavioral science and business management. When she's not coding her
           heart out, you can find her either practicing permaculture in the garden or on her mountain
-          bike.
+          bike shredding trails.
         </p>
       </v-banner>
     </div>
@@ -135,5 +135,10 @@ export default {
 .about-raul {
   display: block;
   text-align: center;
+}
+.picture {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
 </style>

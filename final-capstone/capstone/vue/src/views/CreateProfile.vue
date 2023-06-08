@@ -134,10 +134,15 @@ form {
     border-radius: 50%;
     border-color: black;
     border-style: solid;
-    height: 130px;
-    width: 100x;
+    height: 100px;
+    width: 100px;
     object-fit: cover;
 }
+.profile-picture{
+    display: flex;
+    justify-content: center;
+}
+
 
 input {
   border-radius: 4px;
@@ -178,10 +183,8 @@ input:hover {
 @media only screen and (min-width: 768px) {
     .container {
         display: flex;
-        align-items: center;      
-        background-color: rgb(255, 255, 255);
-      
-        
+        align-items: center;  
+    
     }
     
 
