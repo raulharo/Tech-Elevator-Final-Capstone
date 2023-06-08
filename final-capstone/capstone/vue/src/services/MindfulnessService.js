@@ -7,5 +7,9 @@ export default {
 
     getActivity() {
       return axios.get('get-mindful');
+    },
+
+    getMindful(mindfulId) {
+      return axios.get(`get-mindful/${mindfulId}`)
     }
 }

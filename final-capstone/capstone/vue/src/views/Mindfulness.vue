@@ -134,8 +134,12 @@ export default {
     addActivity() {
       MindfulnessService.logActivity(this.mindfulness)
         .then((response) => {
-          if (response.status === 201) {
-            alert("Activity Saved.");
+          console.log(response.data);
+          console.log(response.status);
+          if (response.status === 200 && response.data !== -1) {
+            MindfulnessService.getMindful(response.data).then(response => {
+              this.mindfulLog.unshift(response.data);
+            });
           }
         })
         .catch((error) => {
@@ -198,6 +202,17 @@ export default {
   font-weight: bold;
 }
 
+.activity-log {
+  display: flex;
+  flex-direction: row;
+  margin-top: 4%;
+}
+
+.individual-entry {
+  margin-left: 2%;
+  margin-bottom: 2%;
+}
+
 v-alert {
   margin: 0;
 }
@@ -210,12 +225,17 @@ v-alert {
 }
 
 .calendar {
-  margin-top: 4%;
+  align-content: center;
 }
 
 #button{
   font-weight: 1000;
   /* font-weight: bold; */
+}
+
+.grey--text {
+  width: 8rem;
+  margin-right: 3rem;
 }
 
 @media only screen and (max-width: 600px) {

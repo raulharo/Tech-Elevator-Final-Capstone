@@ -25,10 +25,10 @@ public class MindfulnessController {
     private UserDao userdao;
 
     @PostMapping(value="mindfulness")
-    public void createMindful(@RequestBody @Valid Mindfulness mindfulness, Principal principal) {
+    public int createMindful(@RequestBody @Valid Mindfulness mindfulness, Principal principal) {
         String username = principal.getName();
         int userId = userdao.findIdByUsername(username);
-        mindfulnessDao.addMindful(mindfulness, userId);
+        return mindfulnessDao.addMindful(mindfulness, userId);
     }
 
     @GetMapping(value="get-mindful")
@@ -38,5 +38,8 @@ public class MindfulnessController {
         return mindfulnessDao.getActivities(userId);
     }
 
-
+    @GetMapping(value = "get-mindful/{mindfulId}")
+    public Mindfulness getSingleMindfulness(@PathVariable @Valid int mindfulId) {
+        return mindfulnessDao.getMindfulById(mindfulId);
+    }
 }

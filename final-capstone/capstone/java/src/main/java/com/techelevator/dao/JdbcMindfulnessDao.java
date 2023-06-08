@@ -45,7 +45,7 @@ public class JdbcMindfulnessDao implements MindfulnessDao {
     }
 
     @Override
-    public void addMindful(Mindfulness mindfulness, int userId) {
+    public int addMindful(Mindfulness mindfulness, int userId) {
 
      String sql = "INSERT INTO mindful_history(activity, user_id, mindful_date, length_minutes) "
              + "VALUES(?, ?, NOW()::date, ?) RETURNING mindful_id;";
@@ -53,6 +53,7 @@ public class JdbcMindfulnessDao implements MindfulnessDao {
      try {
         Integer newMindfulId = jdbcTemplate.queryForObject(sql, Integer.class, mindfulness.getActivity(),
                 userId, mindfulness.getLengthMinutes());
+        return newMindfulId;
      } catch (DataAccessException e) {
          if (e instanceof CannotGetJdbcConnectionException) {
              System.out.println("Cannot get JDBC connection: " + e.getMessage());
@@ -69,6 +70,27 @@ public class JdbcMindfulnessDao implements MindfulnessDao {
          }
      }
 
+     return -1;
+    }
+
+    @Override
+    public Mindfulness getMindfulById(int mindfulId) {
+        Mindfulness mindfulness = new Mindfulness();
+        String sql = "SELECT * FROM mindful_history WHERE mindful_id = ?";
+
+        try {
+            SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, mindfulId);
+            if (rowSet.next()) {
+                mindfulness = mapRowToMindfulness(rowSet);
+            }
+
+            return mindfulness;
+        }
+        catch (DataAccessException e) {
+            System.out.println("Could not connect to database");
+        }
+
+        return null;
     }
 
     public Mindfulness mapRowToMindfulness(SqlRowSet rowSet) {
