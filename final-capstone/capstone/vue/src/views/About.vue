@@ -50,8 +50,8 @@
         <br />
         <p>
           Margie lives in Milwauke, Wi and is looking forward to continuing her
-          apprenticeship with Associated Bank. Margie is a former ICU nurse and
-          she has a BS in Microbiology, Economics, and Nursing.
+          apprenticeship with Associated Bank. She is a former ICU nurse and
+          has a BS in Microbiology, Economics, and Nursing. In her free time, she can be found watching movies/shows and traveling.
         </p>
       </v-banner>
     </div>
