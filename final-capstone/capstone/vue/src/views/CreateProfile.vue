@@ -34,7 +34,7 @@
 
           <div class="form-input">
           <!-- <label for="currentWeight">Current Weight</label> -->
-          <v-text-field label="Current Weight" type="number" name="currentWeight" id="currentWeight" v-model="user.currentWeight"/>
+          <v-text-field label="Starting Weight" type="number" name="currentWeight" id="currentWeight" v-model="user.currentWeight"/>
           </div>
 
           <div class="form-input">
@@ -71,6 +71,7 @@ export default {
                 lastName: "",
                 age: "",
                 height: "",
+                initialWeight: "",
                 currentWeight: "",
                 goalWeight: "",
                 calorieLimit: "",
@@ -82,6 +83,8 @@ export default {
     },
     methods: {
         addProfile() {
+            this.user.initialWeight = this.user.currentWeight;
+            
             userService.createProfile(this.user).then((response) => {
             if (response.status == 200) {
               this.$router.push({

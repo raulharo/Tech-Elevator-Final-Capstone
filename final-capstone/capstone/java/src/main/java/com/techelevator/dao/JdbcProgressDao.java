@@ -1,7 +1,8 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.WeightsDto;
-import org.springframework.dao.DataAccessException;
+import org.springframework.dao.*;
+import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -144,18 +145,31 @@ public class JdbcProgressDao implements ProgressDao {
     @Override
     public WeightsDto getWeights(int userId) {
         WeightsDto weights = new WeightsDto();
-        String sql = "SELECT current_weight, goal_weight FROM profiles" +
+        String sql = "SELECT initial_weight, current_weight, goal_weight FROM profiles" +
                     " WHERE user_id = ?";
         try {
             SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, userId);
             if (rowSet.next()) {
+                weights.setInitialWeight(rowSet.getDouble("initial_weight"));
                 weights.setCurrentWeight(rowSet.getDouble("current_weight"));
                 weights.setGoalWeight(rowSet.getDouble("goal_weight"));
             }
             return weights;
         }
         catch (DataAccessException e) {
-            System.err.println("Could not connect to database.");
+            if (e instanceof CannotGetJdbcConnectionException) {
+                System.out.println("Cannot get JDBC connection: " + e.getMessage());
+            } else if (e instanceof DataIntegrityViolationException) {
+                System.out.println("Data integrity violation: " + e.getMessage());
+            } else if (e instanceof DuplicateKeyException) {
+                System.out.println("Duplicate key violation: " + e.getMessage());
+            } else if (e instanceof IncorrectResultSizeDataAccessException) {
+                System.out.println("Incorrect result size: " + e.getMessage());
+            } else if (e instanceof InvalidDataAccessApiUsageException) {
+                System.out.println("Invalid usage of JdbcTemplate: " + e.getMessage());
+            } else {
+                System.out.println("Data access exception occurred: " + e.getMessage());
+            }
         }
 
         return null;

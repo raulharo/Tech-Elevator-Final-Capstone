@@ -54,6 +54,41 @@
               >Submit Activity</v-btn>
           </div>
         </div>
+
+        <div class="log-view">
+          <div class="show-log-btn">
+            <v-btn v-on:click="showLogMethod" color="cyan lighten-3" elevation="7">Show/Hide Activity Log</v-btn>
+          </div>
+
+          <div class="activity-log" v-if="showLog">
+            
+            <div class="calendar">
+              <v-date-picker v-model="chosenDate"></v-date-picker>
+            </div>
+
+            <div>
+              <div class="individual-entry" v-for="mindful in filteredLog" :key="mindful.mindfulId">
+                <v-card flat class="pa-3">
+                <v-layout rowclass="">
+                  <v-flex xs12 md6>
+                    <div class="caption grey--text">Date Logged</div>
+                    <div>{{mindful.mindfulDate}}</div>
+                  </v-flex>
+                  <v-flex xs12 md6>
+                    <div class="caption grey--text">Activity</div>
+                    <div>{{mindful.activity}}</div>
+                  </v-flex>
+                  <v-flex xs12 md6>
+                    <div class="caption grey--text">Minutes</div>
+                    <div>{{mindful.minutes}}</div>
+                  </v-flex>
+                </v-layout>
+                </v-card>
+              </div>
+             </div>
+          </div>
+        </div>
+
       </h2>
     </div>
   
@@ -85,6 +120,9 @@ export default {
         activity: "",
         minutes: 0,
       },
+      showLog: false,
+      chosenDate: "",
+      mindfulLog: []
     };
   },
   components: {
@@ -103,7 +141,26 @@ export default {
           alert("Activity Not Saved" + error);
         });
     },
+    showLogMethod() {
+      this.showLog = !this.showLog;
+    }
   },
+  computed: {
+    filteredLog() {
+      let filteredLog = this.mindfulLog.filter(item => {
+        return item.mindfulDate == this.chosenDate;
+      })
+
+      return filteredLog;
+    }
+  },
+  created() {
+    MindfulnessService.getActivity().then(response => {
+      response.data.forEach(element => {
+        this.mindfulLog.push(element);
+      });
+    })
+  }
 };
 </script>
 
@@ -141,10 +198,16 @@ v-alert {
   margin: 0;
 }
 
+.log-view {
+  display: flex;
+  justify-content: center;
+}
+
 @media only screen and (max-width: 600px) {
   #mindfulnessdiv {
   background: none;
   background-color: #D1C4E9;
+  margin-right: -4%;
   width: 100%;
   height: 120%;
   }
