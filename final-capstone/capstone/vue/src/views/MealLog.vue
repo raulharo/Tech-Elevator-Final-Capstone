@@ -20,7 +20,7 @@
       <v-select id="mealType" v-model="meal.mealType" :items="mealTypes"></v-select>
       <div id="food-entry">
         <div>
-            <v-text-field label="Food Name" id="foodName" v-model="food.foodName"></v-text-field>
+            <v-text-field label="Food Name" id="foodName" v-model="food.foodName" required></v-text-field>
         </div>
         <div>
             <v-text-field type="number" label="Calories" id="calories" min="0" v-model="food.calories"></v-text-field>
@@ -266,7 +266,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .picture {
   display: flex;
   justify-content: flex-end;

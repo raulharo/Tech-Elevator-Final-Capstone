@@ -2,14 +2,15 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.ProgressDao;
 import com.techelevator.dao.UserDao;
-import com.techelevator.model.Profile;
+import com.techelevator.model.WeightsDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.security.Principal;
 
 @PreAuthorize("isAuthenticated()")
@@ -104,6 +105,22 @@ public class ProgressController {
         String username = principal.getName();
         int userId = userdao.findIdByUsername(username);
         return progressDao.getMindfulGoal(userId);
+    }
+
+    @GetMapping (value = "get-weights")
+    public WeightsDto getWeights(Principal principal) {
+        String username = principal.getName();
+        int userId = userdao.findIdByUsername(username);
+        return progressDao.getWeights(userId);
+    }
+
+    @PutMapping(value = "/update-weight", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void updateCurrentWeight(@RequestBody @Valid double weight, Principal principal) {
+        String username = principal.getName();
+        int userId = userdao.findIdByUsername(username);
+        if (!progressDao.updateWeight(weight, userId)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Bad Request: Update Failed");
+        }
     }
 
 }

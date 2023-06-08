@@ -8,7 +8,7 @@
       <v-btn id="logTab" @click="$router.push('/mindfulness')">Log Mindfulness</v-btn>
     </div>
     <div class="close">
-      <v-btn @click="$emit('close-alert')">close</v-btn>
+      <v-btn @click="onCloseButton">close</v-btn>
     </div>
   </div>
 </template>
@@ -18,16 +18,19 @@ export default {
 
 methods: {
   onCloseButton(){
-   setTimeout(() => this.showAlert = true, 5000) 
+    this.$store.commit("SET_ALERT", false)
+   setTimeout(() => this.$store.commit("SET_ALERT", true), 120000)
     this.$emit('close-alert');
   }
 },
-
-};
+}
 </script>
+
 <style scoped>
 
 .modal-overlay {
+  display: block;
+  align-items: center;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -58,5 +61,11 @@ p {
   margin: 10px 0;
   padding: 5px;
 }
-
+ @media  only screen and (max-width: 768px){
+ .modal{
+   width: 250px;
+   height: 200px;
+   padding: 5px;
+ }
+}
 </style>

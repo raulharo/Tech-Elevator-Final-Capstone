@@ -7,23 +7,47 @@
       </div>
       <div class="form-input-group">
         <!-- <label for="username">Username</label> -->
-        <v-text-field label="Username" type="text" id="username" v-model="user.username" required autofocus />
+        <v-text-field
+          label="Username"
+          type="text"
+          id="username"
+          v-model="user.username"
+          required
+          autofocus
+        />
       </div>
       <div class="form-input-group">
         <!-- <label for="password">Password</label> -->
-        <v-text-field label="Password" type="password" id="password" v-model="user.password" required />
+        <v-text-field
+          label="Password"
+          type="password"
+          id="password"
+          v-model="user.password"
+          required
+        />
       </div>
       <div class="form-input-group">
         <!-- <label for="confirmPassword">Confirm Password</label> -->
-        <v-text-field label="Confirm password" input type="password" id="confirmPassword" v-model="user.confirmPassword" required />
+        <v-text-field
+          label="Confirm password"
+          input
+          type="password"
+          id="confirmPassword"
+          v-model="user.confirmPassword"
+          required
+        />
       </div>
       <div class="bottom-div">
         <div class="submit-button">
           <v-btn size="small" color="cyan lighten-3" @click="register">Sign Up</v-btn>
         </div>
         <div>
-          <v-btn size="small" color="cyan lighten-3" @click="$router.push('login')"
-            >Already have an account? Sign In</v-btn>
+          <v-btn
+            size="small"
+            color="cyan lighten-3"
+            @click="$router.push('login')"
+            >Already have an account?</v-btn
+          >
         </div>
       </div>
     </form>
@@ -103,7 +127,9 @@ export default {
   display: flex;
   justify-content: center;
   height: 100vh;
-  background-color: lightblue;
+}
+.text-center {
+  background-color: rgba(0, 128, 128, 0.1);
 }
 
 .create {
@@ -130,6 +156,10 @@ input {
   width: 80%;
   font-size: 140%;
 }
+.bottom-div {
+  display: inline-block;
+  padding: 5px;
+}
 
 .submit-button {
   display: flex;
@@ -150,49 +180,42 @@ h1 {
 /* .v-main {
   background-color: #E0F2F1;
 } */
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
   h1 {
     margin-top: 10rem;
   }
 
   #register {
-    background-color: lightgray;
+    background-color: rgba(0, 128, 128, 0.1);
     width: 100%;
     height: 100%;
   }
   form {
     width: 100%;
-    background-color: lightblue;
+    background-color: rgba(0, 128, 128, 0.1);
   }
 
   .submit-button {
-    background-color: lightblue;
+    background-color: rgba(0, 128, 128, 0);
     height: 40%;
     margin-top: 4%;
   }
 
   p {
-    background-color: lightblue;
+    background-color: rgba(0, 128, 128, 0.1);
     display: flex;
     justify-content: center;
-  }
-
-  .bottom-div {
-    background-color: lightblue;
-    height: 15%;
   }
 
   .form-input-group {
     height: 12%;
   }
 
-  input {
-    width: 30%;
-    height: 40%;
-  }
-
-  label {
-    margin: 2% 0%;
-  }
+ .bottom-div{
+   display: block;
+   align-items: center;
+   width: 100%;
+   padding: 10px;
+ }
 }
 </style>

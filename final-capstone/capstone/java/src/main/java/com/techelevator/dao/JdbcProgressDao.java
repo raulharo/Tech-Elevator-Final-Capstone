@@ -1,5 +1,7 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.WeightsDto;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -138,4 +140,42 @@ public class JdbcProgressDao implements ProgressDao {
         }
         return calorieGoal;
     }
+
+    @Override
+    public WeightsDto getWeights(int userId) {
+        WeightsDto weights = new WeightsDto();
+        String sql = "SELECT current_weight, goal_weight FROM profiles" +
+                    " WHERE user_id = ?";
+        try {
+            SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, userId);
+            if (rowSet.next()) {
+                weights.setCurrentWeight(rowSet.getDouble("current_weight"));
+                weights.setGoalWeight(rowSet.getDouble("goal_weight"));
+            }
+            return weights;
+        }
+        catch (DataAccessException e) {
+            System.err.println("Could not connect to database.");
+        }
+
+        return null;
+    }
+
+    @Override
+    public boolean updateWeight(double weight, int userId) {
+        String sql = "UPDATE profiles SET current_weight = ?" +
+                    " WHERE user_id = ?";
+
+        try {
+            jdbcTemplate.update(sql, weight, userId);
+            return true;
+        }
+        catch (DataAccessException e) {
+            System.out.println("Could not connect to the database.");
+        }
+
+        return false;
+    }
+
+
 }

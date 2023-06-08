@@ -1,47 +1,52 @@
 <template>
-  <div id="login">
-    <img src="../../public/logo.png" alt="">
+  <div class="login">
+    <a id="logo"><img src="../../public/logo.png" alt="" /></a>
+    <h1>Please Sign In</h1>
     <form @submit.prevent="login">
-      <h1 >Please Sign In</h1>
       <div role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
       <div role="alert" v-if="this.$route.query.registration">
         Thank you for registering, please sign in.
       </div>
-      <div class="form-input-group">
-        <!-- <label for="username">Username</label> -->
-        <v-text-field type="text" label="Username" id="username" v-model="user.username" required autofocus />
+      <div class="formsNStuff">
+        <div class="form-input-group">
+          <!-- <label for="username">Username</label> -->
+          <v-text-field
+            type="text"
+            label="Username"
+            id="username"
+            v-model="user.username"
+            required
+            autofocus
+          />
+        </div>
+        <div class="form-input-group">
+          <!-- <label for="password">Password</label> -->
+          <v-text-field
+            type="password"
+            label="Password"
+            id="password"
+            v-model="user.password"
+            required
+          />
+        </div>
       </div>
-      <div class="form-input-group">
-        <!-- <label for="password">Password</label> -->
-        <v-text-field type="password" label="Password" id="password" v-model="user.password" required />
 
-      
-
-      </div>
-      <!-- <v-text-field
-                  v-model="user.username"
-                  label="Username"
-                  required
-                  autofocus
-                  filled
-                >Test</v-text-field>
-      <v-text-field
-                  v-model="user.password"
-                  label="Password"
-                  type="password"
-                  required
-                  filled
-                >Test</v-text-field> -->
-      <div class="signin" ><v-btn type="submit"  class="button" color="cyan lighten-3" elevation="7">Sign in</v-btn></div>
-
-
-
-      <p class="needanaccount" >
-      <v-btn color="cyan lighten-3" elevation="7" @click="$router.push('register')">Register</v-btn>
-      </p>
+      <v-btn type="submit" class="button" color="cyan lighten-3" elevation="7">Sign in</v-btn>
     </form>
+    
+      
+      <br/>
+      <p class="needanaccount">
+        <v-btn
+          color="cyan lighten-3"
+          elevation="7"
+          @click="$router.push('register')"
+          >Register</v-btn
+        >
+      </p>
+   
   </div>
 </template>
 
@@ -55,40 +60,58 @@ export default {
     return {
       user: {
         username: "",
-        password: ""
+        password: "",
       },
-      invalidCredentials: false
+      invalidCredentials: false,
     };
   },
   methods: {
     login() {
       authService
         .login(this.user)
-        .then(response => {
+        .then((response) => {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
             this.$router.push("/");
           }
         })
-        .catch(error => {
+        .catch((error) => {
           const response = error.response;
 
           if (response.status === 401) {
             this.invalidCredentials = true;
           }
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
-#login {
+.login {
+  background-color: rgb(144, 178, 179);
+  display: block;
+}
+
+#logo {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  height: 30%;
+}
+.form-input-group {
+  padding: 6px;
+}
+.formsNStuff{
+  display: flex;
+  justify-content: center;
+}
+
+/* .login {
   display: flex;
   justify-content: center;
   height: 100vh;
-
 }
 div {
   height: 100%;
@@ -112,41 +135,46 @@ label {
   justify-content: center;
   background-color: rgb(144, 178, 179);
 }
-
 input {
   border: solid 1.5px, black;
   border-radius: 4px;
   height: 30%;
-  
 }
-
 .signin {
   display: flex;
   justify-content: center;
   height: 8%;
 }
-
 button {
   width: 80%;
   height: 100%;
-  background-color: #f8f9fa;
+  background-color: #F8F9FA;
   border-radius: 4px;
 }
 .needanaccount {
   display: flex;
   justify-content: center;
-
 }
 h1 {
   margin: 35% 0%;
-}
+} */
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
   #login {
     background-color: rgb(144, 178, 179);
   }
-
+  .login {
+    display: inline-block;
+  }
+  #logo {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    height: 30%;
+  }
+  .form-input-group {
+    padding: 6px;
+    margin-top: -50px;
+  }
 }
-  
-
 </style>

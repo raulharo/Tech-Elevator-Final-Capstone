@@ -20,6 +20,7 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {} ,
+    showAlert: false,
   
   },
   mutations: {
@@ -39,6 +40,9 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
+    SET_ALERT(state, newSetting){
+      state.showAlert = newSetting;
+    }
 
   }
 })

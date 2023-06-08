@@ -1,5 +1,4 @@
 <template>
-
   <div class="home">
     <v-app-bar
       app
@@ -17,11 +16,11 @@
     </v-app-bar>
     <div id="header">
       <h1>My Dashboard</h1>
-     <br>
+      <br/>
     </div>
  
     <div id="content">
-      <progress-component id="progress-component"/>
+      <progress-component id="progress-component" />
       <friend-activity id="friend-activity"/>
     </div>
     
@@ -48,43 +47,11 @@ export default {
   width: 100%;
 }
 
-@media only screen and (min-width: 768px) {
-  .home {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  #header {
-    text-align: center;
-  }
-
-  #content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
-    "progress-component progress-component"
-    "friend-activity friend-activity";
-  
-  }
-
-  #progress-component {
-    grid-area: progress-component;
-    display: flex;
-    justify-content: space;
-  }
-
-  #friend-activity {
-    grid-area: friend-activity;
-    display: flex;
-    justify-content: center;
-    border: 1px solid gray;
-    padding: 2%;
-  }
-  body{
-  background: url(../../public/rays.jpg);
+.picture {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 }
-}
-
 .content {
   display: grid;
   grid-template-columns: 1fr;
@@ -107,4 +74,54 @@ export default {
     border: 1px solid gray;
 }
 
+
+
+@media only screen and (mmax-width: 768px) {
+  .home {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  #header {
+    text-align: center;
+  }
+  #content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "progress-component progress-component"
+    "friend-activity friend-activity";
+  }
+  #progress-component {
+    grid-area: progress-component;
+    display: flex;
+    justify-content: space;
+  }
+  #friend-activity {
+    grid-area: friend-activity;
+    display: flex;
+    justify-content: center;
+    border: 1px solid gray;
+  }
+  body{
+  background: url(../../public/rays.jpg);
+  }
+}
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+  "progress-component"
+  "friend-activity";
+}
+#progress-component {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+#friend-activity {
+    grid-area: friend-activity;
+    display: flex;
+    justify-content: center;
+    border: 1px solid gray;
+}
 </style>

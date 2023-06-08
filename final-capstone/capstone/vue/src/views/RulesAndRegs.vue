@@ -60,7 +60,7 @@ img{
   margin-right: auto;
   width: 50%;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
   #buttons{
   display: flex;
   justify-content: space-evenly;
@@ -68,11 +68,12 @@ img{
 }
 p{
   text-align: center;
+  padding: 30px;
 }
 .container{
   display: block;
   align-items: center;
-  margin-top: 5px;
+  margin-top: 50px;
   padding: 5px;
 }
 img{

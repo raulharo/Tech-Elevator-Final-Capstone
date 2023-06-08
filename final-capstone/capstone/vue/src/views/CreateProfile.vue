@@ -1,7 +1,15 @@
 <template>
   <div class="container">
       <h1 id="title">Create Profile</h1>
-      <img src="../../public/profile-circle-svgrepo-com.svg" alt="">
+
+      <div class="pfp-div">
+        <div class="profile-picture">
+            <img :src="user.profilePicture" alt="">
+        </div>
+        <v-text-field label="Image URL" type="text" v-model="usersPfp"/>
+        <v-btn v-on:click="updateProfilePic">Update</v-btn>
+      </div>
+    
       <form action="">
 
           <div class="form-input">
@@ -45,7 +53,7 @@
           </div>
 
           <br>
-          <v-btn color="cyan lighten-3" type="submit" v-on:click="addProfile">Create Profile</v-btn>
+          <v-btn id="submit" color="cyan lighten-3" type="submit" v-on:click="addProfile">Create Profile</v-btn>
       </form>
 
   </div>
@@ -66,8 +74,10 @@ export default {
                 currentWeight: "",
                 goalWeight: "",
                 calorieLimit: "",
-                mindfulGoal: ""
-            }
+                mindfulGoal: "",
+                profilePicture: "https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_1539,h_1069/https://h-o-m-e.org/wp-content/uploads/2022/04/Blank-Profile-Picture-1.jpg"
+            },
+            usersPfp: ""
         }
     },
     methods: {
@@ -87,6 +97,10 @@ export default {
             }
           });
             this.$router.push('/rules');
+        },
+        updateProfilePic() {
+            this.user.profilePicture = this.usersPfp;
+            this.usersPfp = "";
         }
     }
 }
@@ -100,7 +114,6 @@ export default {
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background-color: black;
 }
 
 form {
@@ -112,6 +125,15 @@ form {
     flex-direction: column;
     align-items: center;
     height: 13%;
+}
+
+.profile-picture > img {
+    border-radius: 50%;
+    border-color: black;
+    border-style: solid;
+    height: 130px;
+    width: 100x;
+    object-fit: cover;
 }
 
 input {
@@ -155,7 +177,7 @@ input:hover {
         display: flex;
         align-items: center;      
         background-color: rgb(255, 255, 255);
-        width: 100%;
+      
         
     }
     
