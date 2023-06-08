@@ -88,7 +88,7 @@ export default {
             userService.createProfile(this.user).then((response) => {
             if (response.status == 200) {
               this.$router.push({
-                path: '/rules'
+                path: '/'
               });
             }
           })

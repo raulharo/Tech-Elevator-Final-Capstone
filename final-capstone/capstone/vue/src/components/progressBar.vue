@@ -4,7 +4,7 @@
       <p>Current Weight: {{currentWeight}} lbs.</p>
       <p>Goal Weight: {{goalWeight}} lbs.</p>
       <div class="weight-bar">
-      <v-progress-linear height="30" color="cyan-lighten-1" background-color="cyan lighten-1" :value="calculateProgress">{{calculateProgress}}%</v-progress-linear>
+      <v-progress-linear height="30" color="cyan lighten-1" background-color="cyan lighten-3" :value="calculateProgress">{{calculateProgress}}%</v-progress-linear>
       </div>
   </div>
 </template>
