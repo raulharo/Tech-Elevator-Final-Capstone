@@ -38,14 +38,12 @@ public class MealController {
         return mealDao.addMeal(meal, userId);
     }
 
-    @GetMapping(value="get-meals")
-    public Meal getMeals(@Valid @RequestBody int mealId, Principal principal) {
-        String username = principal.getName();
-        int userId = userdao.findIdByUsername(username);
+    @GetMapping(value="get-meal/{mealId}")
+    public Meal getMeal(@PathVariable @Valid int mealId) {
         return mealDao.getMealById(mealId);
     }
 
-    @GetMapping(value="get-meal")
+    @GetMapping(value="get-meals")
     public List<Meal> getMeals(Principal principal) {
         String username = principal.getName();
         int userId = userdao.findIdByUsername(username);

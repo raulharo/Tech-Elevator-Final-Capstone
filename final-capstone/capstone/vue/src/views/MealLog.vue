@@ -138,7 +138,10 @@ export default {
             console.log(this.meal.mealType);
             foodService.createMeal(this.meal).then(response => {
               if(response.status === 200) {
-                this.mealRecordList.unshift(this.meal);
+                foodService.getMeal(response.data).then(response => {
+                  this.mealRecordList.unshift(response.data);
+                });
+
                 this.meal = {
                   mealType: "Breakfast",
                   foods: [],
@@ -177,9 +180,9 @@ export default {
             } 
             foodService.createMeal(returnMeal).then(response => {
               if(response.status === 200) {
-                console.log('Before: ', this.mealRecordList);
-                this.mealRecordList.unshift(returnMeal);
-                console.log('After: ', this.mealRecordList);
+                foodService.getMeal(response.data).then(response => {
+                  this.mealRecordList.unshift(response.data);
+                });
               }
             });
           
@@ -221,6 +224,10 @@ export default {
                     this.mealRecordList.push(element);
                 });
             });
+        
+        this.mealRecordList.sort(function(a, b) {
+          return a.mealDate - b.mealDate;
+        });
     }
 }
 </script>

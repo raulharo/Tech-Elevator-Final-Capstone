@@ -29,6 +29,10 @@ INSERT INTO foods (food_name, calories, serving_size, number_of_servings)
 VALUES ('Steak', 400, '3 oz', 1);
 INSERT INTO foods (food_name, calories, serving_size, number_of_servings)
 VALUES ('Cake', 600, '1 slice', 2);
+INSERT INTO foods (food_name, calories, serving_size, number_of_servings)
+VALUES ('Carrots', 200, '1 carrot', 4);
+INSERT INTO foods (food_name, calories, serving_size, number_of_servings)
+VALUES ('Twinkies', 600, '2 twinkies', 1);
 
 INSERT INTO meal_history (user_id, meal_date, type, total_calories)
 VALUES (3, '2023-06-06', 'Breakfast', 320);
