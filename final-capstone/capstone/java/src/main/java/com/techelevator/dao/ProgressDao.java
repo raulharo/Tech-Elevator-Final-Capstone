@@ -1,5 +1,7 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.WeightsDto;
+
 public interface ProgressDao {
 
     int getTodayCalories(int userId);
@@ -26,4 +28,7 @@ public interface ProgressDao {
 
     int getCalorieGoal (int userId);
 
+    WeightsDto getWeights (int userId);
+
+    boolean updateWeight(double weight, int userId);
 }

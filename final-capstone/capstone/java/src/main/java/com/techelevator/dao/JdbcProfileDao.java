@@ -15,11 +15,11 @@ public class JdbcProfileDao implements ProfileDao {
 
     @Override
     public void createProfile(Profile profile, int userId) {
-        String sql = "INSERT INTO profiles(user_id, first_name, last_name, age, height, current_weight, goal_weight, calorie_limit, mindful_goal, profile_picture) " +
-                "VALUES(?,?,?,?,?,?,?,?,?,?) " +
+        String sql = "INSERT INTO profiles(user_id, first_name, last_name, age, height, initial_weight, current_weight, goal_weight, calorie_limit, mindful_goal, profile_picture) " +
+                "VALUES(?,?,?,?,?,?,?,?,?,?,?) " +
                 "RETURNING profile_id;";
         try {
-            int newProfileId = jdbcTemplate.queryForObject(sql, int.class, userId, profile.getFirstName(), profile.getLastName(), profile.getAge(), profile.getHeight(), profile.getCurrentWeight(), profile.getGoalWeight(), profile.getCalorieLimit(), profile.getMindfulGoal(), profile.getProfilePicture());
+            int newProfileId = jdbcTemplate.queryForObject(sql, int.class, userId, profile.getFirstName(), profile.getLastName(), profile.getAge(), profile.getHeight(), profile.getInitialWeight(), profile.getCurrentWeight(), profile.getGoalWeight(), profile.getCalorieLimit(), profile.getMindfulGoal(), profile.getProfilePicture());
         } catch(Exception e){
             System.out.println("An error occurred while trying to add this profile to the database.");
         }
@@ -27,9 +27,9 @@ public class JdbcProfileDao implements ProfileDao {
 
     @Override
     public void editProfile(Profile profile, int userId) {
-        String sql = "UPDATE profiles SET first_name = ?, last_name= ?, age= ?, height= ?, current_weight= ?, goal_weight= ?, calorie_limit= ?, mindful_goal= ?, profile_picture= ? WHERE user_id = ?;";
+        String sql = "UPDATE profiles SET first_name = ?, last_name= ?, age= ?, height= ?, initial_weight = ?, current_weight= ?, goal_weight= ?, calorie_limit= ?, mindful_goal= ?, profile_picture= ? WHERE user_id = ?;";
         try {
-            jdbcTemplate.update(sql, profile.getFirstName(), profile.getLastName(), profile.getAge(), profile.getHeight(), profile.getCurrentWeight(), profile.getGoalWeight(), profile.getCalorieLimit(), profile.getMindfulGoal(), profile.getProfilePicture(), userId);
+            jdbcTemplate.update(sql, profile.getFirstName(), profile.getLastName(), profile.getAge(), profile.getHeight(), profile.getInitialWeight(), profile.getCurrentWeight(), profile.getGoalWeight(), profile.getCalorieLimit(), profile.getMindfulGoal(), profile.getProfilePicture(), userId);
         } catch(Exception e){
             System.out.println("An error occurred while trying to edit this profile in the database.");
         }
@@ -52,6 +52,7 @@ public class JdbcProfileDao implements ProfileDao {
         profile.setLastName(rs.getString("last_name"));
         profile.setAge(rs.getInt("age"));
         profile.setHeight(rs.getInt("height"));
+        profile.setInitialWeight(rs.getDouble("initial_weight"));
         profile.setCurrentWeight(rs.getDouble("current_weight"));
         profile.setGoalWeight(rs.getDouble("goal_weight"));
         profile.setCalorieLimit(rs.getInt("calorie_limit"));

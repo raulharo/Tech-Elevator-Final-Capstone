@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.Min;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,22 @@ public class JdbcMindfulnessDao implements MindfulnessDao {
 
     @Override
     public List<Mindfulness> getActivities(int userId) {
+        List<Mindfulness> mindfulList = new ArrayList<>();
+        String sql = "SELECT * FROM mindful_history WHERE user_id = ?";
+
+        try {
+            SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, userId);
+
+            while (rowSet.next()) {
+                mindfulList.add(mapRowToMindfulness(rowSet));
+            }
+
+            return mindfulList;
+        }
+        catch (DataAccessException e) {
+            System.out.println("Could not connect to database.");
+        }
+
         return null;
     }
 
@@ -52,5 +69,16 @@ public class JdbcMindfulnessDao implements MindfulnessDao {
          }
      }
 
+    }
+
+    public Mindfulness mapRowToMindfulness(SqlRowSet rowSet) {
+        Mindfulness mindfulness = new Mindfulness();
+        mindfulness.setMindfulId(rowSet.getInt("mindful_id"));
+        mindfulness.setActivity(rowSet.getString("activity"));
+        mindfulness.setUserId(rowSet.getInt("user_id"));
+        mindfulness.setMindfulDate(rowSet.getDate("mindful_date").toLocalDate());
+        mindfulness.setLengthMinutes(rowSet.getInt("length_minutes"));
+
+        return mindfulness;
     }
 }

@@ -115,7 +115,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .food-container {
     margin-left: 20px;
 }

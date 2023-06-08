@@ -1,5 +1,8 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.WeightsDto;
+import org.springframework.dao.*;
+import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -138,4 +141,55 @@ public class JdbcProgressDao implements ProgressDao {
         }
         return calorieGoal;
     }
+
+    @Override
+    public WeightsDto getWeights(int userId) {
+        WeightsDto weights = new WeightsDto();
+        String sql = "SELECT initial_weight, current_weight, goal_weight FROM profiles" +
+                    " WHERE user_id = ?";
+        try {
+            SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql, userId);
+            if (rowSet.next()) {
+                weights.setInitialWeight(rowSet.getDouble("initial_weight"));
+                weights.setCurrentWeight(rowSet.getDouble("current_weight"));
+                weights.setGoalWeight(rowSet.getDouble("goal_weight"));
+            }
+            return weights;
+        }
+        catch (DataAccessException e) {
+            if (e instanceof CannotGetJdbcConnectionException) {
+                System.out.println("Cannot get JDBC connection: " + e.getMessage());
+            } else if (e instanceof DataIntegrityViolationException) {
+                System.out.println("Data integrity violation: " + e.getMessage());
+            } else if (e instanceof DuplicateKeyException) {
+                System.out.println("Duplicate key violation: " + e.getMessage());
+            } else if (e instanceof IncorrectResultSizeDataAccessException) {
+                System.out.println("Incorrect result size: " + e.getMessage());
+            } else if (e instanceof InvalidDataAccessApiUsageException) {
+                System.out.println("Invalid usage of JdbcTemplate: " + e.getMessage());
+            } else {
+                System.out.println("Data access exception occurred: " + e.getMessage());
+            }
+        }
+
+        return null;
+    }
+
+    @Override
+    public boolean updateWeight(double weight, int userId) {
+        String sql = "UPDATE profiles SET current_weight = ?" +
+                    " WHERE user_id = ?";
+
+        try {
+            jdbcTemplate.update(sql, weight, userId);
+            return true;
+        }
+        catch (DataAccessException e) {
+            System.out.println("Could not connect to the database.");
+        }
+
+        return false;
+    }
+
+
 }
