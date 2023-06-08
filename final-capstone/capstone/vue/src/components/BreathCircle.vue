@@ -1,7 +1,7 @@
 <template>
   <div class="center">
       
-      <div class="circle pulse purple"></div>
+      <div class="circle pulse "></div>
 
         <a  href="https://reactgo.com/css-pulse-animation/" target="_blank" class="master"></a>
 </div>
@@ -43,6 +43,7 @@ body {
 
 .pulse {
   animation: pulse-animation 5s infinite;
+  background-color: #7986CB;
 }
 
 @keyframes pulse-animation {

@@ -84,6 +84,9 @@ export default {
 </script>
 
 <style scoped>
+h1, h2, h3, p {
+  font-family: "Hanken Grotesk";
+}
 
 .progress {
   display: flex;
@@ -98,6 +101,7 @@ export default {
 
 .today > h2 {
   font-size: 1em;
+  font-family: "Hanken Grotesk";
 }
 
 .overall {
