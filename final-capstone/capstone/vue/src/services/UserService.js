@@ -21,7 +21,19 @@ export default {
 
     deleteUser(id) {  //created to delete login if user does not agree to rules
         return axios.delete(`delete-user/${id}`);
-    }, 
+    },
+
+    getWeights() {
+        return axios.get('get-weights')
+    },
+
+    updateCurrentWeight(weight){
+        return axios.put('update-weight', weight, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    },
 
     getMindfulGoal() {
         return axios.get(`get-mindful-goal/`);

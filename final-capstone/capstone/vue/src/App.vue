@@ -1,28 +1,27 @@
 <template>
-<v-container class="container">
-       
-  <v-app id="dumbWhiteBar">
-<v-app-bar app color="teal lighten-3" dark> <navigation />
-      <div class="picture">
-      <v-img
-          src="../public/logo.png"
-          max-height="60"
-          max-width="60"
-          contain
-        ></v-img> 
-      </div>
+  <v-container class="container">
+        
+    <v-app id="dumbWhiteBar">
+      <v-app-bar app color="teal lighten-3" dark>
+        <div class="picture">
+        <v-img
+            src="../public/logo.png"
+            max-height="60"
+            max-width="60"
+            contain
+          ></v-img> 
+        </div>
       </v-app-bar>
-   
-   
-    <v-main>
-      
-      <router-view/>
-    </v-main>
-   
-  </v-app>
-  <mindful-alert v-show="$store.state.showAlert" @close-alert="hideAlert()" />
-  
-     </v-container>
+    
+    
+      <v-main>
+        <router-view/>
+      </v-main>
+    
+    </v-app>
+    <mindful-alert v-show="$store.state.showAlert" @close-alert="hideAlert()" />
+    
+  </v-container>
      
 </template>
 

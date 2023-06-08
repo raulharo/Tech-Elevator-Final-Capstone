@@ -23,9 +23,9 @@ methods: {
     this.$emit('close-alert');
   }
 },
-
-};
+}
 </script>
+
 <style scoped>
 
 .modal-overlay {

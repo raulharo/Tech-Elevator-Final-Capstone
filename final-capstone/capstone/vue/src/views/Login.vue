@@ -10,27 +10,27 @@
         Thank you for registering, please sign in.
       </div>
       <div class="formsNStuff">
-      <div class="form-input-group">
-        <!-- <label for="username">Username</label> -->
-        <v-text-field
-          type="text"
-          label="Username"
-          id="username"
-          v-model="user.username"
-          required
-          autofocus
-        />
-      </div>
-      <div class="form-input-group">
-        <!-- <label for="password">Password</label> -->
-        <v-text-field
-          type="password"
-          label="Password"
-          id="password"
-          v-model="user.password"
-          required
-        />
-      </div>
+        <div class="form-input-group">
+          <!-- <label for="username">Username</label> -->
+          <v-text-field
+            type="text"
+            label="Username"
+            id="username"
+            v-model="user.username"
+            required
+            autofocus
+          />
+        </div>
+        <div class="form-input-group">
+          <!-- <label for="password">Password</label> -->
+          <v-text-field
+            type="password"
+            label="Password"
+            id="password"
+            v-model="user.password"
+            required
+          />
+        </div>
       </div>
 
       <v-btn type="submit" class="button" color="cyan lighten-3" elevation="7">Sign in</v-btn>

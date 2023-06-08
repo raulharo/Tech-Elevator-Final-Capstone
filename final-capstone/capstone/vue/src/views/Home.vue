@@ -1,5 +1,4 @@
 <template>
-
   <div class="home">
     <v-app-bar
       app
@@ -17,11 +16,11 @@
     </v-app-bar>
     <div id="header">
       <h1>My Dashboard</h1>
-     <br>
+      <br/>
     </div>
  
     <div id="content">
-      <progress-component id="progress-component"/>
+      <progress-component id="progress-component" />
       <friend-activity id="friend-activity"/>
     </div>
     
@@ -47,7 +46,7 @@ export default {
   justify-content: flex-end;
   width: 100%;
 }
-  to  Everyone
+
 .picture {
   display: flex;
   justify-content: flex-end;
@@ -105,7 +104,7 @@ export default {
   }
   body{
   background: url(../../public/rays.jpg);
-}
+  }
 }
 .content {
   display: grid;
@@ -125,5 +124,4 @@ export default {
     justify-content: center;
     border: 1px solid gray;
 }
-
 </style>
