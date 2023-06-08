@@ -1,6 +1,8 @@
 <template>
   <div class="login">
-    <a id="logo"><img src="../../public/logo.png" alt="" /></a>
+    <a id="logo"><img src="../../public/logo.png" alt="" class="responsive" /></a>
+    <h3>Nutrition tracking, mindulness, and meditation...all in one</h3>
+    <br>
     <h1>Please Sign In</h1>
     <form @submit.prevent="login">
       <div role="alert" v-if="invalidCredentials">
@@ -32,21 +34,19 @@
           />
         </div>
       </div>
-
-      <v-btn type="submit" class="button" color="cyan lighten-3" elevation="7">Sign in</v-btn>
     </form>
+    <div class="buttons">
+      <v-btn id="submit" type="submit" class="button" color="cyan lighten-3" elevation="7"
+        >Sign in</v-btn
+      >
+      <v-btn id="register"
+        color="cyan lighten-3"
+        elevation="7"
+        @click="$router.push('register')"
+        >Register</v-btn
+      >
+    </div>
     
-      
-      <br/>
-      <p class="needanaccount">
-        <v-btn
-          color="cyan lighten-3"
-          elevation="7"
-          @click="$router.push('register')"
-          >Register</v-btn
-        >
-      </p>
-   
   </div>
 </template>
 
@@ -89,33 +89,55 @@ export default {
 </script>
 
 <style scoped>
+h3{
+  color: white;
+  text-align: center;
+}
+.buttons{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+#submit{
+  margin: 5px;
+}
+#register{
+  margin: 5px;
+}
 .login {
   background-color: rgb(144, 178, 179);
   display: block;
 }
-
-#logo {
-  display: flex;
-  justify-content: center;
+h1 {
+  color: white;
+  text-align: center;
+}
+.responsive{
   max-width: 100%;
-  height: 30%;
+  height: auto;
 }
+
 .form-input-group {
-  padding: 6px;
+  padding: 10px;
 }
-.formsNStuff{
+.formsNStuff {
   display: flex;
   justify-content: center;
 }
 
-
-
-@media only screen and (max-width: 768px) {
-  #login {
-    background-color: rgb(144, 178, 179);
+@media only screen and (min-width: 768px) {
+  
+  
+  #logo{
+    max-width: 100%;
+    height: auto;
   }
   .login {
-    display: inline-block;
+    display: block;
+    background-color: rgb(144, 178, 179);
+    text-align: center;
+    padding: 10px;
+    height: 100vh;
   }
   #logo {
     display: flex;
@@ -123,9 +145,6 @@ export default {
     max-width: 100%;
     height: 30%;
   }
-  .form-input-group {
-    padding: 6px;
-    margin-top: -50px;
-  }
+  
 }
 </style>

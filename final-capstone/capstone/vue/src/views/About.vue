@@ -24,7 +24,7 @@
           class="mx-4 white--text"
           icon
         >
-          <v-icon size="30px">
+          <v-icon color="indigo darken-1" size="30px">
             {{ icon }}
           </v-icon>
         </v-btn>
@@ -43,7 +43,7 @@
           class="mx-4 white--text"
           icon
         >
-          <v-icon size="30px">
+          <v-icon color="indigo darken-1" size="30px">
             {{ icon }}
           </v-icon>
         </v-btn>
@@ -66,7 +66,7 @@
           class="mx-4 white--text"
           icon
         >
-          <v-icon size="30px">
+          <v-icon color="indigo darken-1"  size="30px">
             {{ icon }}
           </v-icon>
         </v-btn>
@@ -85,7 +85,7 @@
           class="mx-4 white--text"
           icon
         >
-          <v-icon size="30px">
+          <v-icon color="indigo darken-1" size="30px">
             {{ icon }}
           </v-icon>
         </v-btn>
