@@ -19,7 +19,7 @@ export default {
 methods: {
   onCloseButton(){
     this.$store.commit("SET_ALERT", false)
-   setTimeout(() => this.$store.commit("SET_ALERT", true), 120000)
+   setTimeout(() => this.$store.commit("SET_ALERT", true), 240000)
     this.$emit('close-alert');
   }
 },

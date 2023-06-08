@@ -35,7 +35,7 @@ export default {
 methods:{
   displayAlert(){
    
-    setTimeout(() => this.$store.commit("SET_ALERT", true), 120000 )
+    setTimeout(() => this.$store.commit("SET_ALERT", true), 240000 )
 },
 hideAlert(){
   this.$store.commit("SET_ALERT", false)

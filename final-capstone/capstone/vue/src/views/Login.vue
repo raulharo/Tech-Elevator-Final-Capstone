@@ -1,7 +1,8 @@
 <template>
   <div class="login">
-    <a id="logo"><img src="../../public/logo.png" alt="" /></a>
+    <a id="logo"><img src="../../public/logo.png" alt="" class="responsive" /></a>
     <h3>Nutrition tracking, mindulness, and meditation...all in one</h3>
+    <br>
     <h1>Please Sign In</h1>
     <form @submit.prevent="login">
       <div role="alert" v-if="invalidCredentials">
@@ -45,6 +46,7 @@
         >Register</v-btn
       >
     </div>
+    
   </div>
 </template>
 
@@ -89,6 +91,7 @@ export default {
 <style scoped>
 h3{
   color: white;
+  text-align: center;
 }
 .buttons{
   display: flex;
@@ -109,13 +112,11 @@ h1 {
   color: white;
   text-align: center;
 }
-
-#logo {
-  display: flex;
-  justify-content: center;
+.responsive{
   max-width: 100%;
-  height: 30%;
+  height: auto;
 }
+
 .form-input-group {
   padding: 10px;
 }
@@ -126,6 +127,7 @@ h1 {
 
 @media only screen and (min-width: 768px) {
   
+  
   #logo{
     max-width: 100%;
     height: auto;
@@ -135,6 +137,7 @@ h1 {
     background-color: rgb(144, 178, 179);
     text-align: center;
     padding: 10px;
+    height: 100vh;
   }
   #logo {
     display: flex;
