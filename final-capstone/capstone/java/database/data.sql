@@ -54,7 +54,7 @@ VALUES ('Luxury Banana', 120, '1 banana', 1);
 INSERT INTO foods (food_name, calories, serving_size, number_of_servings)
 VALUES ('Magic Pudding', 130, '24g', 1);
 INSERT INTO foods (food_name, calories, serving_size, number_of_servings)
-VALUES ('Pasta with a Past', 400, '1 bowl', 2);
+VALUES ('Pasta with a Past', 200, '1 bowl', 2);
 
 INSERT INTO meal_history (user_id, meal_date, type, total_calories)
 VALUES (3, '2023-06-06', 'Breakfast', 320);
@@ -77,7 +77,7 @@ VALUES (3, '2023-06-09', 'Breakfast', 450);
 INSERT INTO meal_history (user_id, meal_date, type, total_calories)
 VALUES (3, '2023-06-09', 'Snack', 130);
 INSERT INTO meal_history (user_id, meal_date, type, total_calories)
-VALUES (3, '2023-06-09', 'Dinner', 400);
+VALUES (3, '2023-06-09', 'Dinner', 200);
 
 INSERT INTO meal_history_foods (meal_history_id, food_id)
 VALUES (1, 1);
