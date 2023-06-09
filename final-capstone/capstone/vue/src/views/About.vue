@@ -12,11 +12,7 @@
       </div>
     </v-app-bar>
     <div class="header">
-    <h1>Andrew currently lives in Orlando, FL. After obtaining a B.S. degree
-       in Psychology from Florida State University, he moved to South Korea where
-        he lived for over seven years. In his free time, he enjoys exercising,
-         listening to music, traveling, programming, and playing chess.
-    </h1>
+    <h1>About Us</h1>
     </div>
     <div class="about-andrew">
       <v-banner rounded color="teal lighten-4">
@@ -33,7 +29,10 @@
           </v-icon>
         </v-btn>
         <br />
-        <p>Paragraph about Andrew</p>
+        <p>Andrew currently lives in Orlando, FL. After obtaining a B.S. degree
+         in Psychology from Florida State University, he moved to South Korea where
+         he lived for over seven years. In his free time, he enjoys exercising,
+         listening to music, traveling, programming, and playing chess.</p>
       </v-banner>
     </div>
     <br />
