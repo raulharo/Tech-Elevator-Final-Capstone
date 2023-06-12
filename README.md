@@ -1,3 +1,2 @@
-# tech-fitness-final-capstone
-
-Final capstone
+# Tech-Elevator-Final-Capstone
+Final Capstone for NLR Java at Tech Elevator
